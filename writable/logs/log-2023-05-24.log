@@ -1,0 +1,118 @@
+INFO - 2023-05-24 05:09:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 05:10:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 06:37:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:08:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:09:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-05-24 07:09:11 --> Error connecting to the database: mysqli_sql_exception: Connection refused in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:174
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(174): mysqli->real_connect('congreg8.org', 'congreg8_dev', 'e%~OXp3n_F1l', 'congreg8_dev', 3306, '', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home/congreg8/public_html/app.congreg8.org/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/congreg8/public_html/app.congreg8.org/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Login.php(23): CodeIgniter\BaseModel->first()
+#7 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Login->index()
+#8 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#9 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Connection refused in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:218
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /home/congreg8/public_html/app.congreg8.org/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/congreg8/public_html/app.congreg8.org/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Login.php(23): CodeIgniter\BaseModel->first()
+#6 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Login->index()
+#7 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-24 07:09:11 --> Unable to connect to the database.
+Main connection [MySQLi]: Connection refused
+in SYSTEMPATH/Database/BaseConnection.php on line 427.
+ 1 SYSTEMPATH/Database/BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `email` = :email:
+AND `password` = :password:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Login.php(23): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Login->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-05-24 07:09:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-05-24 07:09:26 --> Error connecting to the database: mysqli_sql_exception: Connection refused in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:174
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(174): mysqli->real_connect('congreg8.org', 'congreg8_dev', 'e%~OXp3n_F1l', 'congreg8_dev', 3306, '', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /home/congreg8/public_html/app.congreg8.org/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/congreg8/public_html/app.congreg8.org/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#6 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Login.php(23): CodeIgniter\BaseModel->first()
+#7 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Login->index()
+#8 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#9 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Connection refused in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:218
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /home/congreg8/public_html/app.congreg8.org/system/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/congreg8/public_html/app.congreg8.org/system/BaseModel.php(656): CodeIgniter\Model->doFirst()
+#5 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Login.php(23): CodeIgniter\BaseModel->first()
+#6 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Login->index()
+#7 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-05-24 07:09:26 --> Unable to connect to the database.
+Main connection [MySQLi]: Connection refused
+in SYSTEMPATH/Database/BaseConnection.php on line 427.
+ 1 SYSTEMPATH/Database/BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `email` = :email:
+AND `password` = :password:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH/Model.php(268): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(656): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Login.php(23): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Login->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-05-24 07:12:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:12:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:12:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:14:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:14:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:14:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:14:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:14:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:14:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:15:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:16:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:16:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:19:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:20:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:20:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 07:41:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 09:14:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 09:14:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 09:58:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 09:58:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 10:33:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 12:58:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 21:53:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-05-24 21:54:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

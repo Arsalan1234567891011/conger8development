@@ -1,0 +1,60 @@
+[04-Mar-2023 13:14:28 UTC] PHP Fatal error:  Cannot use App\Models\UserModel as UserModel because the name is already in use in /home/congreg8/public_html/app.congreg8.org/app/Controllers/UserController.php on line 32
+[29-Mar-2023 18:23:34 UTC] PHP Fatal error:  Cannot redeclare App\Controllers\Contacts::importcontact() in /home/congreg8/public_html/app.congreg8.org/app/Controllers/Contacts.php on line 338
+[29-Mar-2023 19:08:54 UTC] PHP Warning:  Uncaught ErrorException: require_once(/home/congreg8/public_html/app.congreg8.org/app/ThirdParty/PHPExcel/PHPExcel.php): failed to open stream: No such file or directory in /home/congreg8/public_html/app.congreg8.org/app/Controllers/Contacts.php:364
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Contacts.php(364): CodeIgniter\Debug\Exceptions->errorHandler(2, 'require_once(/h...', '/home/congreg8/...', 364, Array)
+#1 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Contacts.php(364): require_once()
+#2 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Contacts->readExcel()
+#3 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Contacts))
+#4 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeI in /home/congreg8/public_html/app.congreg8.org/app/Controllers/Contacts.php on line 364
+[29-Mar-2023 19:08:54 UTC] PHP Fatal error:  App\Controllers\Contacts::readExcel(): Failed opening required '/home/congreg8/public_html/app.congreg8.org/app/ThirdParty/PHPExcel/PHPExcel.php' (include_path='.:/opt/cpanel/ea-php74/root/usr/share/pear') in /home/congreg8/public_html/app.congreg8.org/app/Controllers/Contacts.php on line 364
+[29-Mar-2023 19:11:54 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/congreg8/public_html/app.congreg8.org/app/ThirdParty/PHPExcel/Shared/String.php on line 526
+[29-Mar-2023 19:11:54 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/congreg8/public_html/app.congreg8.org/app/ThirdParty/PHPExcel/Shared/String.php on line 527
+[29-Mar-2023 19:11:54 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/congreg8/public_html/app.congreg8.org/app/ThirdParty/PHPExcel/Shared/String.php on line 538
+[29-Mar-2023 19:11:54 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/congreg8/public_html/app.congreg8.org/app/ThirdParty/PHPExcel/Shared/String.php on line 539
+[29-Mar-2023 19:11:54 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/congreg8/public_html/app.congreg8.org/app/ThirdParty/PHPExcel/Shared/String.php on line 541
+[29-Mar-2023 19:11:54 UTC] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in /home/congreg8/public_html/app.congreg8.org/app/ThirdParty/PHPExcel/Shared/String.php on line 542
+[30-Mar-2023 10:00:07 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.0.0". You are running 7.4.33. in /home/congreg8/public_html/app.congreg8.org/vendor/composer/platform_check.php on line 24
+[10-May-2023 07:47:22 UTC] PHP Fatal error:  Cannot redeclare App\Controllers\Plan::create() in /home/congreg8/public_html/app.congreg8.org/app/Controllers/Plan.php on line 46
+[10-May-2023 07:47:24 UTC] PHP Fatal error:  Cannot redeclare App\Controllers\Plan::create() in /home/congreg8/public_html/app.congreg8.org/app/Controllers/Plan.php on line 46
+[11-May-2023 10:06:37 UTC] PHP Fatal error:  Cannot redeclare App\Controllers\Plan::addoption() in /home/congreg8/public_html/app.congreg8.org/app/Controllers/Plan.php on line 321
+[11-May-2023 10:07:07 UTC] PHP Fatal error:  Cannot redeclare App\Controllers\Plan::addoption() in /home/congreg8/public_html/app.congreg8.org/app/Controllers/Plan.php on line 321
+[12-Sep-2023 12:33:55 UTC] PHP Fatal error:  Cannot redeclare App\Controllers\Api::request_master() in /home/congreg8/public_html/app.congreg8.org/app/Controllers/Api.php on line 713
+[15-Sep-2023 05:49:15 UTC] PHP Fatal error:  Cannot redeclare App\Controllers\ManageUser::UserData() in /home/congreg8/public_html/app.congreg8.org/app/Controllers/ManageUser.php on line 92
+[15-Sep-2023 05:49:33 UTC] PHP Fatal error:  Cannot redeclare App\Controllers\ManageUser::UserData() in /home/congreg8/public_html/app.congreg8.org/app/Controllers/ManageUser.php on line 92
+[20-Sep-2023 10:02:45 UTC] PHP Fatal error:  Cannot redeclare App\Controllers\Plan::signupsubscription() in /home/congreg8/public_html/app.congreg8.org/app/Controllers/Plan.php on line 485
+[20-Sep-2023 10:03:23 UTC] PHP Fatal error:  Cannot redeclare App\Controllers\Plan::signupsubscription() in /home/congreg8/public_html/app.congreg8.org/app/Controllers/Plan.php on line 485
+[27-Nov-2023 13:53:22 UTC] PHP Fatal error:  Assignments can only happen to writable values in /home/congreg8/public_html/app.congreg8.org/app/Controllers/Payment.php on line 151
+[30-Nov-2023 11:54:41 UTC] PHP Fatal error:  Cannot use PhpOffice\PhpSpreadsheet\Spreadsheet as Spreadsheet because the name is already in use in /home/congreg8/public_html/app.congreg8.org/app/Controllers/Contacts.php on line 16
+[02-Dec-2023 07:53:29 UTC] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in /home/congreg8/public_html/app.congreg8.org/app/Views/errors/html/production.php on line 72
+[02-Dec-2023 07:53:33 UTC] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in /home/congreg8/public_html/app.congreg8.org/app/Views/errors/html/production.php on line 72
+[02-Dec-2023 07:55:35 UTC] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in /home/congreg8/public_html/app.congreg8.org/app/Views/errors/html/production.php on line 72
+[02-Dec-2023 07:56:19 UTC] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in /home/congreg8/public_html/app.congreg8.org/app/Views/errors/html/production.php on line 66
+[02-Dec-2023 07:56:21 UTC] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in /home/congreg8/public_html/app.congreg8.org/app/Views/errors/html/production.php on line 66
+[02-Dec-2023 10:31:01 UTC] PHP Fatal error:  Cannot redeclare App\Controllers\Contacts::readExcel1() in /home/congreg8/public_html/app.congreg8.org/app/Controllers/Contacts.php on line 387
+[17-Mar-2024 16:04:47 UTC] PHP Fatal error:  Cannot redeclare App\Controllers\Customersupport::index() in /home/congreg8/public_html/app.congreg8.org/app/Controllers/Customersupport.php on line 31
+[19-Mar-2024 15:27:53 UTC] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/congreg8/public_html/app.congreg8.org/app/Controllers/Decisioncard.php on line 245
+[20-Mar-2024 16:10:51 UTC] PHP Fatal error:  Uncaught InvalidArgumentException: .env values containing spaces must be surrounded by quotes. in /home/congreg8/public_html/app.congreg8.org/system/Config/DotEnv.php:173
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Config/DotEnv.php(123): CodeIgniter\Config\DotEnv->sanitizeValue('production //de...')
+#1 /home/congreg8/public_html/app.congreg8.org/system/Config/DotEnv.php(75): CodeIgniter\Config\DotEnv->normaliseVariable('CI_ENVIRONMENT')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Config/DotEnv.php(43): CodeIgniter\Config\DotEnv->parse()
+#3 /home/congreg8/public_html/app.congreg8.org/index.php(42): CodeIgniter\Config\DotEnv->load()
+#4 {main}
+  thrown in /home/congreg8/public_html/app.congreg8.org/system/Config/DotEnv.php on line 173
+[20-Mar-2024 16:10:56 UTC] PHP Fatal error:  Uncaught InvalidArgumentException: .env values containing spaces must be surrounded by quotes. in /home/congreg8/public_html/app.congreg8.org/system/Config/DotEnv.php:173
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Config/DotEnv.php(123): CodeIgniter\Config\DotEnv->sanitizeValue('production //de...')
+#1 /home/congreg8/public_html/app.congreg8.org/system/Config/DotEnv.php(75): CodeIgniter\Config\DotEnv->normaliseVariable('CI_ENVIRONMENT')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Config/DotEnv.php(43): CodeIgniter\Config\DotEnv->parse()
+#3 /home/congreg8/public_html/app.congreg8.org/index.php(42): CodeIgniter\Config\DotEnv->load()
+#4 {main}
+  thrown in /home/congreg8/public_html/app.congreg8.org/system/Config/DotEnv.php on line 173
+[25-Mar-2024 17:08:09 UTC] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/congreg8/public_html/development.congreg8.org/app/Config/Routes.php on line 3
+[25-Mar-2024 17:08:27 UTC] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/congreg8/public_html/development.congreg8.org/app/Config/Routes.php on line 3
+[25-Mar-2024 17:08:30 UTC] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/congreg8/public_html/development.congreg8.org/app/Config/Routes.php on line 3
+[26-Mar-2024 16:38:05 UTC] PHP Fatal error:  Cannot use App\Models\UserModel as UserModel because the name is already in use in /home/congreg8/public_html/development.congreg8.org/app/Controllers/UserController.php on line 11
+[26-Mar-2024 16:38:23 UTC] PHP Fatal error:  Cannot use App\Models\ChurchModel as ChurchModel because the name is already in use in /home/congreg8/public_html/development.congreg8.org/app/Controllers/UserController.php on line 12
+[28-Mar-2024 16:34:17 UTC] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/congreg8/public_html/development.congreg8.org/app/Controllers/UserController.php on line 2
+[16-Apr-2024 17:10:22 UTC] PHP Fatal error:  Can't use method return value in write context in /home/congreg8/public_html/development.congreg8.org/app/Controllers/Payment.php on line 215

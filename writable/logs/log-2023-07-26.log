@@ -1,0 +1,281 @@
+INFO - 2023-07-26 00:21:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 00:21:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 05:25:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 05:25:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 10:16:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 10:16:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 12:55:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 12:55:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 12:55:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 12:55:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 12:56:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 12:56:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 12:56:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 12:56:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:01:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:01:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:01:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:01:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:01:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-26 13:01:24 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5 in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT count(*)...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT count(*)...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT count(*)...')
+#3 /home/congreg8/public_html/app.congreg8.org/app/Helpers/custom_helper.php(291): CodeIgniter\Database\BaseConnection->query('SELECT count(*)...')
+#4 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Dashboard.php(63): get_All_visitors(NULL, '', '')
+#5 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+#6 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-07-26 13:01:24 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 APPPATH/Helpers/custom_helper.php(291): CodeIgniter\Database\BaseConnection->query('SELECT count(*) as cntt FROM (
+        SELECT a.contact_id as cnt
+        FROM `tab_attandance` a
+        LEFT JOIN contacts c ON c.id = a.contact_id
+        WHERE c.r_status = \'Y\' AND a.rstatus = \'Y\' AND form_type = \'Visitor\' AND a.church_id =  GROUP BY a.contact_id
+    ) as A')
+ 2 APPPATH/Controllers/Dashboard.php(63): get_All_visitors(null, '/home/congreg8/public_html/app.congreg8.org', '/home/congreg8/public_html/app.congreg8.org')
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-26 13:01:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:02:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:02:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-26 13:02:11 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5 in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT count(*)...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT count(*)...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT count(*)...')
+#3 /home/congreg8/public_html/app.congreg8.org/app/Helpers/custom_helper.php(291): CodeIgniter\Database\BaseConnection->query('SELECT count(*)...')
+#4 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Dashboard.php(63): get_All_visitors(NULL, '', '')
+#5 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+#6 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-07-26 13:02:11 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 APPPATH/Helpers/custom_helper.php(291): CodeIgniter\Database\BaseConnection->query('SELECT count(*) as cntt FROM (
+        SELECT a.contact_id as cnt
+        FROM `tab_attandance` a
+        LEFT JOIN contacts c ON c.id = a.contact_id
+        WHERE c.r_status = \'Y\' AND a.rstatus = \'Y\' AND form_type = \'Visitor\' AND a.church_id =  GROUP BY a.contact_id
+    ) as A')
+ 2 APPPATH/Controllers/Dashboard.php(63): get_All_visitors(null, '/home/congreg8/public_html/app.congreg8.org', '/home/congreg8/public_html/app.congreg8.org')
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-26 13:02:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:02:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:02:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-26 13:02:46 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5 in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT count(*)...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT count(*)...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT count(*)...')
+#3 /home/congreg8/public_html/app.congreg8.org/app/Helpers/custom_helper.php(291): CodeIgniter\Database\BaseConnection->query('SELECT count(*)...')
+#4 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Dashboard.php(63): get_All_visitors(NULL, '', '')
+#5 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+#6 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-07-26 13:02:46 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 APPPATH/Helpers/custom_helper.php(291): CodeIgniter\Database\BaseConnection->query('SELECT count(*) as cntt FROM (
+        SELECT a.contact_id as cnt
+        FROM `tab_attandance` a
+        LEFT JOIN contacts c ON c.id = a.contact_id
+        WHERE c.r_status = \'Y\' AND a.rstatus = \'Y\' AND form_type = \'Visitor\' AND a.church_id =  GROUP BY a.contact_id
+    ) as A')
+ 2 APPPATH/Controllers/Dashboard.php(63): get_All_visitors(null, '/home/congreg8/public_html/app.congreg8.org', '/home/congreg8/public_html/app.congreg8.org')
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-26 13:02:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:03:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:03:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:03:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:03:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:03:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:03:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:03:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:03:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-26 13:03:42 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5 in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT count(*)...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT count(*)...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT count(*)...')
+#3 /home/congreg8/public_html/app.congreg8.org/app/Helpers/custom_helper.php(291): CodeIgniter\Database\BaseConnection->query('SELECT count(*)...')
+#4 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Dashboard.php(63): get_All_visitors(NULL, '', '')
+#5 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+#6 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-07-26 13:03:42 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 APPPATH/Helpers/custom_helper.php(291): CodeIgniter\Database\BaseConnection->query('SELECT count(*) as cntt FROM (
+        SELECT a.contact_id as cnt
+        FROM `tab_attandance` a
+        LEFT JOIN contacts c ON c.id = a.contact_id
+        WHERE c.r_status = \'Y\' AND a.rstatus = \'Y\' AND form_type = \'Visitor\' AND a.church_id =  GROUP BY a.contact_id
+    ) as A')
+ 2 APPPATH/Controllers/Dashboard.php(63): get_All_visitors(null, '/home/congreg8/public_html/app.congreg8.org', '/home/congreg8/public_html/app.congreg8.org')
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-26 13:03:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:04:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:06:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:06:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:06:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-26 13:06:30 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5 in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT count(*)...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT count(*)...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT count(*)...')
+#3 /home/congreg8/public_html/app.congreg8.org/app/Helpers/custom_helper.php(291): CodeIgniter\Database\BaseConnection->query('SELECT count(*)...')
+#4 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Dashboard.php(63): get_All_visitors(NULL, '', '')
+#5 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+#6 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-07-26 13:06:30 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 APPPATH/Helpers/custom_helper.php(291): CodeIgniter\Database\BaseConnection->query('SELECT count(*) as cntt FROM (
+        SELECT a.contact_id as cnt
+        FROM `tab_attandance` a
+        LEFT JOIN contacts c ON c.id = a.contact_id
+        WHERE c.r_status = \'Y\' AND a.rstatus = \'Y\' AND form_type = \'Visitor\' AND a.church_id =  GROUP BY a.contact_id
+    ) as A')
+ 2 APPPATH/Controllers/Dashboard.php(63): get_All_visitors(null, '/home/congreg8/public_html/app.congreg8.org', '/home/congreg8/public_html/app.congreg8.org')
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-26 13:35:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:37:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:37:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-26 13:37:44 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5 in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT count(*)...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT count(*)...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT count(*)...')
+#3 /home/congreg8/public_html/app.congreg8.org/app/Helpers/custom_helper.php(291): CodeIgniter\Database\BaseConnection->query('SELECT count(*)...')
+#4 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Dashboard.php(63): get_All_visitors(NULL, '', '')
+#5 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+#6 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-07-26 13:37:44 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 APPPATH/Helpers/custom_helper.php(291): CodeIgniter\Database\BaseConnection->query('SELECT count(*) as cntt FROM (
+        SELECT a.contact_id as cnt
+        FROM `tab_attandance` a
+        LEFT JOIN contacts c ON c.id = a.contact_id
+        WHERE c.r_status = \'Y\' AND a.rstatus = \'Y\' AND form_type = \'Visitor\' AND a.church_id =  GROUP BY a.contact_id
+    ) as A')
+ 2 APPPATH/Controllers/Dashboard.php(63): get_All_visitors(null, '/home/congreg8/public_html/app.congreg8.org', '/home/congreg8/public_html/app.congreg8.org')
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-26 13:54:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:54:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-26 13:54:16 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5 in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT count(*)...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT count(*)...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT count(*)...')
+#3 /home/congreg8/public_html/app.congreg8.org/app/Helpers/custom_helper.php(291): CodeIgniter\Database\BaseConnection->query('SELECT count(*)...')
+#4 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Dashboard.php(63): get_All_visitors(NULL, '', '')
+#5 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+#6 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-07-26 13:54:16 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 APPPATH/Helpers/custom_helper.php(291): CodeIgniter\Database\BaseConnection->query('SELECT count(*) as cntt FROM (
+        SELECT a.contact_id as cnt
+        FROM `tab_attandance` a
+        LEFT JOIN contacts c ON c.id = a.contact_id
+        WHERE c.r_status = \'Y\' AND a.rstatus = \'Y\' AND form_type = \'Visitor\' AND a.church_id =  GROUP BY a.contact_id
+    ) as A')
+ 2 APPPATH/Controllers/Dashboard.php(63): get_All_visitors(null, '/home/congreg8/public_html/app.congreg8.org', '/home/congreg8/public_html/app.congreg8.org')
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-26 13:57:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 13:57:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-07-26 13:57:39 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5 in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT count(*)...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT count(*)...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT count(*)...')
+#3 /home/congreg8/public_html/app.congreg8.org/app/Helpers/custom_helper.php(291): CodeIgniter\Database\BaseConnection->query('SELECT count(*)...')
+#4 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Dashboard.php(63): get_All_visitors(NULL, '', '')
+#5 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+#6 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2023-07-26 13:57:39 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 APPPATH/Helpers/custom_helper.php(291): CodeIgniter\Database\BaseConnection->query('SELECT count(*) as cntt FROM (
+        SELECT a.contact_id as cnt
+        FROM `tab_attandance` a
+        LEFT JOIN contacts c ON c.id = a.contact_id
+        WHERE c.r_status = \'Y\' AND a.rstatus = \'Y\' AND form_type = \'Visitor\' AND a.church_id =  GROUP BY a.contact_id
+    ) as A')
+ 2 APPPATH/Controllers/Dashboard.php(63): get_All_visitors(null, '/home/congreg8/public_html/app.congreg8.org', '/home/congreg8/public_html/app.congreg8.org')
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-07-26 13:58:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-07-26 16:04:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

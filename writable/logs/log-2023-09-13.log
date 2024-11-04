@@ -1,0 +1,134 @@
+INFO - 2023-09-13 10:42:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 10:42:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 11:15:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-09-13 12:53:48 --> "churchfilter" filter must have a matching alias defined.
+in SYSTEMPATH/Filters/Filters.php on line 493.
+ 1 SYSTEMPATH/Filters/Filters.php(493): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('churchfilter')
+ 2 SYSTEMPATH/Filters/Filters.php(243): CodeIgniter\Filters\Filters->processAliasesToClass('before')
+ 3 SYSTEMPATH/Filters/Filters.php(163): CodeIgniter\Filters\Filters->initialize('/')
+ 4 SYSTEMPATH/CodeIgniter.php(473): CodeIgniter\Filters\Filters->run('/', 'before')
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-13 12:53:49 --> "churchfilter" filter must have a matching alias defined.
+in SYSTEMPATH/Filters/Filters.php on line 493.
+ 1 SYSTEMPATH/Filters/Filters.php(493): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('churchfilter')
+ 2 SYSTEMPATH/Filters/Filters.php(243): CodeIgniter\Filters\Filters->processAliasesToClass('before')
+ 3 SYSTEMPATH/Filters/Filters.php(163): CodeIgniter\Filters\Filters->initialize('/')
+ 4 SYSTEMPATH/CodeIgniter.php(473): CodeIgniter\Filters\Filters->run('/', 'before')
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-13 12:55:21 --> "churchfilter" filter must have a matching alias defined.
+in SYSTEMPATH/Filters/Filters.php on line 493.
+ 1 SYSTEMPATH/Filters/Filters.php(493): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('churchfilter')
+ 2 SYSTEMPATH/Filters/Filters.php(243): CodeIgniter\Filters\Filters->processAliasesToClass('before')
+ 3 SYSTEMPATH/Filters/Filters.php(163): CodeIgniter\Filters\Filters->initialize('/')
+ 4 SYSTEMPATH/CodeIgniter.php(473): CodeIgniter\Filters\Filters->run('/', 'before')
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-09-13 12:55:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 12:55:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 12:56:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 12:56:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-09-13 12:56:06 --> mysqli_sql_exception: Unknown column 'is_filled' in 'where clause' in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT COUNT(*)...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 /home/congreg8/public_html/app.congreg8.org/system/Model.php(606): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 /home/congreg8/public_html/app.congreg8.org/app/Filters/ChurchFilter.php(36): CodeIgniter\Model->countAllResults()
+#6 /home/congreg8/public_html/app.congreg8.org/system/Filters/Filters.php(173): App\Filters\ChurchFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#7 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(473): CodeIgniter\Filters\Filters->run('/', 'before')
+#8 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-09-13 12:56:06 --> Unknown column 'is_filled' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `manage_church`
+WHERE `id` = :id:
+AND `is_filled` = :is_filled:', [...], false)
+ 2 SYSTEMPATH/Model.php(606): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+ 3 APPPATH/Filters/ChurchFilter.php(36): CodeIgniter\Model->countAllResults()
+ 4 SYSTEMPATH/Filters/Filters.php(173): App\Filters\ChurchFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 5 SYSTEMPATH/CodeIgniter.php(473): CodeIgniter\Filters\Filters->run('/', 'before')
+ 6 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-09-13 13:24:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-09-13 13:24:14 --> mysqli_sql_exception: Unknown column 'is_filled' in 'where clause' in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT COUNT(*)...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 /home/congreg8/public_html/app.congreg8.org/system/Model.php(606): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 /home/congreg8/public_html/app.congreg8.org/app/Filters/ChurchFilter.php(36): CodeIgniter\Model->countAllResults()
+#6 /home/congreg8/public_html/app.congreg8.org/system/Filters/Filters.php(173): App\Filters\ChurchFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), NULL)
+#7 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(473): CodeIgniter\Filters\Filters->run('/', 'before')
+#8 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-09-13 13:24:14 --> Unknown column 'is_filled' in 'where clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1700): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `manage_church`
+WHERE `id` = :id:
+AND `is_filled` = :is_filled:', [...], false)
+ 2 SYSTEMPATH/Model.php(606): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+ 3 APPPATH/Filters/ChurchFilter.php(36): CodeIgniter\Model->countAllResults()
+ 4 SYSTEMPATH/Filters/Filters.php(173): App\Filters\ChurchFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 5 SYSTEMPATH/CodeIgniter.php(473): CodeIgniter\Filters\Filters->run('/', 'before')
+ 6 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-09-13 14:06:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 14:06:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 14:44:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-09-13 14:44:21 --> Invalid file: "/churches/create.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/churches/create.php')
+ 2 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('/churches/create', [], true)
+ 3 APPPATH/Controllers/Churches.php(75): view('/churches/create', [...])
+ 4 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Churches->viewchurch()
+ 5 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Churches))
+ 6 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-09-13 14:45:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 14:45:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 14:45:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 14:46:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 14:47:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 14:47:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 14:51:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-09-13 14:51:28 --> Undefined array key "pm_texteditor"
+in APPPATH/Views/plan/signupsubscription.php on line 82.
+ 1 APPPATH/Views/plan/signupsubscription.php(82): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "pm_texteditor"', 'APPPATH/Views/plan/signupsubscription.php', 82)
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/plan/signupsubscription.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('plan/signupsubscription', [], true)
+ 5 APPPATH/Controllers/Plan.php(165): view('plan/signupsubscription', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Plan->signupsubscription()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Plan))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-09-13 14:54:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 14:55:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 14:55:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 14:55:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 14:55:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 14:55:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 14:55:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 15:03:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 15:03:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 15:03:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 15:08:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 15:08:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 15:08:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 15:40:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 18:33:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 18:33:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 18:33:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 18:33:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 18:38:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 18:38:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 23:30:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-09-13 23:30:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -1,0 +1,280 @@
+ERROR - 2023-03-11 17:51:33 --> mysqli_sql_exception: Unknown column 'action' in 'order clause' in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT c.name,t...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT c.name,t...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT c.name,t...')
+#3 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Attendance.php(123): CodeIgniter\Database\BaseConnection->query('SELECT c.name,t...')
+#4 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Attendance->get_attendance()
+#5 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Attendance))
+#6 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2023-03-11 17:51:33 --> Unknown column 'action' in 'order clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 APPPATH/Controllers/Attendance.php(123): CodeIgniter\Database\BaseConnection->query('SELECT c.name,ta.check_in,mc.church_name,ta.check_in,c.form_type,ta.id as tabid 
+
+		       FROM tab_attandance ta
+
+		       LEFT JOIN manage_church mc on mc.id = ta.church_id
+
+		       LEFT JOIN contacts c on c.id = ta.contact_id
+
+		       LEFT JOIN users u on u.id = mc.parentid WHERE ta.rstatus = \'Y\'
+
+		        and ta.church_id = 14  order by action asc limit 0,10 ')
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Attendance->get_attendance()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Attendance))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-03-11 17:51:48 --> mysqli_sql_exception: Unknown column 'action' in 'order clause' in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT c.name,t...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT c.name,t...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT c.name,t...')
+#3 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Attendance.php(123): CodeIgniter\Database\BaseConnection->query('SELECT c.name,t...')
+#4 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Attendance->get_attendance()
+#5 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Attendance))
+#6 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2023-03-11 17:51:48 --> Unknown column 'action' in 'order clause'
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 APPPATH/Controllers/Attendance.php(123): CodeIgniter\Database\BaseConnection->query('SELECT c.name,ta.check_in,mc.church_name,ta.check_in,c.form_type,ta.id as tabid 
+
+		       FROM tab_attandance ta
+
+		       LEFT JOIN manage_church mc on mc.id = ta.church_id
+
+		       LEFT JOIN contacts c on c.id = ta.contact_id
+
+		       LEFT JOIN users u on u.id = mc.parentid WHERE ta.rstatus = \'Y\'
+
+		        and ta.church_id = 14  order by action desc limit 0,10 ')
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Attendance->get_attendance()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Attendance))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-03-11 18:35:22 --> Invalid file: "dashboard/add-contacts.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('dashboard/add-contacts.php')
+ 2 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('dashboard/add-contacts', [], true)
+ 3 APPPATH/Controllers/UserController.php(1651): view('dashboard/add-contacts', [...])
+ 4 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\UserController->form_add_Contacts()
+ 5 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-03-11 18:35:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 18:35:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-11 18:35:58 --> Invalid file: "dashboard/add-contacts.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('dashboard/add-contacts.php')
+ 2 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('dashboard/add-contacts', [], true)
+ 3 APPPATH/Controllers/UserController.php(1651): view('dashboard/add-contacts', [...])
+ 4 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\UserController->form_add_Contacts()
+ 5 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserController))
+ 6 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-03-11 18:36:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 18:42:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 18:44:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-11 18:44:38 --> syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+in APPPATH/Controllers/Contacts.php on line 387.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH/Controllers/Contacts.php')
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Contacts')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Contacts')
+ 4 [internal function]: spl_autoload_call('App\\Controllers\\Contacts')
+ 5 SYSTEMPATH/CodeIgniter.php(892): class_exists('\\App\\Controllers\\Contacts', true)
+ 6 SYSTEMPATH/CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-03-11 18:45:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 18:45:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 18:45:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 18:45:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 18:45:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 18:45:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 18:45:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 18:46:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 18:46:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 18:49:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 18:49:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:28:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-11 19:28:35 --> Invalid file: "interests/index.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('interests/index.php')
+ 2 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('interests/index', [], true)
+ 3 APPPATH/Controllers/Interests.php(31): view('interests/index', [...])
+ 4 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Interests->index()
+ 5 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Interests))
+ 6 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-03-11 19:29:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-11 19:29:44 --> Undefined variable: urole
+in APPPATH/Views/interests/index.php on line 19.
+ 1 APPPATH/Views/interests/index.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: urole', 'APPPATH/Views/interests/index.php', 19, [...])
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/interests/index.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('interests/index', [], true)
+ 5 APPPATH/Controllers/Interests.php(31): view('interests/index', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Interests->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Interests))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-03-11 19:32:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-11 19:32:03 --> Undefined variable: urole
+in APPPATH/Views/interests/index.php on line 19.
+ 1 APPPATH/Views/interests/index.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: urole', 'APPPATH/Views/interests/index.php', 19, [...])
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/interests/index.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('interests/index', [], true)
+ 5 APPPATH/Controllers/Interests.php(31): view('interests/index', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Interests->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Interests))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-03-11 19:32:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-11 19:32:07 --> Undefined variable: urole
+in APPPATH/Views/interests/index.php on line 19.
+ 1 APPPATH/Views/interests/index.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: urole', 'APPPATH/Views/interests/index.php', 19, [...])
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/interests/index.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('interests/index', [], true)
+ 5 APPPATH/Controllers/Interests.php(31): view('interests/index', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Interests->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Interests))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-03-11 19:33:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-11 19:33:06 --> Undefined variable: urole
+in APPPATH/Views/interests/index.php on line 19.
+ 1 APPPATH/Views/interests/index.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined variable: urole', 'APPPATH/Views/interests/index.php', 19, [...])
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/interests/index.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('interests/index', [], true)
+ 5 APPPATH/Controllers/Interests.php(33): view('interests/index', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Interests->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Interests))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-03-11 19:36:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:37:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:37:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-11 19:37:13 --> syntax error, unexpected '}', expecting ';'
+in APPPATH/Controllers/Interests.php on line 51.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(289): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH/Controllers/Interests.php')
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(267): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Interests')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Interests')
+ 4 [internal function]: spl_autoload_call('App\\Controllers\\Interests')
+ 5 SYSTEMPATH/CodeIgniter.php(892): class_exists('\\App\\Controllers\\Interests', true)
+ 6 SYSTEMPATH/CodeIgniter.php(486): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-03-11 19:37:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:38:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:38:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:38:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:38:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:38:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:38:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-11 19:38:33 --> Undefined index: user_role
+in APPPATH/Views/users/add-user.php on line 40.
+ 1 APPPATH/Views/users/add-user.php(40): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: user_role', 'APPPATH/Views/users/add-user.php', 40, [...])
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/users/add-user.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('users/add-user', [], true)
+ 5 APPPATH/Controllers/User.php(75): view('users/add-user')
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\User->create()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-03-11 19:41:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-11 19:41:59 --> Undefined index: user_role
+in APPPATH/Views/users/create.php on line 40.
+ 1 APPPATH/Views/users/create.php(40): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: user_role', 'APPPATH/Views/users/create.php', 40, [...])
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/users/create.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('users/create', [], true)
+ 5 APPPATH/Controllers/User.php(75): view('users/create')
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\User->create()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-03-11 19:43:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-11 19:43:06 --> Undefined index: user_role
+in APPPATH/Views/users/create.php on line 40.
+ 1 APPPATH/Views/users/create.php(40): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index: user_role', 'APPPATH/Views/users/create.php', 40, [...])
+ 2 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/users/create.php')
+ 3 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('users/create', [], true)
+ 5 APPPATH/Controllers/User.php(75): view('users/create')
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\User->create()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-03-11 19:43:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-11 19:43:13 --> Invalid file: "includes/top.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('includes/top.php')
+ 2 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('includes/top.php', [], true)
+ 3 APPPATH/Views/users/create.php(44): view('includes/top.php')
+ 4 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/users/create.php')
+ 5 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('users/create', [], true)
+ 7 APPPATH/Controllers/User.php(75): view('users/create')
+ 8 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\User->create()
+ 9 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+10 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-03-11 19:45:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-11 19:45:53 --> Invalid file: "includes/top.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('includes/top.php')
+ 2 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('includes/top.php', [], true)
+ 3 APPPATH/Views/users/create.php(44): view('includes/top.php')
+ 4 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/users/create.php')
+ 5 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('users/create', [], true)
+ 7 APPPATH/Controllers/User.php(75): view('users/create')
+ 8 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\User->create()
+ 9 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+10 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-03-11 19:49:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-11 19:49:03 --> Invalid file: "includes/top.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('includes/top.php')
+ 2 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('includes/top.php', [], true)
+ 3 APPPATH/Views/users/create.php(44): view('includes/top.php')
+ 4 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/users/create.php')
+ 5 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('users/create', [], true)
+ 7 APPPATH/Controllers/User.php(75): view('users/create')
+ 8 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\User->create()
+ 9 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+10 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-03-11 19:49:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2023-03-11 19:49:27 --> Invalid file: "includes/top.php"
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 33.
+ 1 SYSTEMPATH/View/View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('includes/top.php')
+ 2 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('includes/top.php', [], true)
+ 3 APPPATH/Views/users/create.php(44): view('includes/top.php')
+ 4 SYSTEMPATH/View/View.php(213): include('APPPATH/Views/users/create.php')
+ 5 SYSTEMPATH/View/View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH/Common.php(1184): CodeIgniter\View\View->render('users/create', [], true)
+ 7 APPPATH/Controllers/User.php(75): view('users/create')
+ 8 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\User->create()
+ 9 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+10 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2023-03-11 19:49:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:50:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:50:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:50:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:50:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:50:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:50:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:53:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 19:53:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 20:39:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-03-11 20:39:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

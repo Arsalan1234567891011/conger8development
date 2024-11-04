@@ -1,0 +1,259 @@
+<?php
+
+
+
+namespace App\Controllers;
+
+use App\Models\UserModel;
+use App\Models\ContactModel;
+
+
+
+class User extends BaseController
+
+{
+
+    public function index()
+
+    {
+
+        $data['title']="Dashboard||Admin panel "; 
+
+        $data['page']="Admin/dashboard"; 
+
+        $data['styles'] = ['public/app-assets/vendors/css/tables/datatable/datatables.min.css'];
+
+
+
+        $data['script'] = ['public/app-assets/js/scripts/tables/datatables/datatable-basic.js','
+
+        public/app-assets/vendors/js/tables/datatable/datatables.min.js'];
+
+        
+
+        echo view('/include/head',$data);
+
+        echo view('/include/topheader',$data); 
+
+        echo view('/include/sidenavbar',$data); 
+
+        echo view('Admin/View-user');
+
+        echo view('/include/footer'); 
+
+    
+
+    }
+
+
+
+
+
+    public function create($id = null)
+
+    {
+
+        $data['title']="Dashboard||Admin panel "; 
+
+        $data['page']="Admin/dashboard"; 
+
+
+
+        $data['styles'] = ['public/app-assets/vendors/css/tables/datatable/datatables.min.css'];
+
+        $data['script'] = ['public/app-assets/js/scripts/tables/datatables/datatable-basic.js','
+
+        public/app-assets/vendors/js/tables/datatable/datatables.min.js'];
+
+
+        if($id){
+            $UserModel= new UserModel();
+
+
+		$user = $UserModel->where('id', $id)->first();
+
+            $data2['user'] = $user;
+        }else{
+            $data2['user'] = "";
+        }
+
+        // exit();
+
+        
+
+        echo view('/include/head',$data);
+
+        echo view('/include/topheader',$data); 
+
+        echo view('/include/sidenavbar',$data); 
+
+        echo view('users/create',$data2);
+
+        echo view('/include/footer'); 
+
+    
+
+    }
+
+    public function save()
+{
+    $id = $this->request->getPost('id');
+    $name = $this->request->getPost('name');
+    $email = $this->request->getPost('email');
+    $password = $this->request->getPost('password');
+    $phone = $this->request->getPost('phone');
+    $church_id = session()->user_church_id;
+    $parent_id = session()->user_id;
+
+
+
+
+    $info = $this->request->getPost('info');
+
+    $currenttime = date('Y-m-d h:i:s');
+    $UserModel = new UserModel();
+
+    $data = [
+        'name' => $name,
+        'email' => $email,
+        'password' => $password,
+        'phone' => $phone,
+        'church_id' => $church_id,
+        'status' => "active",
+        'parent' => $parent_id,
+        'rstatus'=>"Y"
+    ];
+
+    if ($id == "") {
+        // Insert scenario
+        $UserModel->insert($data);
+
+        $to = $email;
+        $email = \Config\Services::email();
+
+        $email->setTo($to);
+        $email->setFrom('noreply@congreg8.org', 'congreg8');
+
+        $subject = "Login Information";
+        $message = "Dear $name,\n\n";
+        $message .= "Please find your login details below:\n\n";
+        $message .= "Username: $to\n";
+        $message .= "Password: $password\n\n";
+        $message .= "Regards,\n";
+        $message .= "Congreg8 Team";
+
+        $email->setSubject($subject);
+        $email->setMessage($message);
+
+        if ($email->send()) {
+            $checks = [
+                'check' => "User Saved and email sent successfully",
+            ];
+
+            return redirect()->to('/users')->with('checks', $checks);
+        } else {
+           
+        $checks = [
+            'check' => "User Saved successfully",
+        ];
+
+        return redirect()->to('/users')->with('checks', $checks);
+    }
+
+    } else {
+        // Update scenario
+        $UserModel->update($id, $data); 
+        $checks = [
+            'check' => "User Updated successfully",
+        ];
+
+            return redirect()->to('/users')->with('checks', $checks);
+        }
+    
+}
+
+public function sendinfo($id)
+{
+    $UserModel= new UserModel();
+    $user = $UserModel->where('id', $id)->first();
+
+    
+        $name = $user['name'];
+        $to = $user['email'];
+        $password = $user['password'];
+        $phone = $user['phone'];
+        $church_id = $user['church_id'];
+       
+        
+            // Insert scenario
+          
+    echo "jfghjewsfg";
+          
+            $email = \Config\Services::email();
+    
+            $email->setTo($to);
+            $email->setFrom('noreply@congreg8.org', 'congreg8');
+    
+            $subject = "Login Information";
+            $message = "Dear $name,\n\n";
+            $message .= "Please find your login details below:\n\n";
+            $message .= "Username: $to\n";
+            $message .= "Password: $password\n\n";
+            $message .= "Regards,\n";
+            $message .= "Congreg8 Team";
+    
+            $email->setSubject($subject);
+            $email->setMessage($message);
+    
+            if ($email->send()) {
+                $checks = [
+                    'check' => "email sent successfully",
+                ];
+    
+                return redirect()->to('/adduser/'.$id)->with('checks', $checks);
+            } else {
+               
+            $checks = [
+                'check' => "Email not sent",
+            ];
+    
+            return redirect()->to('/adduser/'.$id)->with('checks', $checks);
+        }
+}
+
+
+function encrypt()
+{
+    $config         = new \Config\Encryption();
+    $encrypter = \Config\Services::encrypter($config);
+
+    $resultModel = new ContactModel();
+
+    $result = $resultModel->FindAll();
+
+    if(empty($result))
+    {
+        echo "empty";
+        exit;
+    }
+    else
+    {
+        foreach($result as $row)
+        {
+            $password=$row['birthday'];
+            $password_encrypt = base64_encode($encrypter->encrypt($password));
+            $data = [
+                'dbirthday'=>$password_encrypt,
+            ];
+            $resultModel->update($row['id'], $data); 
+        }
+    }
+}
+
+
+}
+
+
+
+
+

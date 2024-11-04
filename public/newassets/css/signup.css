@@ -1,0 +1,204 @@
+.main-email-sec{
+    background-image: url(../images/email-verify-background.jpg);
+    width: 100.6%;
+    height: 850px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.email-bg-text-sec{
+    padding-left: 8.5rem;
+    padding-top: 3rem;
+}
+.text-sec-mb-pr{
+    display: none;
+}
+.email-bg-text-sec h2{
+    font-size: 38px;
+}
+.email-bg-text-sec p{
+    font-weight: 500;
+}
+.email-bg-text-sec-mb h2{
+    font-size: 38px;
+}
+.email-bg-text-sec-mb p{
+    font-weight: 500;
+}
+.sign-up-sec{
+    margin-left: 6rem;
+    margin-top: 7rem;
+    width: 480px;
+    height: 560px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 1rem;
+}
+.sign-up-sec p{
+    font-size: 14px;
+    font-weight: 400;
+}
+@media screen and (max-width: 1344px) {
+    .email-bg-text-sec{
+        padding-left: 6rem;
+        padding-top: 3rem;
+    }
+}
+@media screen and (max-width: 1250px) {
+    .email-bg-text-sec{
+        padding-left: 4rem;
+        padding-top: 3rem;
+    }
+}
+@media screen and (max-width: 1175px) {
+    .email-bg-text-sec{
+        padding-left: 1rem;
+        padding-top: 3rem;
+    }
+}
+
+@media screen and (max-width: 1060px) {
+    .email-bg-text-sec{
+        padding-left: 10px;
+        padding-top: 3rem;
+    }
+}
+@media screen and (max-width: 1044px) {
+    
+    .email-bg-text-sec{
+        padding-left: 10px;
+        padding-top: 2rem;
+    }
+    .sign-up-sec{
+        margin-left: 1rem;
+    }
+   
+}
+@media screen and (max-width: 970px) {
+    
+    .sign-up-sec{
+        margin-left: 0rem;
+        margin-top: 3rem;
+        width: 440px;
+        height: 560px;
+        background: #fff;
+        border-radius: 20px;
+    }
+   
+}
+@media screen and (max-width: 900px) {
+    
+    .sign-up-sec{
+        margin-left: 0rem;
+        margin-top: 3rem;
+        width: 400px;
+        height: 560px;
+        background: #fff;
+        border-radius: 20px;
+    }
+   
+}
+
+
+@media screen and (max-width: 840px) {
+    
+    .email-bg-text-sec{
+        padding-left: 0px;
+        padding-top: 1rem;
+    }
+   
+}
+@media screen and (max-width: 768px) {
+    .email-bg-text-sec{
+        padding-left: 0px;
+        padding-top: 1rem;
+    }
+    .text-sec-desk-pr{
+        display: none;
+    }
+    .text-sec-mb-pr{
+        display: block;
+    }
+    .email-bg-text-sec-mb{
+        padding: 0px 17px 0px 17px;
+    }
+    .main-email-sec .col-md-7{
+        padding-right: 0;
+    }
+    .main-email-sec{
+        width: 102%;
+        height: 870px;
+       
+    }
+    .sign-up-sec{
+        margin-top: 3rem;
+        width: 95%;
+        height: 640px;
+        margin: 0 auto;
+        padding: 0rem;
+    }
+    .checkbox-field p{
+        margin-left: 10px;
+      }
+   
+}
+
+
+.pwd-field{
+    background: #fff;
+    width: 100%;
+    max-width: 680px;
+    border-radius: 5px;
+    padding: 0px 15px;
+    display: flex;
+    border: 1px solid #c8c8c8;
+  }
+  .pwd-field input{
+    width: 100%;
+    padding: 10px 0;
+    border: 0;
+    outline: 0;
+    color: #333;
+  }
+  .pwd-field img{
+    width: 20px;
+    height: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .checkbox-field input{
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+  .checkbox-field p{
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .checkbox-field .col-1{
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+  }
+  .checkbox-field .col-11{
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+  }
+  
+  
+   
+   @media screen and (min-width: 1700px) {
+
+    .main-email-sec{
+        background-image: url(../images/email-verify-background.jpg);
+        width: 103%;
+        height: 980px;
+    }
+
+}
+
+  
+  
+
+  

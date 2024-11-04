@@ -1,0 +1,169 @@
+INFO - 2024-01-27 01:15:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 01:15:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 01:15:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 01:15:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 03:04:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 03:04:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 04:36:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 04:36:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 04:36:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 04:37:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 05:06:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 05:06:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 12:37:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 13:52:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-01-27 15:56:43 --> Undefined array key "gender"
+in APPPATH/Controllers/Api.php on line 67.
+ 1 APPPATH/Controllers/Api.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "gender"', 'APPPATH/Controllers/Api.php', 67)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Api->contactcurlapi()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-01-27 15:57:52 --> Undefined array key "gender"
+in APPPATH/Controllers/Api.php on line 67.
+ 1 APPPATH/Controllers/Api.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "gender"', 'APPPATH/Controllers/Api.php', 67)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Api->contactcurlapi()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-01-27 16:09:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-01-27 16:13:40 --> Undefined array key "gender"
+in APPPATH/Controllers/Api.php on line 67.
+ 1 APPPATH/Controllers/Api.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "gender"', 'APPPATH/Controllers/Api.php', 67)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Api->contactcurlapi()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-01-27 16:22:34 --> Undefined array key "gender"
+in APPPATH/Controllers/Api.php on line 67.
+ 1 APPPATH/Controllers/Api.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "gender"', 'APPPATH/Controllers/Api.php', 67)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Api->contactcurlapi()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-01-27 16:27:02 --> Undefined array key "gender"
+in APPPATH/Controllers/Api.php on line 67.
+ 1 APPPATH/Controllers/Api.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "gender"', 'APPPATH/Controllers/Api.php', 67)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Api->contactcurlapi()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-01-27 16:27:03 --> Undefined array key "gender"
+in APPPATH/Controllers/Api.php on line 67.
+ 1 APPPATH/Controllers/Api.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "gender"', 'APPPATH/Controllers/Api.php', 67)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Api->contactcurlapi()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-01-27 16:32:02 --> Undefined array key "gender"
+in APPPATH/Controllers/Api.php on line 67.
+ 1 APPPATH/Controllers/Api.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "gender"', 'APPPATH/Controllers/Api.php', 67)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Api->contactcurlapi()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-01-27 16:42:05 --> Undefined array key "type"
+in APPPATH/Controllers/Api.php on line 68.
+ 1 APPPATH/Controllers/Api.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "type"', 'APPPATH/Controllers/Api.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Api->contactcurlapi()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-01-27 16:43:32 --> Undefined array key "type"
+in APPPATH/Controllers/Api.php on line 68.
+ 1 APPPATH/Controllers/Api.php(68): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "type"', 'APPPATH/Controllers/Api.php', 68)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Api->contactcurlapi()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-01-27 16:48:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 16:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 16:50:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 16:50:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 16:50:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 16:50:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 16:50:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 16:51:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 16:51:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-01-27 16:51:07 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5 in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT count(*)...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT count(*)...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT count(*)...')
+#3 /home/congreg8/public_html/app.congreg8.org/app/Helpers/custom_helper.php(353): CodeIgniter\Database\BaseConnection->query('SELECT count(*)...')
+#4 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Dashboard.php(62): get_All_visitors(NULL, '', '')
+#5 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+#6 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-01-27 16:51:07 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 APPPATH/Helpers/custom_helper.php(353): CodeIgniter\Database\BaseConnection->query('SELECT count(*) as cntt FROM (
+        SELECT a.contact_id as cnt
+        FROM `tab_attandance` a
+        LEFT JOIN contacts c ON c.id = a.contact_id
+        WHERE c.r_status = \'Y\' AND a.rstatus = \'Y\' AND form_type = \'Visitor\' AND a.church_id =  GROUP BY a.contact_id
+    ) as A')
+ 2 APPPATH/Controllers/Dashboard.php(62): get_All_visitors(null, '/home/congreg8/public_html/app.congreg8.org', '/home/congreg8/public_html/app.congreg8.org')
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-01-27 16:52:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 16:52:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 16:52:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 16:52:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 16:52:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-01-27 16:52:18 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5 in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT count(*)...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('SELECT count(*)...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT count(*)...')
+#3 /home/congreg8/public_html/app.congreg8.org/app/Helpers/custom_helper.php(353): CodeIgniter\Database\BaseConnection->query('SELECT count(*)...')
+#4 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Dashboard.php(62): get_All_visitors(NULL, '', '')
+#5 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+#6 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+#7 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2024-01-27 16:52:18 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'GROUP BY a.contact_id
+    ) as A' at line 5
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 APPPATH/Helpers/custom_helper.php(353): CodeIgniter\Database\BaseConnection->query('SELECT count(*) as cntt FROM (
+        SELECT a.contact_id as cnt
+        FROM `tab_attandance` a
+        LEFT JOIN contacts c ON c.id = a.contact_id
+        WHERE c.r_status = \'Y\' AND a.rstatus = \'Y\' AND form_type = \'Visitor\' AND a.church_id =  GROUP BY a.contact_id
+    ) as A')
+ 2 APPPATH/Controllers/Dashboard.php(62): get_All_visitors(null, '/home/congreg8/public_html/app.congreg8.org', '/home/congreg8/public_html/app.congreg8.org')
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Dashboard->getvalues()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Dashboard))
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-01-27 16:58:20 --> Undefined array key "gender"
+in APPPATH/Controllers/Api.php on line 67.
+ 1 APPPATH/Controllers/Api.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "gender"', 'APPPATH/Controllers/Api.php', 67)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Api->contactcurlapi()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2024-01-27 16:59:13 --> Undefined array key "gender"
+in APPPATH/Controllers/Api.php on line 67.
+ 1 APPPATH/Controllers/Api.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "gender"', 'APPPATH/Controllers/Api.php', 67)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Api->contactcurlapi()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-01-27 19:02:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-27 19:02:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-01-27 22:00:18 --> Undefined array key "gender"
+in APPPATH/Controllers/Api.php on line 67.
+ 1 APPPATH/Controllers/Api.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "gender"', 'APPPATH/Controllers/Api.php', 67)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Api->contactcurlapi()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()

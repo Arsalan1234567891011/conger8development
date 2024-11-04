@@ -1,0 +1,131 @@
+INFO - 2024-01-09 00:56:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 00:56:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 01:02:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 01:02:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 02:11:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 02:11:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 02:55:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-01-09 02:56:43 --> mysqli_sql_exception: Table 'congreg8_dev.users' doesn't exist in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('UPDATE `users` ...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `users` ...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `users` ...')
+#3 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `users` ...', Array, false)
+#4 /home/congreg8/public_html/app.congreg8.org/system/Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 /home/congreg8/public_html/app.congreg8.org/system/BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 /home/congreg8/public_html/app.congreg8.org/system/Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Signup.php(25): CodeIgniter\Model->update('138', Array)
+#8 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Signup->index()
+#9 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Signup))
+#10 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-01-09 02:56:43 --> Table 'congreg8_dev.users' doesn't exist
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `users` SET `password` = :password:
+WHERE `users`.`id` IN :users.id:', [...], false)
+ 2 SYSTEMPATH/Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH/BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH/Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH/Controllers/Signup.php(25): CodeIgniter\Model->update('138', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Signup->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Signup))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-01-09 05:46:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 05:46:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 05:57:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 05:57:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 08:02:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 08:02:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 11:52:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 14:42:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 14:42:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 14:42:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 14:42:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-01-09 14:43:52 --> mysqli_sql_exception: Table 'congreg8_dev.users' doesn't exist in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('UPDATE `users` ...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `users` ...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `users` ...')
+#3 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `users` ...', Array, false)
+#4 /home/congreg8/public_html/app.congreg8.org/system/Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 /home/congreg8/public_html/app.congreg8.org/system/BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 /home/congreg8/public_html/app.congreg8.org/system/Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Signup.php(25): CodeIgniter\Model->update('138', Array)
+#8 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Signup->index()
+#9 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Signup))
+#10 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-01-09 14:43:52 --> Table 'congreg8_dev.users' doesn't exist
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `users` SET `password` = :password:
+WHERE `users`.`id` IN :users.id:', [...], false)
+ 2 SYSTEMPATH/Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH/BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH/Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH/Controllers/Signup.php(25): CodeIgniter\Model->update('138', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Signup->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Signup))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2024-01-09 14:44:21 --> mysqli_sql_exception: Table 'congreg8_dev.users' doesn't exist in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('UPDATE `users` ...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `users` ...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `users` ...')
+#3 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `users` ...', Array, false)
+#4 /home/congreg8/public_html/app.congreg8.org/system/Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 /home/congreg8/public_html/app.congreg8.org/system/BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 /home/congreg8/public_html/app.congreg8.org/system/Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Signup.php(25): CodeIgniter\Model->update('138', Array)
+#8 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Signup->index()
+#9 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Signup))
+#10 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-01-09 14:44:21 --> Table 'congreg8_dev.users' doesn't exist
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `users` SET `password` = :password:
+WHERE `users`.`id` IN :users.id:', [...], false)
+ 2 SYSTEMPATH/Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH/BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH/Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH/Controllers/Signup.php(25): CodeIgniter\Model->update('138', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Signup->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Signup))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-01-09 15:32:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 15:32:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 20:58:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 20:58:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-01-09 20:58:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-01-09 22:34:56 --> mysqli_sql_exception: Table 'congreg8_dev.users' doesn't exist in /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/congreg8/public_html/app.congreg8.org/system/Database/MySQLi/Connection.php(295): mysqli->query('UPDATE `users` ...', 0)
+#1 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(691): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `users` ...')
+#2 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseConnection.php(605): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `users` ...')
+#3 /home/congreg8/public_html/app.congreg8.org/system/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `users` ...', Array, false)
+#4 /home/congreg8/public_html/app.congreg8.org/system/Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+#5 /home/congreg8/public_html/app.congreg8.org/system/BaseModel.php(943): CodeIgniter\Model->doUpdate(Array, Array)
+#6 /home/congreg8/public_html/app.congreg8.org/system/Model.php(756): CodeIgniter\BaseModel->update(Array, Array)
+#7 /home/congreg8/public_html/app.congreg8.org/app/Controllers/Signup.php(25): CodeIgniter\Model->update('138', Array)
+#8 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(934): App\Controllers\Signup->index()
+#9 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Signup))
+#10 /home/congreg8/public_html/app.congreg8.org/system/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /home/congreg8/public_html/app.congreg8.org/index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2024-01-09 22:34:56 --> Table 'congreg8_dev.users' doesn't exist
+in SYSTEMPATH/Database/BaseConnection.php on line 645.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `users` SET `password` = :password:
+WHERE `users`.`id` IN :users.id:', [...], false)
+ 2 SYSTEMPATH/Model.php(396): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH/BaseModel.php(943): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH/Model.php(756): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH/Controllers/Signup.php(25): CodeIgniter\Model->update('138', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Signup->index()
+ 7 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Signup))
+ 8 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()

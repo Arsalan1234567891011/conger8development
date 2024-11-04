@@ -1,0 +1,67 @@
+INFO - 2024-06-07 00:27:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 00:27:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 16:44:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 16:44:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 16:44:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 16:45:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 16:47:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 16:47:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 17:03:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 17:03:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 17:05:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 17:05:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 17:05:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-07 17:05:59 --> Undefined array key "searchByChurch"
+in APPPATH/Controllers/Interests.php on line 74.
+ 1 APPPATH/Controllers/Interests.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "searchByChurch"', 'APPPATH/Controllers/Interests.php', 74)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Interests->get_interests()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Interests))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-06-07 17:05:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-07 17:05:59 --> Undefined array key "searchByChurch"
+in APPPATH/Controllers/Interests.php on line 74.
+ 1 APPPATH/Controllers/Interests.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "searchByChurch"', 'APPPATH/Controllers/Interests.php', 74)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Interests->get_interests()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Interests))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-06-07 17:06:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-07 17:06:05 --> Undefined array key "searchByChurch"
+in APPPATH/Controllers/Interests.php on line 74.
+ 1 APPPATH/Controllers/Interests.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "searchByChurch"', 'APPPATH/Controllers/Interests.php', 74)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Interests->get_interests()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Interests))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-06-07 17:06:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-07 17:06:05 --> Undefined array key "searchByChurch"
+in APPPATH/Controllers/Interests.php on line 74.
+ 1 APPPATH/Controllers/Interests.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "searchByChurch"', 'APPPATH/Controllers/Interests.php', 74)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Interests->get_interests()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Interests))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-06-07 17:06:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-07 17:06:19 --> Undefined array key "searchByChurch"
+in APPPATH/Controllers/Interests.php on line 74.
+ 1 APPPATH/Controllers/Interests.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "searchByChurch"', 'APPPATH/Controllers/Interests.php', 74)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Interests->get_interests()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Interests))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-06-07 17:06:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-07 17:06:19 --> Undefined array key "searchByChurch"
+in APPPATH/Controllers/Interests.php on line 74.
+ 1 APPPATH/Controllers/Interests.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "searchByChurch"', 'APPPATH/Controllers/Interests.php', 74)
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Interests->get_interests()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Interests))
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+INFO - 2024-06-07 17:17:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 17:21:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 17:21:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 17:22:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 17:23:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 17:23:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-07 17:23:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

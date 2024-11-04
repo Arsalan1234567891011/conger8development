@@ -1,0 +1,261 @@
+.main-email-sec{
+    background-image: url(../images/bg.jpg);
+    width: 100.6%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.detail-left-sec{
+    padding-top: 6rem;
+    padding-left: 5rem;
+}
+.vert-line{
+    width: 2px;
+    background: #979797;
+    height: 50px;
+    margin-left: 15px;
+    margin-bottom: 9px;
+}
+
+.detail-right-sec{
+    padding: 3rem 5rem;
+}
+
+.margin-left{
+    padding-left: 15px;
+}
+
+.detail-left-sec-mb{
+    display: none;
+}
+
+.form-box{
+    margin-left: 35%;
+}
+.button-box {
+	width: 253px;
+	position: relative;
+	border-radius: 30px;
+	background: #fff
+}
+
+.toggle-btn {
+	padding: 10px 37px;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: none;
+	position: relative;
+	text-align: center;
+}
+.toggle-btn:focus{
+    border: 0;
+	outline: none;
+
+}
+
+#btn {
+	left: 0;
+	top: 0;
+	position: absolute;
+	width: 143px;
+	height: 100%;
+	background: #e67e22;
+	border-radius: 30px;
+	transition: .5s;
+}
+
+.free-sec{
+    background: #fff;
+    padding: 4rem 2rem;
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+}
+.free-sec .free-for{
+    padding-left: 27%;
+}
+.pro-sec{
+    background: #fff;
+    padding: 4rem 2rem;
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    position: relative;
+}
+.pro-sec .pro-for{
+    padding-left: 27%;
+}
+
+.pro-sec img{
+    position: absolute;
+    right: -12px;
+    top: 20px;
+    width: 180px
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 1160px) {
+
+    .detail-left-sec{
+        padding-top: 6rem;
+        padding-left: 2rem;
+    }
+
+}
+@media screen and (max-width: 1080px) {
+    .form-box{
+        margin-left: 20%;
+    }
+    .free-sec .free-for{
+        padding-left: 22%;
+    }
+    .pro-sec .pro-for{
+        padding-left: 22%;
+    }
+}
+@media screen and (max-width: 1032px) {
+    .form-box{
+        margin-left: 15%;
+    }
+    .free-sec .free-for{
+        padding-left: 15%;
+    }
+    .pro-sec .pro-for{
+        padding-left: 15%;
+    }
+}
+@media screen and (max-width: 984px) {
+    .form-box{
+        margin-left: 10%;
+    }
+    .free-sec .free-for{
+        padding-left: 10%;
+    }
+    .pro-sec .pro-for{
+        padding-left: 10%;
+    }
+}
+@media screen and (max-width: 920px) {
+    .form-box{
+        margin-left: 0%;
+    }
+    .free-sec .free-for{
+        padding-left: 0%;
+    }
+    .pro-sec .pro-for{
+        padding-left: 0%;
+    }
+}
+
+@media screen and (max-width: 802px) {
+
+    .detail-left-sec{
+        padding-top: 6rem;
+        padding-left: 1rem;
+    }
+
+}
+@media screen and (max-width: 802px) {
+    .free-sec{
+        background: #fff;
+        padding: 4rem 2rem;
+        width: 99%;
+        height: 360px;
+        border-radius: 10px;
+    }
+    .pro-sec{
+        background: #fff;
+        padding: 4rem 2rem;
+        width: 99%;
+        height: 360px;
+        border-radius: 10px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .free-sec{
+        background: #fff;
+        padding: 4rem 2rem;
+        width: 96%;
+        height: 360px;
+        margin: 0 auto;
+        border-radius: 10px;
+    }
+    .pro-sec{
+        background: #fff;
+        padding: 4rem 2rem;
+        width: 96%;
+        height: 360px;
+        margin: 0 auto;
+        border-radius: 10px;
+}
+.mr-topmb{
+    margin-top: 20px;
+}
+    .detail-left-sec{
+        padding-top: 2rem;
+        padding-left: 5rem;
+        display: none;
+    }
+    .detail-left-sec-mb{
+        display: block;
+        display: flex;
+        padding-left: 30px;
+        padding-top: 30px;
+        padding-right: 30px;
+    }
+    .detail-left-sec-mb{
+        height: 100px;
+    }
+    .margin-left{
+        margin-left: 0px;
+    }
+    .vert-line{
+        width: 2px;
+        background: #979797;
+        height: 20px;
+        margin-left: 15px;
+        margin-bottom: 10px;
+    }
+    .button-box{
+        margin-left: 12%;
+    }
+    .text-cent-mb{
+        text-align: center;
+    }
+ 
+    .main-email-sec{
+        background-image: url(../images/bg.jpg);
+        width: 103%;
+        height: 1350px;
+    }
+    .detail-right-sec{
+        padding: 2rem;
+    }
+
+}
+
+@media screen and (min-width: 1700px) {
+
+    .main-email-sec{
+        background-image: url(../images/bg.jpg);
+        width: 103%;
+        height: 1650px;
+    }
+
+}
+
+
+
+
+

@@ -1,0 +1,173 @@
+.main-email-sec{
+    background-image: url(../images/email-verify-background.jpg);
+    width: 100.6%;
+    height: 850px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.email-bg-text-sec{
+    padding-left: 8.5rem;
+    padding-top: 3rem;
+}
+.text-sec-mb-pr{
+    display: none;
+}
+.email-bg-text-sec h2{
+    font-size: 38px;
+}
+.email-bg-text-sec p{
+    font-weight: 500;
+}
+.email-bg-text-sec-mb h2{
+    font-size: 38px;
+}
+.email-bg-text-sec-mb p{
+    font-weight: 500;
+}
+.email-verify-sec{
+    margin-left: 20%;
+    margin-top: 6rem;
+    width: 400px;
+    height: 420px;
+    background: #fff;
+    padding: 2rem;
+}
+.email-verify-sec p{
+    font-size: 14px;
+    font-weight: 400;
+}
+@media screen and (max-width: 1344px) {
+    .email-bg-text-sec{
+        padding-left: 6rem;
+        padding-top: 3rem;
+    }
+}
+@media screen and (max-width: 1250px) {
+    .email-bg-text-sec{
+        padding-left: 4rem;
+        padding-top: 3rem;
+    }
+}
+@media screen and (max-width: 1175px) {
+    .email-bg-text-sec{
+        padding-left: 1rem;
+        padding-top: 3rem;
+    }
+}
+@media screen and (max-width: 1100px) {
+    .email-verify-sec{
+        margin-left: 2rem;
+        margin-top: 8rem;
+        width: 550px;
+        height: 370px;
+        
+    }
+}
+@media screen and (max-width: 1060px) {
+    .email-bg-text-sec{
+        padding-left: 10px;
+        padding-top: 3rem;
+    }
+}
+@media screen and (max-width: 1044px) {
+    .email-verify-sec{
+        margin-left: 1rem;
+        margin-top: 8rem;
+        width: 550px;
+        height: 370px;
+    }
+    .email-bg-text-sec{
+        padding-left: 10px;
+        padding-top: 2rem;
+    }
+   
+}
+@media screen and (max-width: 1012px) {
+    .email-verify-sec{
+        margin-left: 1rem;
+        margin-top: 8rem;
+        width: 500px;
+        height: 370px;
+        
+    }
+}
+@media screen and (max-width: 936px) {
+    .email-verify-sec{
+        margin-left: 0rem;
+        margin-top: 8rem;
+        width: 500px;
+        height: 370px;
+        
+    }
+}
+@media screen and (max-width: 900px) {
+    .email-verify-sec{
+        margin-left: 0rem;
+        margin-top: 8rem;
+        width: 420px;
+        height: 400px;
+        
+    }
+}
+@media screen and (max-width: 840px) {
+    .email-verify-sec{
+        margin-left: 0rem;
+        margin-top: 8rem;
+        width: 420px;
+        height: 400px;
+        
+    }
+    .email-bg-text-sec{
+        padding-left: 0px;
+        padding-top: 1rem;
+    }
+   
+}
+@media screen and (max-width: 768px) {
+    .email-verify-sec{
+        margin-left: 0rem;
+        margin-top: 0rem;
+        width: 90%;
+        height: 400px;
+        margin: 0 auto;
+        
+    }
+    .email-bg-text-sec{
+        padding-left: 0px;
+        padding-top: 1rem;
+    }
+    .text-sec-desk-pr{
+        display: none;
+    }
+    .text-sec-mb-pr{
+        display: block;
+        height: 70px;
+    }
+    .email-bg-text-sec-mb{
+        padding: 0px 17px 0px 17px;
+    }
+    .main-email-sec .col-md-7{
+        padding-right: 0;
+    }
+    .main-email-sec{
+        width: 102%;
+        height: 770px;
+       
+    }
+   
+}
+
+ @media screen and (min-width: 1700px) {
+
+    .main-email-sec{
+        background-image: url(../images/email-verify-background.jpg);
+        width: 103%;
+        height: 980px;
+    }
+
+}
+
+
+  

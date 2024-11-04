@@ -1,0 +1,292 @@
+<?php
+
+
+
+namespace App\Controllers;
+use App\Models\PlanModel;
+use App\Models\PlanOptionModel;
+use App\Models\PlanDetailsModel;
+use App\Models\UserModel;
+use App\Models\SideMenuModel;
+use App\Models\GroupModel;
+use App\Models\GroupMenuModel;
+use App\Models\UserGroupModel;
+
+
+
+
+class Dynamicform extends BaseController
+{
+    public function index()
+    {
+        $data['title']="Dashboard||Admin panel "; 
+
+        $data['page']="Admin/dashboard"; 
+
+
+
+        $data['styles'] = ['public/app-assets/vendors/css/tables/datatable/datatables.min.css'];
+
+
+
+        $data['script'] = ['public/app-assets/js/scripts/tables/datatables/datatable-basic.js','
+
+        public/app-assets/vendors/js/tables/datatable/datatables.min.js'];
+
+        
+
+        echo view('/include/head',$data);
+
+        echo view('/include/topheader',$data); 
+
+        echo view('/include/sidenavbar',$data); 
+     
+
+        echo view('Dynamicform/index',$data);
+
+        echo view('/include/footer'); 
+
+    }
+
+
+         public function getformdata(){
+
+        $db = db_connect();
+
+
+        $draw = $_POST['draw'];
+
+        $row = $_POST['start'];
+
+        $rowperpage = $_POST['length']; // Rows display per page
+
+        $columnIndex = $_POST['order'][0]['column']; // Column index
+
+        $columnName = $_POST['columns'][$columnIndex]['data']; // Column name
+
+        $columnSortOrder = $_POST['order'][0]['dir']; // asc or desc
+
+        $searchValue = $_POST['search']['value']; // Search value
+
+
+
+
+
+
+$userid = session()->get('user_id');
+$get_user_current_plan = get_user_current_plan($userid);
+$user_plan_limit = user_plan_limit($get_user_current_plan, 14);
+
+
+
+
+        $sql = "SELECT ID,Title,f_status,
+
+               FROM form where f_status != 2";
+
+
+
+
+
+
+
+
+
+
+        if($searchValue != ''){
+
+           $sql .= " and (c.name like '%".$searchValue."%' or church_name like '%".$searchValue."%' or form_type like '%".$searchValue."%') ";
+
+        }
+
+
+
+
+
+  $sql .= " ORDER BY `" . $columnName . "` " . $columnSortOrder;
+
+
+
+
+
+
+        //echo $sql;
+
+
+
+
+
+        $query =$db->query($sql);  
+
+        $attendance =$query->getResultArray();
+
+
+
+        $totalRecords = count($attendance);
+
+
+        // start records total
+
+
+
+        $query1 =$db->query($sql);  
+
+        $attendance1 =$query1->getResultArray();
+
+
+        $totalRecordwithFilter = count($attendance1);
+
+        // end records total
+
+
+
+        //$totalRecordwithFilter = count($attendance);
+
+
+
+        $data = array();
+
+        $config         = new \Config\Encryption();
+        $encrypter = \Config\Services::encrypter($config);
+
+
+        foreach ($attendance as $row) {
+
+
+           $data[] = array(
+
+             "Form_id"=>$row['church_name'],
+
+             "Form_title"=>$row['Title'],
+
+             "Status"=>$f_status,
+
+             "action"=>'<i class="icon-trash Adel-record" style="color: red;cursor:pointer;" id="'.$row['ID'].'"></i>',
+
+           );
+
+        }
+
+
+
+
+
+        $response = array(
+
+          "draw" => intval($draw),
+
+          "iTotalRecords" => $totalRecords,
+
+          "iTotalDisplayRecords" => $totalRecordwithFilter,
+
+          "aaData" => $data
+
+        );
+
+
+
+        echo json_encode($response);
+        // exit;
+
+
+
+    }
+
+
+
+    public function sidebarmenuitems($id)
+
+    {
+
+        $data['title']="Dashboard||Admin panel "; 
+
+        $data['page']="Admin/dashboard"; 
+
+
+
+        $data['styles'] = ['public/app-assets/vendors/css/tables/datatable/datatables.min.css'];
+
+
+
+        $data['script'] = ['public/app-assets/js/scripts/tables/datatables/datatable-basic.js','
+
+        public/app-assets/vendors/js/tables/datatable/datatables.min.js'];
+
+        
+
+        echo view('/include/head',$data);
+
+        echo view('/include/topheader',$data); 
+
+        echo view('/include/sidenavbar',$data); 
+        $data['id']=$id;
+        $GroupMenuModel = new GroupMenuModel();
+
+        // $db = db_connect();                                                  
+        // $builder = $db->table('plan_detail');
+        
+        // $ids = explode(',', $data['id']);
+        
+        // foreach ($ids as $id) {
+        //     $builder->set('pd_isdeleted', 'N');
+        //     $builder->where('pd_pm_ref', $id);
+        //     $builder->update();
+        // }
+        
+        
+        $SideMenuModel = new SideMenuModel();
+        // $PlanOptionModel = new PlanOptionModel();
+        $data['groupmenu'] = $GroupMenuModel->where('isactive','Y')->where('group_id',$id)->findAll();
+        // var_dump($data['groupmenu']);
+        // exit;
+        // $data['user'] = $PlanModel->where('pm_id', $id)->first();
+        $data['menuitems'] = $SideMenuModel->where('isactive','1')->findAll();
+   
+        
+        echo view('group/sidebarmenu', $data);
+
+        echo view('/include/footer'); 
+
+    
+
+    }
+    public function addmenuoption()
+    {
+        $GroupMenuModel = new GroupMenuModel();
+
+        
+            $id = $this->request->getVar('group_id');
+            $options = $this->request->getVar('options');
+
+            $db = db_connect();                                                  
+            $builder = $db->table('group_menu');
+            
+            $ids = explode(',', $id);
+            
+            foreach ($ids as $id) {
+                $builder->set('isactive', 'N');
+                $builder->where('group_id', $id);
+                $builder->update();
+            }
+            foreach ($options as $row) {
+               
+                $quantity = $this->request->getVar('quantity_' . $row);              
+               
+                if (empty($quantity) || is_null($quantity)) {
+                    $quantity = 0;
+                }                
+                $data = array(
+                    'group_id' => $id,
+                    'sidebarmenu_id' => filter_var($row, FILTER_SANITIZE_STRING),
+                    'isactive' => 'Y',
+                    // 'sidebarmenu_id' => $quantity,
+                );
+
+                $user = $GroupMenuModel->insert($data);
+            }
+
+            // Redirect after processing
+            return redirect()->to(base_url()."group-details");
+
+    }
+}
