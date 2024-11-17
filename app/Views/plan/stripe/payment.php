@@ -91,45 +91,46 @@
                                     <?php echo session()->getFlashdata('error'); ?>
                                 </div>
                             <?php endif ?>
-          <form
-            role="form"
-            action="<?php echo base_url('/stripe/create-charge'); ?>"
-            method="post"
-            class="require-validation"
-            data-cc-on-file="false"
-            data-stripe-publishable-key="<?php echo getenv("stripe.key") ?>"
-            id="payment-form">
-            <input type='hidden' name='userid' value='<?php echo $userid  ?>'>
-            <input type='hidden' name='plan' value='<?php echo $plan?>'>
-            <input type='hidden' name='planid' value='<?php echo $planid?>'>
-            <input type='hidden' name='interval' value='<?php  echo  $interval?>'>
-            <input type='hidden' name='amount' value='0'>
-            <div class="pwd-field mt-2">
-              <span>Card Number</span>
-              <img src="<?php echo base_url(); ?>/public/newassets/images/mastercard.png">
-              <input data-label="Card Number" id="cardNumberInput" class="card-number required" style="height: 35px;" type="text" placeholder="0000 3287 0800 3278">
-            </div>
-            <div class="row mt-1">
-              <div class="col-6">
-                <span>Expiry Date</span>
-                <input id="expiryDateInput" data-label="Expiry Date" class="form-control required" type="text" name="expirydate" placeholder="16 /26">
-              </div>
-              <div class="col-6">
-                <span>CVC</span>
-                <input id="cvcInput" data-label="CSV"  name="csv" class="form-control required card-cvc" type="text" placeholder="X X X">
-              </div>
-            </div>
-            <div class="mt-3">
-              <span>Discount Code (Optional)</span>
-              <div class="pwd-fields mt-1">
-                <input style="height: 35px;" type="password" name="discount_code" placeholder=" ">
-                <p>Apply</p>
-              </div>
-            </div>
-            <button id='pay-btn' class="btn btn-primary mt-3" type="submit" >
-            PAY <?php echo $currency.number_format($plan_price ,0); ?>
-            </button>
-          </form>
+							<form
+							role="form"
+							action="<?php echo base_url('/stripe/create-charge'); ?>"
+							method="post"
+							class="require-validation"
+							data-cc-on-file="false"
+							data-stripe-publishable-key="<?php echo getenv("stripe.key") ?>"
+							id="payment-form">
+							<input type='hidden' name='userid' value='<?php echo $userid  ?>'>
+							<input type='hidden' name='plan' value='<?php echo $plan?>'>
+							<input type='hidden' name='planid' value='<?php echo $planid?>'>
+							<input type='hidden' name='interval' value='<?php echo $interval?>'>
+							<input type='hidden' name='amount' value='0'>
+							<div class="pwd-field mt-2">
+							  <span>Card Number</span>
+							  <img src="<?php echo base_url(); ?>/public/newassets/images/mastercard.png">
+							  <input data-label="Card Number" id="cardNumberInput" class="card-number required" style="height: 35px;" type="text" placeholder="0000 3287 0800 3278">
+							</div>
+							<div class="row mt-1">
+							  <div class="col-6">
+								<span>Expiry Date</span>
+								<input id="expiryDateInput" data-label="Expiry Date" class="form-control required" type="text" name="expirydate" placeholder="12 /26">
+							  </div>
+							  <div class="col-6">
+								<span>CVC</span>
+								<input id="cvcInput" data-label="CSV"  name="csv" class="form-control required card-cvc" type="text" placeholder="X X X">
+							  </div>
+							</div>
+							<div class="mt-3">
+							  <span>Discount Code (Optional)</span>
+							  <div class="pwd-fields mt-1">
+								<input style="height: 35px;" type="password" name="discount_code" placeholder=" ">
+								<p>Apply</p>
+							  </div>
+							</div>
+							<button id='pay-btn' class="btn btn-primary mt-3" type="button">
+								PAY <?php echo $currency.number_format($plan_price ,0); ?>
+							</button>
+						</form>
+
         </div>
         <div class="col-md-6">
           <div class="payment-righ-sec">
@@ -161,69 +162,43 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type = "text/javascript">
+<script type="text/javascript">
    $(function () {
-	   
-var currentDate = new Date();
-var currentYear = currentDate.getFullYear().toString(); // Convert year to string
-var firstTwoDigits = currentYear.substring(0, 2); // Extract the first two characters
+      var currentDate = new Date();
+      var currentYear = currentDate.getFullYear().toString();
+      var firstTwoDigits = currentYear.substring(0, 2);
 
-
-	   
-      hasEmptyField = false;
       toastr.options = {
          "closeButton": true,
          "positionClass": "toast-top-right",
          "timeOut": "5000",
-         "progressBar": true // Show progress bar
+         "progressBar": true
       };
       var $form = $(".require-validation");
 
-      $('form.require-validation').bind('submit', function (e) {
-         $('#payment-form').find('input.required:visible, textarea.required:visible').each(function () {
+      $('#pay-btn').on('click', function (e) {
+         e.preventDefault();
+         var hasEmptyField = false;
 
+         $('#payment-form').find('input.required:visible, textarea.required:visible').each(function () {
             if ($(this).val().trim() === '') {
                var labelText = $(this).data('label');
                toastr.error(labelText + " is required");
                hasEmptyField = true;
-               e.preventDefault(); // Prevent form submission if a required field is empty
                return false;
             }
          });
 
-         if (hasEmptyField) {
-            hasEmptyField = false;
-            e.preventDefault(); // Prevent form submission if a required field is empty
-            return false;
-         }
-
-         var $form = $(".require-validation"),
-            inputSelector = ['input[type=email]', 'input[type=password]',
-               'input[type=text]', 'input[type=file]',
-               'textarea'
-            ].join(', '),
-            $inputs = $form.find('.required').find(inputSelector),
-            $errorMessage = $form.find('div.error'),
-            valid = true;
-         $errorMessage.addClass('hide');
-
-         $('.has-error').removeClass('has-error');
-         $inputs.each(function (i, el) {
-            var $input = $(el);
-            if ($input.val() === '') {
-               $input.parent().addClass('has-error');
-               $errorMessage.removeClass('hide');
-               e.preventDefault();
-            }
-         });
+         if (hasEmptyField) return;
 
          if (!$form.data('cc-on-file')) {
-
             e.preventDefault();
             Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+
             var expiryDate = document.getElementById('expiryDateInput').value;
             var expMonth = expiryDate.split('/')[0];
-            var expYear = firstTwoDigits+expiryDate.split('/')[1];
+            var expYear = firstTwoDigits + expiryDate.split('/')[1];
+
             Stripe.createToken({
                number: $('.card-number').val(),
                cvc: $('.card-cvc').val(),
@@ -231,26 +206,20 @@ var firstTwoDigits = currentYear.substring(0, 2); // Extract the first two chara
                exp_year: expYear
             }, stripeResponseHandler);
          }
-
       });
 
       function stripeResponseHandler(status, response) {
          if (response.error) {
             toastr.error(response.error.message);
-
          } else {
-            /* token contains id, last4, and card type */
             var token = response['id'];
-
             $form.find('input[type=text]').empty();
-            $form.append("<input type='hidden' name='stripeToken' id='stripe-token-id'   value='" + token + "'/>");
-			$('#pay-btn').prop('disabled', true);
-
+            $form.append("<input type='hidden' name='stripeToken' id='stripe-token-id' value='" + token + "'/>");
+            $('#pay-btn').prop('disabled', true);
             $form.get(0).submit();
          }
       }
-
-   }); 
+   });
 </script>
 </body>
 </html>

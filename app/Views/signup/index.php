@@ -130,8 +130,8 @@
       eyeIcon.src = type === "password" ? "<?php echo base_url(); ?>/public/sign-up/assets/eye.svg" : "<?php echo base_url(); ?>/public/sign-up/assets/eye-slash-svgrepo-com.svg";
     });
     $(document).ready(function(){
-        var base_url = "https://development.congreg8.org";
-        var save_url = base_url+"/"+controller+"/save";
+        var base_url =  "<?php echo base_url(); ?>";
+        var save_url = base_url+"/signup/save";
      
         $('#frmsignup').on('submit', function(e) {
         e.preventDefault(); 
@@ -150,7 +150,8 @@
             var response = JSON.parse(result);
             $('#frmsignup')[0].reset();
             toastr.success('Data submitted Successfully', 'Success!');
-            window.location.href = base_url+'/signup/verifyemail/'+response.value;
+            //window.location.href = base_url+'/signup/verifyemail/'+response.value;
+			window.location.href = base_url;
           },
           error: function(xhr, status, error) {
             // Handle the error response

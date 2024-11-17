@@ -45,18 +45,18 @@ class Filters extends BaseConfig
         'before' => [
 		
 		'planfilter' => [
-		  'except' => ['login','getpackagesbytime','logout','/signup/verificationEmail','Signup/verifyemail/*','payment/*','stripe/create-charge','viewchurch','signupsubscription','save_view_church','church_detail','signup','signup/save','reset/verify/*','/reset','recover-password','public-contact','signup/verify/*','reset/verify/*','reset','savenewpassword','addexternalcontact','adddecisioncard','contactcurlapi','api/survey','api/request_api','api/check_in','api/baptism_request'],
+		  'except' => ['stripe/bill','plandetail','signup/verifyotp','login','getpackagesbytime','logout','/signup/verificationEmail','Signup/verifyemail/*','payment/*','stripe/create-charge','viewchurch','signupsubscription','save_view_church','church_detail','signup','signup/save','reset/verify/*','/reset','recover-password','public-contact','signup/verify/*','reset/verify/*','reset','savenewpassword','addexternalcontact','adddecisioncard','contactcurlapi','api/survey','api/request_api','api/check_in','api/baptism_request'],
             ],
 			
 			
 		   'auth' => [
-                'except' => ['login','Signup/verifyemail/*','signup','signup/save','/reset','reset/verify/*','recover-password','public-contact','signup/verify/*','reset/verify/*','reset','savenewpassword','addexternalcontact','adddecisioncard','contactcurlapi','api/survey','api/request_api','api/check_in','api/baptism_request'],
+                'except' => ['stripe/bill','login','Signup/verifyemail/*','signup','signup/save','/reset','reset/verify/*','recover-password','public-contact','signup/verify/*','reset/verify/*','reset','savenewpassword','addexternalcontact','adddecisioncard','contactcurlapi','api/survey','api/request_api','api/check_in','api/baptism_request'],
             ],
 		 
 	
 
             'churchfilter' => [
-                'except' => ['login','savenewpassword','church_detail','Signup/verifyemail/*','signup','signup/save','/reset','reset/verify/*','recover-password','payment/*','stripe/create-charge','viewchurch','save_view_church','getpackagesbytime','getplanid','logout','api/survey_final','signup/verify/*','addexternalcontact','adddecisioncard','contactcurlapi','api/survey','api/request_api','api/check_in','api/baptism_request'],
+                'except' => ['stripe/bill','plandetail','signup/verifyotp','login','savenewpassword','church_detail','Signup/verifyemail/*','signup','signup/save','/reset','reset/verify/*','recover-password','payment/*','stripe/create-charge','viewchurch','save_view_church','getpackagesbytime','getplanid','logout','api/survey_final','signup/verify/*','addexternalcontact','adddecisioncard','contactcurlapi','api/survey','api/request_api','api/check_in','api/baptism_request'],
             ],
 			
 			 'subscription' => [

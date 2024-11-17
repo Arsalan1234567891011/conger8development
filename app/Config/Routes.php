@@ -116,6 +116,7 @@ $routes->post('/signup/save', 'Signup::save');
 $routes->get('/signup/verify/(:any)', 'Signup::verify/$1');
 $routes->get('/signup/verificationsent', 'Signup::verificationsent');
 $routes->post('/signup/verificationEmail', 'Signup::verificationEmail');
+$routes->post('/signup/verifyotp', 'Signup::verifyotp');
 
 
 $routes->get('/recover-password', 'UserController::RecoverPassword');
@@ -250,7 +251,10 @@ $routes->post('/api/baptism_request', 'Api::baptism_request');
 
 
 $routes->get('payment/(:num)/(:segment)', 'Payment::index/$1/$2');
+$routes->post('/plandetail', 'Payment::plandetail');
 $routes->post('stripe/create-charge', 'Payment::createCharge');
+$routes->get('stripe/bill', 'Payment::bill');
+
 
 //signup subscription
 $routes->get('/signupsubscription', 'Plan::signupsubscription');

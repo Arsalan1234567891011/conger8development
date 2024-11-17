@@ -50,9 +50,8 @@
           <p class="mb-0"><?php echo  $user['email'] ?></p>
         </div>
         <div class="d-flex justify-content-between mb-3">
-          <h6 class="mb-0">Amount Paid</h6>
-          <h6 class="mb-0">
-          $<?php echo  "0" ?></h5>
+          <h6 class="mb-0">Amount paid </br> after 14 days trail</h6>
+          <p class="mb-0">$<?php echo  $amount ?></p>
         </div>
         <div class="d-flex justify-content-between mb-1">
           <h6 class="mb-0">Transaction ID</h6>
@@ -67,7 +66,7 @@
           </div>
           <div class="col-6">
             <div>
-              <button  id="closebtn" class="btn btn-primary">CLOSE</button>
+              <button  id="closebtn" class="btn btn-primary">Dashboard</button>
             </div>
           </div>
         </div>
@@ -81,7 +80,10 @@
 </body>
 <script>
   $(document).ready(function () {
-
+    var base_url =  "<?php echo base_url(); ?>";
+	$('#closebtn').on('click', function () {
+	  window.location.href = base_url;	 
+    }); 
     $('#printBtn').on('click', function () {
       $('#printBtn,#closebtn').hide();
       var contentToPrint = $('#printableContent').html();

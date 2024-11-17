@@ -132,24 +132,9 @@ class Churches extends BaseController
 
     public function viewchurch()
 {
-	$session = session();
-    $userid=session()->user_id;
-    $ChurchModel=new ChurchModel;
-    $data['user'] = $ChurchModel->where('parentid =',$userid)->first();
+    echo view('signup/verify-email');
 
-    $data['title']="Dashboard||Admin panel "; 
-
-    $data['page']="Admin/dashboard"; 
-
-  //  echo view('/include/head1',$data);
-
-    //echo view('/include/topheader',$data); 
-
-    // echo view('/include/sidenavbar',$data); 
-
-    echo view('/churches/create',$data);
-
-   // echo view('/include/footer');     
+ 
 }
 public function church_detail()
 {      

@@ -203,7 +203,6 @@ function getusercurrentplan()
 	$db      = \Config\Database::connect();
 	$userData = session()->get();
 
-	
     $sql = "SELECT plan_id,pm_title FROM `Plan_Subscription`
 JOIN plan_master ON Plan_Subscription.plan_id =plan_master.pm_id
 WHERE  plan_rstatus='Y' AND plan_rstatus='Y' AND  church_id=".$userData['user_church_id']." ";      

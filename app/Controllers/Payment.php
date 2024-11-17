@@ -6,6 +6,7 @@ use App\Models\PlanOptionModel;
 use App\Models\PlanDetailsModel;
 use App\Models\UserModel;
 use App\Models\subscription;
+use App\Models\UserChurchModel;
 use App\Models\ChurchModel;
 use App\Models\Billing;
 use App\Models\subscription_detail;
@@ -15,7 +16,7 @@ use Stripe;
 class Payment extends BaseController
 {
     public function index($id, $plan)
-    {
+    { 
         $db = \Config\Database::connect();
         $userData = session()->get();
 
@@ -205,11 +206,106 @@ class Payment extends BaseController
 
         echo view("/include/footer");
     }
+    public function plandetail()
+    { 
+        $session = session();
+        $plan_model = new PlanModel();
+        $plan =  $plan_model->where('pm_visibility',1)->where('pm_id', $this->request->getVar("id"))->first();
+
+        if($this->request->getVar("interval") == 'm'){
+            $data['price'] =   $plan['pm_price'];
+        } else {
+            $data['price'] =   $plan['pm_yearly'] * 12;
+        }
+
+        $data['currency'] =   $plan['pm_currency'];
+        $data["planid"] = $plan['pm_id'];
+        $data["interval"] = $this->request->getVar("interval");
+        $data["userid"] = session()->user_id;
+
+		return  json_encode($data);
+    }
+
+    public function bill(){
+
+
+        $planTitle = session()->get('Plan_title');
+        $amount = session()->get('amount');
+        $intervalType = session()->get('intervaltype');
+        $intervalCount = session()->get('interval_count');
+        $txrId = session()->get('txrid');
+        $session = session();
+        $userid = session()->user_id;		
+
+        $UserModel= new UserModel();
+        $data12["Plan_title"] = $planTitle;
+        $data12["amount"] = $amount ;
+        $data12["intervaltype"] = $intervalType;
+        $data12["interval_count"] =$intervalCount;
+        $data12["txrid"] = $txrId ;
+        $data12["user"] =  $UserModel->where('id',$userid)->first();
+
+
+        $data["styles"] = [
+            "/public/newassets/css/bootstrap.min.css",
+            "/public/newassets/css/depost.css",
+        ];
+        $data['user'] =
+
+        $data["title"] = "Payment Successful";
+
+        echo view("/include/head", $data);
+
+        echo view("/include/topheader");
+
+        echo view("/plan/stripe/bill", $data12);
+
+        echo view("/include/footer");
+    }
 
     public function createCharge()
     {
+
+        $ChurchModel = new ChurchModel();
+        $UserChurchModel = new UserChurchModel();
+        $session = session();
+        $userData = session()->get();
+        $userid= $userData['user_id'];
+        $id=$userData['user_church_id'];
+        $UserModel= new UserModel();
+        $userdata=[
+            'otp' => null,
+
+        ]; 
+        $UserModel->update(session()->user_id,$userdata);
+        
+        $data=[
+            'parentid' =>$userid,
+            'church_name' =>$userData['name'],
+            'church_email' =>$userData['email'],
+            'phone' =>$this->request->getvar('phone'), 
+            'website' =>$userData['website'],
+            'address' =>$this->request->getvar('address'),
+            'pastor_name' =>$this->request->getvar('pastor_name'),
+            'time_zone' =>$this->request->getvar('time_zone'),     
+            'is_filled'=>'1',    
+
+        ];    
+                      
+
+       $result=$ChurchModel->update($id,$data);
+       $session = session();
+       $session->remove('website');
+	   $session->remove('email');
+	   $session->remove('id');
+	   $session->remove('name');
+
+
+
+
         $UserModel = new UserModel();
-        $sub_user = $UserModel->where("church_id",  session()->user_church_id)->where('parent',session()->user_id)->get()->getResult();
+       // $sub_user = $UserModel->where("church_id",  session()->user_church_id)->where('parent',session()->user_id)->get()->getResult();
+        $sub_user = $UserModel->where("church_id",  session()->user_church_id)->where("id",'!',session()->user_id)->get()->getResult();
         $admin = $UserModel->where("id", session()->user_id)->get()->getResult();
         $mergedusers = array_merge($sub_user, $admin);
         $sub_user_count = count($mergedusers);
@@ -424,27 +520,14 @@ class Payment extends BaseController
             
             $subscriptiondetail = $subcription_detail->where("sd_id", $new_insert_id)->first();
 
-            $data12["Plan_title"] = $planName;
-            $data12["amount"] = $subsData["plan"]["amount"] / 100;
-            $data12["intervaltype"] = $subsData["plan"]["interval"];
-            $data12["interval_count"] = $subsData["plan"]["interval_count"];
-            $data12["txrid"] = $subscriptiondetail["sd_txrid"];
-            $data12["user"] = $emailData;
+            session()->set('Plan_title',$planName);
+            session()->set('amount', $subsData["plan"]["amount"] / 100);
+            session()->set('intervaltype', $subsData["plan"]["interval"]);
+            session()->set('interval_count', $subsData["plan"]["interval_count"]);
+            session()->set('txrid',  $subscriptiondetail["sd_txrid"]);
+            session()->set('user', $emailData);
 
-            $data["styles"] = [
-                "/public/newassets/css/bootstrap.min.css",
-                "/public/newassets/css/depost.css",
-            ];
-
-            $data["title"] = "Payment Successful";
-
-            echo view("/include/head", $data);
-
-            echo view("/include/topheader");
-
-            echo view("/plan/stripe/bill", $data12);
-
-            echo view("/include/footer");
+            return redirect('stripe/bill');
 
             // return redirect('/')->with("success", "Payment Successful!");
         } catch (\Stripe\Exception\CardException $e) {
@@ -462,4 +545,5 @@ class Payment extends BaseController
                 ->with("error", $error);
         }
     }
+
 }
