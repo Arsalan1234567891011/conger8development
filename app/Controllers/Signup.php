@@ -10,10 +10,8 @@ use App\Models\UserGroupModel;
 
 class Signup extends BaseController
 {
-
-
 	public function index(){
-  $cache = \Config\Services::cache();
+       $cache = \Config\Services::cache();
 
         // Clear all caches
         $cache->clean();
@@ -85,13 +83,14 @@ class Signup extends BaseController
 	
 			$date = date('Y-m-d H:i:s');
 			$resetlink = md5($date);
+			$verifylink = md5($date);
 			$passworde=$this->request->getVar('password');
 			$email=$this->request->getVar('email');
 
 			
 			$password_encrypt = base64_encode($encrypter->encrypt($passworde));
 			$phone_encrypt = base64_encode($encrypter->encrypt($phone));
-
+			$otp = rand(1000, 9999);
 
 			$userData = [
 				'name' => $this->request->getVar('name'),
@@ -100,7 +99,8 @@ class Signup extends BaseController
 				'role' => 'churchadmin',
 				'status' => 'verify',
 				'password' => $password_encrypt,
-				'verify_link' => $resetlink
+				'verify_link' => $resetlink,
+				'otp' => $otp
 			];
 	
 			if ($UserModel->insert($userData)) {
@@ -143,6 +143,10 @@ class Signup extends BaseController
 	
 				$data = ['church_id' => $new_church_id];
 				$UserModel->update($new_insert_id, $data);
+
+				$session = session();
+				session()->set('user_id',$new_insert_id);
+                session()->set('user_church_id',$new_church_id);
 	
 				$to = $this->request->getVar('email');
 				$subject = 'Verify Email Address';
@@ -161,15 +165,15 @@ class Signup extends BaseController
 				</head>
 				<body>
 				<h1>Verify Your Email Address</h1>
-				<p>Click the following link to verify your email address:</p>
-				<a href="' . $resetlink . '">' . $resetlink . '</a>
+				<p>Your verification  OTP is:</p>
+				<h2 >' . $otp  . '</h2>
 				<p>&copy; ' . $currentYear . ' Congreg8</p>
 				</body>
 				</html>';
 	
-				// if (sendmail($to, $subject, $message)) {
-				if (sendmail('malikarsalanhhg2244@gmail.com', $subject, $message)) {
-					echo json_encode(array("result" => "success", "value" =>$new_insert_id));
+				//if (sendmail($to, $subject, $message)) {
+			    if (sendmail('malikarsalanhhg2244@gmail.com', $subject, $message)) {
+					echo json_encode(array("result" => "success", "value" => $verifylink));
 					exit();
 				} else {
 					
@@ -235,6 +239,59 @@ if ($user && $user['verify_link'] === "ok") {
 					return json_encode("not  verified");
 				}
 		
+	}
+
+	public function verifyotp()
+	{ 
+
+		$session = session();
+        $userid = session()->user_id;		
+
+		$db      = \Config\Database::connect();
+		$UserModel= new UserModel();
+		$otp = $this->request->getPost('otp');
+		$user = $UserModel->where('id',$userid)->where('otp',$otp)->first();
+
+		if (empty($user)) {
+
+			$data = [
+				'error' => true,
+				'message' => 'OTP is not matched!'
+			];
+			return  json_encode($data);
+		}
+
+		$ChurchModel=new ChurchModel;
+		$church = $ChurchModel->where('parentid =',$userid)->first();
+
+		$id = $church['id'];
+		$session = session();
+		$name=$this->request->getvar('church_name');
+		$email= $this->request->getvar('church_email');
+		$website=$this->request->getvar('website');
+
+		$address = $this->request->getVar('address');
+        $pastor_name = $this->request->getVar('pastor_name');
+        $timezone = $this->request->getVar('time_zone');
+
+
+		
+		$session->set('id',$id);
+		$session->set('name',$name);
+		$session->set('email',$email);
+		$session->set('website',$website);
+		$session->set('otp', $otp);
+		$session->set('address', $address);
+		$session->set('pastorname', $pastor_name);
+		$session->set('timezone', $timezone);
+	
+		$data = [
+				'success' => true,
+				'message' => "Otp Verified Successfully"
+		];
+
+
+		return  json_encode($data);
 	}
 
 	public function verify($id)
