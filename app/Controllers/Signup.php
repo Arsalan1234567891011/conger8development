@@ -171,8 +171,8 @@ class Signup extends BaseController
 				</body>
 				</html>';
 	
-				//if (sendmail($to, $subject, $message)) {
-			    if (sendmail('malikarsalanhhg2244@gmail.com', $subject, $message)) {
+				if (sendmail($to, $subject, $message)) {
+			  //  if (sendmail('malikarsalanhhg2244@gmail.com', $subject, $message)) {
 					echo json_encode(array("result" => "success", "value" => $verifylink));
 					exit();
 				} else {
