@@ -277,23 +277,24 @@ class Payment extends BaseController
             'otp' => null,
 
         ]; 
-        $UserModel->update(session()->user_id,$userdata);
+
+       // $UserModel->update(session()->user_id,$userdata);
         
         $data=[
             'parentid' =>$userid,
             'church_name' =>$userData['name'],
             'church_email' =>$userData['email'],
-            'phone' =>$this->request->getvar('phone'), 
+            'phone' =>$userData['phone'], 
             'website' =>$userData['website'],
-            'address' =>$this->request->getvar('address'),
-            'pastor_name' =>$this->request->getvar('pastor_name'),
-            'time_zone' =>$this->request->getvar('time_zone'),     
+            'address' =>$userData['address'],
+            'pastor_name' =>$userData['pastorname'],
+            'time_zone' =>$userData['timezone'],     
             'is_filled'=>'1',    
 
         ];    
-                      
 
        $result=$ChurchModel->update($id,$data);
+       
        $session = session();
        $session->remove('website');
 	   $session->remove('email');

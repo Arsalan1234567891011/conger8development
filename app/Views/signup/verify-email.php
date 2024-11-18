@@ -880,7 +880,21 @@
                                             d="M10.6899 10.9324C10.5856 10.9407 10.4825 10.8467 10.4854 10.7288C10.4883 10.6063 10.5711 10.5252 10.6903 10.5239C10.8049 10.5227 10.8926 10.6009 10.8976 10.7267C10.9026 10.8422 10.797 10.9432 10.6899 10.9324Z"
                                             fill="#9B9DA8" />
                                     </svg>
-                                    <input type="text" id="timezone" class="form-control" placeholder="Timezone" required>
+									 <select id="timezone" name="timezone"  class="form-control">
+                                         <?php 
+                                                $db = db_connect();  
+                                                $sql = "SELECT * FROM time_zone_new";
+                                                $query =$db->query($sql);                                   
+                                                //  $row =$query->getResultArray(); 
+                                                //  var_dump($row);
+                                                //  exit;
+                                                
+                                                 foreach ($query->getResultArray() as $row){ ?>
+                                             <option value="<?php echo $row['value']; ?>">
+                                                <?php echo $row['title']; ?>
+                                             </option>
+                                             <?php } ?>
+                                    </select>
                                 </div>
                             </div>
                             <svg style="margin-top: 25px;" xmlns="http://www.w3.org/2000/svg" width="55" height="6"
@@ -1638,6 +1652,7 @@
 		var  time_zone = $('#timezone').val();
 		var  pastor_name = $('#pastor_name').val();
 		var  address = $('#church_address').val();
+		var  phone = $('#pastor_phone').val();
 
 		$.ajax({
 			url: base_url + '/signup/verifyotp',
@@ -1651,6 +1666,7 @@
 				'time_zone' : time_zone,
 				'pastor_name' : pastor_name,
 				'address' : address,
+				'phone' : phone,
 				'_token': '{{ csrf_token() }}' 
 			},
 			dataType: 'json', 
@@ -1748,6 +1764,7 @@
             success: function(response) {
 				$('#total-payment').text(response.currency+response.price);
 				$('#nextBtn').prop('disabled', false);
+				$('#nextBtn').html('Start Free Trial- ' +response.currency+response.price+ ' Today');
 				$('#amount').val(response.price);
 				$('#interval').val(response.interval);
 				$('#planid').val(response.planid);

@@ -269,13 +269,11 @@ if ($user && $user['verify_link'] === "ok") {
 		$name=$this->request->getvar('church_name');
 		$email= $this->request->getvar('church_email');
 		$website=$this->request->getvar('website');
-
+		$phone=$this->request->getvar('phone');
 		$address = $this->request->getVar('address');
         $pastor_name = $this->request->getVar('pastor_name');
         $timezone = $this->request->getVar('time_zone');
 
-
-		
 		$session->set('id',$id);
 		$session->set('name',$name);
 		$session->set('email',$email);
@@ -284,6 +282,8 @@ if ($user && $user['verify_link'] === "ok") {
 		$session->set('address', $address);
 		$session->set('pastorname', $pastor_name);
 		$session->set('timezone', $timezone);
+		$session->set('phone', $phone);
+
 	
 		$data = [
 				'success' => true,
