@@ -123,7 +123,45 @@ class Churches extends BaseController
 
         //return view('churches/index');
     }
+	public function seessionSave()
+	{ 
+		$session = session();
+        $userid = session()->user_id;		
 
+		$db      = \Config\Database::connect();
+		$UserModel= new UserModel();
+
+
+		$ChurchModel=new ChurchModel;
+		$church = $ChurchModel->where('parentid =',$userid)->first();
+		$id = $church['id'];
+		$session = session();
+		$name=$this->request->getvar('church_name');
+		$email= $this->request->getvar('church_email');
+		$website=$this->request->getvar('website');
+		$phone=$this->request->getvar('phone');
+		$address = $this->request->getVar('address');
+        $pastor_name = $this->request->getVar('pastor_name');
+        $timezone = $this->request->getVar('time_zone');
+
+		$session->set('id',$id);
+		$session->set('name',$name);
+		$session->set('email',$email);
+		$session->set('website',$website);
+		$session->set('address', $address);
+		$session->set('pastorname', $pastor_name);
+		$session->set('timezone', $timezone);
+		$session->set('phone', $phone);
+
+	
+		$data = [
+				'success' => true,
+				'message' => "Otp Verified Successfully"
+		];
+
+
+		return  json_encode($data);
+	}
 
 
 

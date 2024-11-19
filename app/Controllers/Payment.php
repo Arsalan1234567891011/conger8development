@@ -162,8 +162,20 @@ class Payment extends BaseController
 
             $userModel->update($userSessionId, $data2);
 
+            $userData = session()->get();
+            $userid= $userData['user_id'];
+
             $data3 = [
-                "plan_id" => $id,
+                'plan_id' => $id,
+                'parentid' =>$userid,
+                'church_name' =>$userData['name'],
+                'church_email' =>$userData['email'],
+                'phone' =>$userData['phone'], 
+                'website' =>$userData['website'],
+                'address' =>$userData['address'],
+                'pastor_name' =>$userData['pastorname'],
+                'time_zone' =>$userData['timezone'],     
+                'is_filled'=>'1',    
             ];
 
             $ChurchModel = new ChurchModel();

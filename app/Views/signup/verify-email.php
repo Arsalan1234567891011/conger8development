@@ -649,7 +649,7 @@
                             <input type="text" name="otp[]"  maxlength="1" class="input-box">
                         </div>
 
-                        <p class="resend">Haven't Received Email? <a href="#">Resend</a></p>
+                        <p class="resend">Haven't Received Email? <a href="#" id="resend">Resend</a></p>
                     </div>
                 </div>
 
@@ -1633,6 +1633,44 @@
         document.getElementById('planPrice').innerText = totalPayment;
         function VerifyEmail() {
             // VErification Process Here
+			var otpValues = $('input[name="otp[]"]').map(function() {
+			  return $(this).val();
+			}).get();
+		
+			var otpString = otpValues.join('');
+			var verify_link = $('#verify_link').val();
+			var  church_name = $('#church_name').val();
+			var  church_email = $('#church_email').val();
+			var  website = $('#church_website').val();
+			var  time_zone = $('#timezone').val();
+			var  pastor_name = $('#pastor_name').val();
+			var  address = $('#church_address').val();
+			var  phone = $('#pastor_phone').val();
+
+			$.ajax({
+				url: base_url + '/signup/verifyotp',
+				type: 'POST',
+				data: {
+					'otp': otpString,
+					'_token': '{{ csrf_token() }}' 
+				},
+				dataType: 'json', 
+				success: function(response) {
+							if(response.success){
+								toastr.success(response.message, 'Success');
+							} 
+							if(response.error){
+								$('#nextBtn').prop('disabled', true);
+								toastr.error(response.message, 'Error');
+								location.reload();
+							} 
+				},
+				error: function(xhr, status, error) {
+					// Display a more detailed error message
+					var errorMessage = xhr.status + ': ' + xhr.statusText;
+					$('#responseMessage').html('<p>Error - ' + errorMessage + '</p>');
+				}
+			});
         }
         function EnterChurchDetails() {
          
@@ -1640,11 +1678,6 @@
 
         function EnterPastorDetails() {
        
-		var otpValues = $('input[name="otp[]"]').map(function() {
-		  return $(this).val();
-		}).get();
-		
-        var otpString = otpValues.join('');
 		var verify_link = $('#verify_link').val();
 		var  church_name = $('#church_name').val();
 		var  church_email = $('#church_email').val();
@@ -1655,10 +1688,9 @@
 		var  phone = $('#pastor_phone').val();
 
 		$.ajax({
-			url: base_url + '/signup/verifyotp',
+			url: base_url + '/Churches/seessionSave',
 			type: 'POST',
 			data: {
-				'otp': otpString,
 			    'church_name' :church_name,
 				'church_email': church_email,
 				'website' : church_email,
@@ -1671,14 +1703,7 @@
 			},
 			dataType: 'json', 
 			success: function(response) {
-						if(response.success){
-							toastr.success(response.message, 'Success');
-						} 
-						if(response.error){
-							$('#nextBtn').prop('disabled', true);
-							toastr.error(response.message, 'Error');
-							location.reload();
-						} 
+
 			},
 			error: function(xhr, status, error) {
 				// Display a more detailed error message
@@ -1748,6 +1773,30 @@
     var base_url = "<?php echo base_url(); ?>";
     var csrf_token = "<?php echo csrf_token(); ?>"; // Assign CSRF token to JavaScript variable
 
+    $('#resend').on('click', function(event) {
+		$.ajax({
+				url: base_url + '/signup/resendemail',
+				type: 'POST',
+				data: {
+					'_token': '{{ csrf_token() }}' 
+				},
+				dataType: 'json', 
+				success: function(response) {
+							if(response.success){
+								toastr.success(response.message, 'Success');
+							} 
+							if(response.error){
+								toastr.error(response.message, 'Error');
+							} 
+				},
+				error: function(xhr, status, error) {
+					// Display a more detailed error message
+					var errorMessage = xhr.status + ': ' + xhr.statusText;
+					$('#responseMessage').html('<p>Error - ' + errorMessage + '</p>');
+				}
+			});
+	});
+	
     $('#goToStepFiveBtn, #goToStepFiveBtn2').on('click', function(event) {
 		
 		var id = $(this).data('id');

@@ -241,11 +241,74 @@ if ($user && $user['verify_link'] === "ok") {
 		
 	}
 
-	public function verifyotp()
+	public function resendemail()
 	{ 
 
 		$session = session();
-        $userid = session()->user_id;		
+        $userid = session()->user_id;	
+		$db      = \Config\Database::connect();
+		$UserModel= new UserModel();
+		$user = $UserModel->where('id',$userid)->first();
+
+		if($user['otp']==null){
+			$data = [
+				'error' => true,
+				'message' => 'Email is already Verified!'
+			];
+			return  json_encode($data);
+		}
+
+		$otp = rand(1000, 9999);
+		$userData = [
+			'otp' => $otp
+		];
+
+		$UserModel->Update($userid,$userData);
+		$currentYear = date('Y');
+		$to = $user['email'];
+		$subject = 'Verify Email Address';
+	
+		$message = '
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		<title></title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		</head>
+		<body>
+		<h1>Verify Your Email Address</h1>
+		<p>Your verification  OTP is:</p>
+		<h2 >' . $otp  . '</h2>
+		<p>&copy; ' . $currentYear . ' Congreg8</p>
+		</body>
+		</html>';
+
+		if (sendmail($to, $subject, $message)) {
+			$data = [
+				'success' => true,
+				'message' => "Otp is send on your email"
+			];
+		} else {
+			
+			$data = [
+				'error' => true,
+				'message' => "Otp is not send on your email"
+			];
+		}
+
+		$data = [
+			'success' => true,
+			'message' => "Otp is send on your email"
+		];
+		return  json_encode($data);
+		
+	}
+
+	public function verifyotp()
+	{ 
+		$session = session();
+        $userid = session()->user_id;	
 
 		$db      = \Config\Database::connect();
 		$UserModel= new UserModel();
@@ -253,44 +316,16 @@ if ($user && $user['verify_link'] === "ok") {
 		$user = $UserModel->where('id',$userid)->where('otp',$otp)->first();
 
 		if (empty($user)) {
-
 			$data = [
 				'error' => true,
 				'message' => 'OTP is not matched!'
 			];
-			return  json_encode($data);
-		}
-
-		$ChurchModel=new ChurchModel;
-		$church = $ChurchModel->where('parentid =',$userid)->first();
-
-		$id = $church['id'];
-		$session = session();
-		$name=$this->request->getvar('church_name');
-		$email= $this->request->getvar('church_email');
-		$website=$this->request->getvar('website');
-		$phone=$this->request->getvar('phone');
-		$address = $this->request->getVar('address');
-        $pastor_name = $this->request->getVar('pastor_name');
-        $timezone = $this->request->getVar('time_zone');
-
-		$session->set('id',$id);
-		$session->set('name',$name);
-		$session->set('email',$email);
-		$session->set('website',$website);
-		$session->set('otp', $otp);
-		$session->set('address', $address);
-		$session->set('pastorname', $pastor_name);
-		$session->set('timezone', $timezone);
-		$session->set('phone', $phone);
-
-	
-		$data = [
+		} else {
+			$data = [
 				'success' => true,
 				'message' => "Otp Verified Successfully"
-		];
-
-
+		    ];
+		}
 		return  json_encode($data);
 	}
 

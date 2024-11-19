@@ -117,6 +117,7 @@ $routes->get('/signup/verify/(:any)', 'Signup::verify/$1');
 $routes->get('/signup/verificationsent', 'Signup::verificationsent');
 $routes->post('/signup/verificationEmail', 'Signup::verificationEmail');
 $routes->post('/signup/verifyotp', 'Signup::verifyotp');
+$routes->post('/signup/resendemail', 'Signup::resendemail');
 
 
 $routes->get('/recover-password', 'UserController::RecoverPassword');
@@ -260,6 +261,7 @@ $routes->get('stripe/bill', 'Payment::bill');
 $routes->get('/signupsubscription', 'Plan::signupsubscription');
 // $routes->get('/encryptallpass', 'User::encryptallpass');
 $routes->get('/viewchurch', 'Churches::viewchurch');
+$routes->post('/Churches/seessionSave', 'Churches::seessionSave');
 $routes->post('/save_view_church', 'Churches::save_view_church');
 $routes->post('/church_detail', 'Churches::church_detail');
 $routes->post('/getplanid', 'Plan::getplanid');
