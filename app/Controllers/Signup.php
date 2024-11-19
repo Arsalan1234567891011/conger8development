@@ -265,7 +265,7 @@ if ($user && $user['verify_link'] === "ok") {
 
 		$UserModel->Update($userid,$userData);
 		$currentYear = date('Y');
-		$to = $user['email'];
+		$to = 'malikarsalanhhg2244@gmail.com';//$user['email'];
 		$subject = 'Verify Email Address';
 	
 		$message = '
