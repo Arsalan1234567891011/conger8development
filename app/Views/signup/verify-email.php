@@ -1813,7 +1813,7 @@
             success: function(response) {
 				$('#total-payment').text(response.currency+response.price);
 				$('#nextBtn').prop('disabled', false);
-				$('#nextBtn').html('Start Free Trial- ' +response.currency+response.price+ ' Today');
+				$('#nextBtn').html('Start Free Trial- '+'$0.00 Today');
 				$('#amount').val(response.price);
 				$('#interval').val(response.interval);
 				$('#planid').val(response.planid);
