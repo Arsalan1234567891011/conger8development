@@ -1266,12 +1266,24 @@
                     text-transform: capitalize;
                     ">Payment Confirmation</h5>
                     <div class="payment-details mt-3">
-                        <p><strong>Plan Title</strong> <span>PRO</span></p>
-                        <p><strong>Valid For</strong> <span>1 Year</span></p>
-                        <p><strong>Mobile</strong> <span>0101 718 222 222</span></p>
-                        <p><strong>Email</strong> <span>larrypage@gmail.com</span></p>
-                        <p><strong>Amount Paid</strong> <span id="planPrice">$0</span></p>
-                        <p><strong>Transaction ID</strong> <span>Txr_1729094821</span></p>
+                     <?php if (session()->has('showModal')): ?>
+						<p><strong>Plan Title:</strong> <span><?= session()->get('Plan_title'); ?></span></p>
+					<?php endif; ?>
+					 <?php if (session()->has('intervaltype')): ?>
+						<p><strong>Valid For:</strong> <span><?= session()->get('interval_count'); ?> <?= session()->get('intervaltype'); ?></span></p>
+					<?php endif; ?>
+                    <?php if (session()->has('phone')): ?>
+						<p><strong>Mobile :</strong> <span><?= session()->get('phone'); ?></span></p>
+					<?php endif; ?>
+					<?php if (session()->has('email')): ?>
+						<p><strong>Email :</strong> <span><?= session()->get('email'); ?></span></p>
+					<?php endif; ?>
+					<?php if (session()->has('amount')): ?>
+						<p><strong>Amount Paid :</strong> <span><?= session()->get('amount'); ?></span></p>
+					<?php endif; ?>
+					<?php if (session()->has('txrid')): ?>
+						<p><strong>Transaction ID :</strong> <span><?= session()->get('txrid'); ?></span></p>
+					<?php endif; ?>
                     </div>
                     <button type="button" class="btn btn-primary mt-3" id="continueToDashboardBtn">CONTINUE TO
                         DASHBOARD</button>
@@ -1772,7 +1784,23 @@
 	$(document).ready(function() {
     var base_url = "<?php echo base_url(); ?>";
     var csrf_token = "<?php echo csrf_token(); ?>"; // Assign CSRF token to JavaScript variable
-
+	
+	<?php if (session()->has('showModal')): ?>
+		const paymentConfirmationModalElement = document.getElementById('paymentConfirmationModal');
+		if (paymentConfirmationModalElement) {
+			const paymentConfirmationModal = new bootstrap.Modal(paymentConfirmationModalElement, {
+				backdrop: true, 
+				keyboard: false 
+			});
+			paymentConfirmationModal.show();
+			const continueToDashboardBtn = document.getElementById('continueToDashboardBtn');
+			if (continueToDashboardBtn) {
+				continueToDashboardBtn.onclick = function () {
+					window.location.href = base_url;
+				};
+			} 
+		}
+    <?php endif ?>	
     $('#resend').on('click', function(event) {
 		$.ajax({
 				url: base_url + '/signup/resendemail',

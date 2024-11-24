@@ -285,12 +285,12 @@ class Payment extends BaseController
         $userid= $userData['user_id'];
         $id=$userData['user_church_id'];
         $UserModel= new UserModel();
-        $userdata=[
+        $user=[
             'otp' => null,
 
         ]; 
 
-       // $UserModel->update(session()->user_id,$userdata);
+        $UserModel->update(session()->user_id,$user);
         
         $data=[
             'parentid' =>$userid,
@@ -530,19 +530,15 @@ class Payment extends BaseController
                 
                 $billing->insert($data);
             }
-            
             $subscriptiondetail = $subcription_detail->where("sd_id", $new_insert_id)->first();
-
-            session()->set('Plan_title',$planName);
-            session()->set('amount', $subsData["plan"]["amount"] / 100);
-            session()->set('intervaltype', $subsData["plan"]["interval"]);
-            session()->set('interval_count', $subsData["plan"]["interval_count"]);
-            session()->set('txrid',  $subscriptiondetail["sd_txrid"]);
-            session()->set('user', $emailData);
-
-            return redirect('stripe/bill');
-
-            // return redirect('/')->with("success", "Payment Successful!");
+            session()->setFlashdata('Plan_title',$planName);
+            session()->setFlashdata('amount', $subsData["plan"]["amount"] / 100);
+            session()->setFlashdata('intervaltype', $subsData["plan"]["interval"]);
+            session()->setFlashdata('interval_count', $subsData["plan"]["interval_count"]);
+            session()->setFlashdata('txrid',  $subscriptiondetail["sd_txrid"]);
+            session()->setFlashdata('user', $emailData);
+            session()->setFlashdata('showModal', true);
+            return redirect('/viewchurch');
         } catch (\Stripe\Exception\CardException $e) {
             // Handle card errors and show appropriate error message
             $error = $e->getMessage();
