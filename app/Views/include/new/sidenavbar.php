@@ -63,9 +63,7 @@ if($urole == 'user'){
                         echo '</div>';
                         // Add the id here with submenu_ prefix
                         echo '<ul class="collapse list-unstyled" id="submenu_' . $row['menu_id'] . '">';
-                        echo '<li class="nav-item">';
-                        echo '<a class="nav-link" href="#">'.$childItems.'</a>';
-                        echo '</li>';
+                        echo $childItems;
                         echo '</ul>';
                         echo '</li>';
                     }

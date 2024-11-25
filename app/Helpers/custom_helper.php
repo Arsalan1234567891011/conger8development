@@ -780,12 +780,14 @@ function gettingchildnew($parentid)
                 }
             }
 
-          $output .= '<li class="nav-item">
-                <a style="text-decoration: none;"  href="' . $url . '" class="custom-link">
-                    <i class="' . $row['icon'] . '"></i>
-                    <span class="menu-title text-dark" data-i18n="nav.dash.main">' . $row['title'] . '</span>
-                </a>
-            </li>';
+            $output .= '<li class="nav-item">
+            <a href="' . $url . '" class="nav-link">
+                ' . $row['title'] . '
+            </a>
+        </li>';
+
+
+        
 
             
             
