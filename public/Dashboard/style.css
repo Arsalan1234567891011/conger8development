@@ -1,3 +1,18 @@
+body {
+  font-family: 'Manrope' !important;
+}
+
+/* Apply smooth transition */
+body,
+.tag,
+.btn,
+div,
+button,
+select,
+input[type="text"] {
+  transition: background-color 0.2s ease, color 0.0s ease;
+}
+
 /* Loader CSS */
 .loader-wrapper {
   position: fixed;
@@ -13,8 +28,10 @@
 }
 
 .loader {
-  border: 4px solid #f3f3f3; /* Light grey */
-  border-top: 4px solid #ff003d; /* Blue */
+  border: 4px solid #f3f3f3;
+  /* Light grey */
+  border-top: 4px solid #ff003d;
+  /* Blue */
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -25,23 +42,50 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
   font-family: "Manrope", sans-serif;
 }
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #000 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+button {
+  cursor: pointer;
+}
+
 :root {
+  --sidebar-icon-color: #424657;
   --plan-head: #424657;
   --bg-color: #fff;
   --dropdown-bg-color: #f5f5f5;
   --card-bg-color: #fff;
   --dropdown-text-color: #333333;
-  --sidebar-text-color: #000;
+  --sidebar-text-color: #424657;
   --sidebar-bg-color: #f9f9f9;
   --absent-text-color: #000;
   --absent-bg-color: #fff2f2;
@@ -60,8 +104,9 @@ body {
   --contact-bg: #f5f5f5;
   --button-bg: #f7f8f8;
   --button-text: #424657;
-  --button-border: #f7f8f8;
-  --logo-image-url: url("assets/slogo-ico.svg"); /* Default image URL */
+  --button-border: #e4e4e4;
+  --logo-image-url: url("assets/slogo-ico.svg");
+  /* Default image URL */
   --tab-bg-color: #f5f5f5;
   --piechart-bg1: #f9f9f9;
   --piechart-bg2: #f2454e;
@@ -69,9 +114,20 @@ body {
   --modal-bg: rgba(255, 255, 255, 0.7);
   --doughnut-bg1: #ff003d;
   --doughnut-bg2: #e4e2ea;
+  --sidebarclosingbtncolor: #EBEBEB;
+  --scrollthumbcolor: #d7d7d7;
+  --scrolltrackcolor: #f0f0f0;
+  --statusactive-bg: #E2F0EC;
+  --statusactive-text: #1C9565;
+  --statusinactive-bg: rgba(240, 226, 226, 1);
+  --statusinactive-text: rgba(149, 28, 28, 1);
+  --input-color: #f9f9f9;
+  --text-color: black;
+  --input-border-color: #e2e8f0;
 }
 
 [data-theme="dark"] {
+  --sidebar-icon-color: #dfdde6;
   --piechart-bg1: #424557;
   --piechart-bg2: #c00000;
   --doughnut-bg1: #f2454e;
@@ -83,7 +139,7 @@ body {
   --card-bg-color: #24222c;
   --card-text-color: #ffffff;
   --sidebar-bg-color: #181621;
-  --sidebar-text-color: #b8b8b8;
+  --sidebar-text-color: #dfdde6;
   --absent-bg-color: #370c0c;
   --absent-text-color: #f4f4f4;
   --event-bg-color: #2a2834;
@@ -95,29 +151,45 @@ body {
   --task-dropdown-bg-sha: #16141e;
   --calender-day: #2a2834;
   --calender-prev-next-day: #d3d3d3;
-  --refer-bg-color: linear-gradient(
-    277deg,
-    rgba(62, 41, 22, 0.24) 5.57%,
-    rgba(164, 108, 57, 0.39) 100%
-  );
+  --refer-bg-color: linear-gradient(277deg,
+      rgba(62, 41, 22, 0.24) 5.57%,
+      rgba(164, 108, 57, 0.39) 100%);
   --contact-name: #e4e2ea;
   --contact-text: #9f9da8;
   --contact-bg: #24222c;
   --button-bg: #1f1d28;
   --button-text: #b8b8b8;
   --button-border: #3e404b;
-  --logo-image-url: url("assets/Congre8_logo-white.svg"); /* Default image URL */
+  --logo-image-url: url("assets/Congre8_logo-white.svg");
+  /* Default image URL */
   --tab-bg-color: #24222c;
+  --sidebarclosingbtncolor: #424657;
+  --scrollthumbcolor: #424657;
+  --scrolltrackcolor: rgba(66, 70, 87, 0.17);
+  --statusactive-bg: rgba(35, 84, 79, 0.40);
+  --statusactive-text: rgba(103, 191, 102, 1);
+  --statusinactive-bg: rgba(255, 0, 59, 0.18);
+  --statusinactive-text: rgba(214, 0, 0, 1);
+  --input-color: #24222C;
+  --input-border-color: #3F3D48;
+  --text-color: white;
 }
+
+.sidebarclosingbtn {
+  stroke: var(--sidebarclosingbtncolor);
+}
+
 .plan-head {
   color: var(--plan-head);
 }
+
 .sticky-top {
   border: none;
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -130,11 +202,147 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+.sidebar .nav-item {
+  margin-bottom: 9px;
+}
+
 .sidebar .nav-link {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
   font-weight: 500;
-  color: #333;
   color: var(--sidebar-text-color);
   transition: color 0.3s;
+
+}
+
+#sidebarSticky .nav-item {
+  margin-bottom: 9px;
+}
+
+#sidebarSticky .nav-link {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  font-weight: 500;
+  color: var(--sidebar-text-color);
+  transition: color 0.3s;
+}
+
+/* Ensure the default state for the arrow */
+.rotate-icon {
+  color: var(--sidebar-icon-color) !important;
+  transform: rotate(-90deg);
+  transition: transform 0.3s ease !important;
+}
+
+/* Submenu with transition delay for better synchronization */
+#formsSubMenu {
+  transition: height 0.3s ease 0.1s;
+  /* Adjust delay as needed */
+}
+
+
+/* Rotate the icon immediately when the submenu starts opening */
+.nav-item:has(#formsSubMenu.show) .rotate-icon {
+  transform: rotate(00deg);
+  /* Rotate as per your requirement */
+}
+
+/*
+/* Submenu with transition delay for better synchronization */
+#settingsSubMenu {
+  transition: height 0.3s ease 0.1s;
+  /* Adjust delay as needed */
+}
+
+
+/* Rotate the icon immediately when the submenu starts opening */
+.nav-item:has(#settingsSubMenu.show) .rotate-icon {
+  transform: rotate(00deg);
+  /* Rotate as per your requirement */
+}
+
+/* Submenu with transition delay for better synchronization */
+#InterestsSubMenu {
+  transition: height 0.3s ease 0.1s;
+  /* Adjust delay as needed */
+}
+
+
+/* Rotate the icon immediately when the submenu starts opening */
+.nav-item:has(#InterestsSubMenu.show) .rotate-icon {
+  transform: rotate(00deg);
+  /* Rotate as per your requirement */
+}
+
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: none;
+  /* Customize the color or style as needed */
+}
+
+/* Submenu with transition delay for better synchronization */
+#attendenceSubMenu {
+  transition: height 0.3s ease 0.1s;
+  /* Adjust delay as needed */
+}
+
+
+/* Rotate the icon immediately when the submenu starts opening */
+.nav-item:has(#attendenceSubMenu.show) .rotate-icon {
+  transform: rotate(00deg);
+  /* Rotate as per your requirement */
+}
+
+.nav-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.dash {
+  cursor: pointer;
+  width: 100%;
+  border-radius: 12px;
+  padding: 4px;
+  background: #FC0238;
+  color: white !important;
+}
+
+.sidebar.closed li {
+  padding-left: 0 !important;
+  justify-content: center;
+}
+
+.sidebar.closed .nav-icon {
+  width: 25px !important;
+  height: 25px !important;
+}
+
+.nav-icon {
+  margin-right: -4px;
+  fill: var(--sidebar-icon-color);
+}
+
+.dash .nav-link {
+  color: #FFF !important;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.dash .nav-icon {
+  fill: white;
+  margin-left: 3px;
+  margin-right: -4px;
+  width: 16px;
+  height: 16px;
 }
 
 .sidebar .nav-link .feather {
@@ -143,17 +351,18 @@ body {
   color: var(--sidebar-text-color);
   transition: background-color 0.3s, color 0.3s;
 }
+
 .nav-item {
   display: flex;
   align-items: center;
   cursor: pointer;
   padding-left: 12px;
-  color: white;
 }
+
 .dropdown-menu {
   width: 300px;
   background-color: var(--card-bg-color);
-  color: var(--card-text-color);
+  color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
 
@@ -167,20 +376,68 @@ body {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  height: calc(100vh - 48px);
+  overflow-y: hidden;
   padding-top: 0.5rem;
-  overflow-x: hidden;
-  overflow-y: hidden; /* Scrollable contents if viewport is shorter than content. */
   background-color: var(--sidebar-bg-color);
   color: var(--sidebar-text-color);
   transition: background-color 0.3s, color 0.3s;
 }
+
+.links-scroll {
+  max-height: calc(100vh - 160px);
+  overflow-y: hidden;
+  /* Hide overflow initially */
+}
+
+/* Show overflow and increase opacity on hover */
+.links-scroll:hover {
+  overflow-y: auto;
+}
+
+/* WebKit Browsers - Animate the scrollbar width on hover */
+.links-scroll::-webkit-scrollbar {
+  width: 0px;
+  /* Start with a hidden scrollbar */
+  transition: width 0.8s ease;
+  /* Smooth transition for scrollbar width */
+}
+
+.links-scroll::-webkit-scrollbar-track {
+  background: var(--scrolltrackcolor);
+  /* Track color */
+}
+
+.links-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--scrollthumbcolor);
+  /* Thumb color */
+  border-radius: 50px;
+  /* Rounded thumb */
+}
+
+/* On hover, increase the scrollbar width smoothly */
+.links-scroll:hover::-webkit-scrollbar {
+  width: 7px;
+  /* Final scrollbar width on hover */
+}
+
+.card-title {
+  font-size: 20px !important;
+}
+
+.card-text {
+  font-size: 12px !important;
+}
+
 .dropdown-item.d-flex {
   display: flex;
   align-items: center;
   background-color: var(--card-bg-color);
   color: var(--card-text-color);
   transition: background-color 0.3s, color 0.3s;
+}
+
+.absent-members-card .card-text {
+  font-size: 24px !important;
 }
 
 .dropdown-item .pr-1 {
@@ -194,6 +451,7 @@ body {
 .dropdown-item .badge {
   margin-left: auto;
 }
+
 .btn.upgrade-btn {
   display: flex;
   gap: 5px;
@@ -208,6 +466,7 @@ body {
   background-color: transparent;
   box-shadow: 0px 4px 4px 0px rgba(193, 193, 193, 0.25);
 }
+
 .checkbox {
   display: none;
 }
@@ -241,7 +500,7 @@ body {
   transition: transform 0.2s linear;
 }
 
-.checkbox:checked + .checkbox-label .ball {
+.checkbox:checked+.checkbox-label .ball {
   transform: translateX(24px);
 }
 
@@ -258,9 +517,11 @@ body {
   height: 100vh;
   background-color: #f8f9fa;
 }
+
 .modal-body {
   display: flex;
 }
+
 .plan-card {
   border-radius: 10px;
   padding: 0 20px 20px 20px;
@@ -272,6 +533,7 @@ body {
   color: var(--card-text-color);
   transition: background-color 0.3s, color 0.3s;
 }
+
 .plan-card .price {
   font-size: 70px;
   font-weight: bold;
@@ -279,6 +541,7 @@ body {
   color: var(--card-text-color);
   transition: background-color 0.3s, color 0.3s;
 }
+
 .plan-card p.price {
   background: linear-gradient(to top left, #ff003d, #ffb169);
   -webkit-text-fill-color: transparent;
@@ -286,6 +549,7 @@ body {
   color: var(--card-text-color);
   transition: background-color 0.3s, color 0.3s;
 }
+
 .plan-btn {
   width: 100%;
   font-size: 16px;
@@ -297,12 +561,10 @@ body {
   color: transparent;
   cursor: pointer;
   outline: none;
-  border-image-source: linear-gradient(
-    90deg,
-    #ff003d 0%,
-    #ffb169 48%,
-    #ff003d 100%
-  );
+  border-image-source: linear-gradient(90deg,
+      #ff003d 0%,
+      #ffb169 48%,
+      #ff003d 100%);
   transition: background-color 0.3s, color 0.3s;
   background-clip: text;
   -webkit-background-clip: text;
@@ -315,15 +577,19 @@ body {
   width: 100%;
   border-image-source: linear-gradient(45deg, #ffb169 0%, #ff003d 98%);
 }
+
 .lc1 {
   background-color: var(--piechart-bg1);
 }
+
 .lc2 {
   background-color: var(--piechart-bg2);
 }
+
 .lc3 {
   background-color: #ffb169;
 }
+
 .btn-solid {
   width: 100%;
   font-size: 16px;
@@ -337,11 +603,16 @@ body {
   border-image-source: linear-gradient(45deg, #ffb169 0%, #ff003d 98%);
   transition: background-color 0.3s, color 0.3s;
 }
+
 .modal.fade {
-  background: var(--modal-bg); /* Semi-transparent white background */
-  backdrop-filter: blur(3px); /* Blur the content behind */
-  -webkit-backdrop-filter: blur(10px); /* For Safari support */
+  background: var(--modal-bg);
+  /* Semi-transparent white background */
+  backdrop-filter: blur(3px);
+  /* Blur the content behind */
+  -webkit-backdrop-filter: blur(10px);
+  /* For Safari support */
 }
+
 .modal-header {
   border-bottom: none;
   display: flex;
@@ -349,16 +620,19 @@ body {
   align-items: center;
   width: 100%;
 }
+
 .modal-header h2 {
   flex-grow: 1;
   text-align: center;
 }
+
 .modal-content {
   border: none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   background: var(--bg-color);
 }
+
 .custom-modal-dialog {
   max-width: 1000px;
   margin: 1.75rem auto;
@@ -371,11 +645,13 @@ body {
   background: var(--bg-color);
   color: var(--text-color);
 }
+
 .plan-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .tabs {
   margin: auto;
   height: 85%;
@@ -385,6 +661,7 @@ body {
   align-items: center;
   background: var(--tab-bg-color);
 }
+
 .tab-item {
   padding: 8px 28px;
   display: flex;
@@ -393,10 +670,12 @@ body {
   color: var(--event-text-color);
   margin: 0 6px;
 }
+
 ::selection {
   background-color: #ff003d;
   color: white;
 }
+
 .tab-item.active {
   background-color: var(--event-bg-color);
   border-radius: 54px;
@@ -404,19 +683,23 @@ body {
   color: var(--event-text-color);
   box-shadow: 0px 4px 6px 0px #8b8b8b67;
 }
+
 @media (min-width: 800px) and (max-width: 1000px) {
   .custom-modal-dialog {
     width: 80%;
   }
 }
+
 @media (min-width: 0px) and (max-width: 800px) {
   .plan-container {
     display: block;
   }
+
   .custom-modal-dialog {
     width: 90%;
   }
 }
+
 .badge.badge-danger {
   background-color: red;
 }
@@ -454,9 +737,11 @@ body {
   left: auto;
   will-change: transform;
 }
+
 .blur {
   filter: blur(5px);
 }
+
 /* General Calendar Styles */
 .flatpickr-calendar {
   width: 360px;
@@ -474,10 +759,14 @@ body {
   font-size: 13px;
   padding: 0;
   border: 1px solid transparent;
-  width: 30px; /* Adjust width as needed */
-  height: 30px; /* Adjust height as needed */
-  line-height: 30px; /* Center text vertically */
-  margin: 3px; /* Add margin to create space between days */
+  width: 30px;
+  /* Adjust width as needed */
+  height: 30px;
+  /* Adjust height as needed */
+  line-height: 30px;
+  /* Center text vertically */
+  margin: 3px;
+  /* Add margin to create space between days */
   margin-top: 10px;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -521,13 +810,15 @@ body {
   border: none !important;
   background: transparent !important;
   box-shadow: none !important;
-  padding: 0; /* Remove any padding if exists */
+  padding: 0;
+  /* Remove any padding if exists */
 }
 
 /* Custom styles for the arrow buttons */
 .flatpickr-prev-arrow svg path,
 .flatpickr-next-arrow svg path {
-  fill: var(--text-color) !important; /* Custom fill color */
+  fill: var(--text-color) !important;
+  /* Custom fill color */
 }
 
 /* Styles for the month and year elements */
@@ -543,16 +834,16 @@ body {
   padding: 0;
   color: var(--event-text-color) !important;
 }
+
 /* Example for changing the color of SVG arrows directly */
 .flatpickr-prev-month svg,
 .flatpickr-next-month svg {
-  fill: var(--text-color); /* Change the color to your desired color */
+  fill: var(--text-color);
+  /* Change the color to your desired color */
 }
 
 /* Remove dropdown icon from the month */
-.flatpickr-calendar
-  .flatpickr-current-month
-  .flatpickr-monthDropdown-months::after {
+.flatpickr-calendar .flatpickr-current-month .flatpickr-monthDropdown-months::after {
   display: none !important;
 }
 
@@ -566,12 +857,12 @@ body {
   font-size: 17px;
   background: #000;
 }
+
 /* Customize the background color of the month dropdown options */
 .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month {
   background-color: var(--sidebar-bg-color) !important;
-  color: var(
-    --sidebar-text-color
-  ) !important; /* White background for each month option */
+  color: var(--sidebar-text-color) !important;
+  /* White background for each month option */
 }
 
 /* Additional styles for buttons and layout */
@@ -643,7 +934,8 @@ body {
   display: none;
 }
 
-#dateFilter {
+#dateFilter,
+#dateFilter2 {
   border-radius: 24px;
   background: var(--button-bg);
   border: 1px solid var(--button-border);
@@ -680,6 +972,7 @@ body {
   margin-right: 10px;
   vertical-align: middle;
 }
+
 .custom-legend {
   display: flex;
   flex-direction: column;
@@ -698,16 +991,19 @@ body {
   margin-right: 8px;
   border-radius: 4px;
 }
+
 .legend {
   display: inline-block;
   justify-content: center;
   align-items: center;
 }
+
 .legend div {
   display: flex;
   align-items: center;
   margin-right: 10px;
 }
+
 .legend div span {
   display: block;
   width: 15px;
@@ -715,18 +1011,22 @@ body {
   margin-right: 5px;
   border-radius: 3px;
 }
+
 .members {
   background-color: #f2454e;
 }
+
 .congregation {
   background-color: #ffb169;
 }
+
 .bar-chart {
   display: flex;
   margin-right: 15px;
   align-items: flex-end;
   height: 100px;
 }
+
 .bar {
   width: 20px;
   margin: 0 10px;
@@ -739,14 +1039,17 @@ body {
   align-items: flex-end;
   transition: height 0.5s;
 }
+
 .bar.members {
   background-color: #f2454e;
   height: 0;
 }
+
 .bar.congregation {
   background-color: #ffb169;
   height: 0;
 }
+
 .bar-value {
   text-align: center;
   font-weight: 700;
@@ -761,17 +1064,21 @@ body {
 .card-header {
   background: none;
 }
+
 .card-header h5 {
   margin: 0;
 }
+
 .table {
   border: none !important;
 }
+
 .table th {
   background-color: var(--contact-bg);
   color: var(--contact-name);
   border: none !important;
 }
+
 .btn-refresh {
   border-radius: 24px;
   background: var(--button-bg);
@@ -790,6 +1097,7 @@ body {
   font-weight: 700;
   line-height: normal;
 }
+
 .btn-all {
   border-radius: 24px;
   background: var(--button-bg);
@@ -808,40 +1116,50 @@ body {
   font-weight: 700;
   line-height: normal;
 }
+
 .btn-all:hover {
   color: var(--button-text);
 }
+
 .btn-refresh:hover {
   color: var(--button-text);
 }
+
 .table th,
 .table td {
   vertical-align: middle;
   border: none !important;
 }
+
 .table td label {
   color: var(--contact-name);
   font-weight: bold;
 }
+
 .table td a {
   color: var(--contact-text);
 }
+
 .table td.cont {
   color: var(--contact-text);
 }
+
 .table .btn-link {
   padding: 0;
 }
+
 .status-active {
   color: #1c9565;
 }
+
 .status-inactive {
   color: #951c1c;
 }
 
 .sidebar {
   height: 100%;
-  transition: width 0.3s ease; /* Transition width for smooth sidebar toggle */
+  transition: width 0.3s ease;
+  /* Transition width for smooth sidebar toggle */
 }
 
 .toggle-btn:hover {
@@ -854,47 +1172,114 @@ body {
 }
 
 #main {
-  transition: margin-left 0.3s ease; /* Transition margin-left for smooth content shift */
+  transition: margin-left 0.3s ease;
+  /* Transition margin-left for smooth content shift */
   padding: 20px;
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s, color 0.3s;
 }
-.dash {
-  cursor: pointer;
-  border-radius: 10px;
-  padding-left: 12px;
-  background: linear-gradient(45deg, #e61515 0%, #ff003d 100%);
-  align-items: center;
-  color: white;
-}
+
+
 .sidebar.closed {
   width: 100px;
   justify-content: center;
   align-items: center;
 }
-.sidebar.closed a {
+
+.sidebar.closed .nav-link {
   display: none;
 }
+
+.dash .rotate-icon {
+  color: #fff !important;
+}
+
+.iconlink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .sidebar.closed .dash {
-  margin: auto;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   height: 50px;
   width: 50px;
 }
+
+.dash .nav-icon {
+  margin-bottom: 2px;
+  height: 18px !important;
+  margin-left: 0 !important;
+  width: 18px !important;
+}
+
+.sidebar.closed .rotate-icon {
+  display: none;
+}
+
+.sidebar.closed .closed-pos {
+  justify-content: center !important;
+}
+
 .sidebar.closed li {
+  margin-bottom: 26px;
   width: 50px;
+}
+
+.sidebar.closed .nav-icon {
+  margin-bottom: 0px;
+  margin-right: 0px !important;
+}
+
+.sidebar.closed svg {
+  width: 25px;
+  /* Adjust width of .sico1 when sidebar is closed */
+}
+
+.sidebar .slogomain {
+  background-image: var(--logo-image-url);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  display: block;
   margin: auto;
 }
-.sidebar.closed .sico1 {
-  width: 25px; /* Adjust width of .sico1 when sidebar is closed */
+
+.slogomain1 {
+  background-image: var(--logo-image-url);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  display: block;
+  margin: auto;
+}
+
+.logohead {
+  margin-top: 5px;
+  color: var(--text-color);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .sidebar .slogo {
   display: none;
 }
-.sidebar.closed .logo {
+
+.sidebar.closed .logohead {
   display: none;
 }
+
+.sidebar.closed .slogomain {
+  display: none;
+}
+
 .sidebar.closed .slogo {
   background-image: var(--logo-image-url);
   background-repeat: no-repeat;
@@ -904,31 +1289,42 @@ body {
   display: block;
   margin: auto;
 }
+
 .sidebar.closed .sico2 {
   margin-left: 2px;
-  width: 19px; /* Adjust width of .sico1 when sidebar is closed */
+  width: 19px;
+  /* Adjust width of .sico1 when sidebar is closed */
   margin-top: 35px;
 }
 
 .sidebar-wrapper {
-  position: relative; /* Ensure relative positioning for absolute children */
+  position: relative;
+  /* Ensure relative positioning for absolute children */
 }
 
 .toggle-btn {
   position: absolute;
-  top: 50%; /* Adjust as needed */
-  right: -15px; /* Position on the right side */
-  transform: translateY(-50%); /* Center vertically */
+  top: 50%;
+  /* Adjust as needed */
+  right: -15px;
+  /* Position on the right side */
+  transform: translateY(-50%);
+  /* Center vertically */
   background: transparent;
   padding: 0;
   z-index: 999;
-  border: none; /* Optional: Remove default button styling */
-  outline: none; /* Remove outline on focus */
+  border: none;
+  /* Optional: Remove default button styling */
+  outline: none;
+  /* Remove outline on focus */
 }
-.toggle-btn img {
-  width: 6px;
+
+.sidebar.closed .toggle-btn {
+  right: -25px;
+}
+
+.toggle-btn svg {
   cursor: e-resize;
-  border-radius: 10px;
 }
 
 .event-card {
@@ -945,44 +1341,69 @@ body {
   color: var(--event-text-color);
   transition: background-color 0.3s, color 0.3s;
 }
+
 .event-date {
   color: var(--event-text-color);
-  font-size: 32px;
+  font-size: 26px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
+
 .eventd-and-d {
   margin-top: 10px;
   align-items: center;
   text-align: center;
 }
+
 .event-link {
   color: var(--event-text-color);
 }
+
 .event-day {
   color: var(--event-text-color);
-  font-size: 16px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
+
 .event-details {
   margin-left: 20px;
   margin-top: 20px;
   display: block;
   color: var(--event-text-color);
 }
+
+.event-details h5 {
+  font-size: 16px !important;
+}
+
+.event-details p {
+  font-size: 12px !important;
+}
+
 .event-btn {
   background: var(--event-btn);
   color: var(--button-text);
   border: none;
   position: absolute;
   bottom: 0;
+  font-size: 12px !important;
   right: 0;
-  padding: 3px 26px 3px 26px;
+  padding: 3px 20px 3px 20px;
   border-radius: 5px 0px;
   flex-shrink: 0;
+  margin-bottom: 14px;
+}
+
+.card-header h4 {
+  margin-top: 10px;
+  font-size: 18px !important;
+}
+
+.card-header a {
+  font-size: 13px !important;
 }
 
 .task-card {
@@ -994,6 +1415,7 @@ body {
   color: var(--card-text-color);
   transition: background-color 0.3s, color 0.3s;
 }
+
 .task-item {
   display: flex;
   justify-content: space-between;
@@ -1003,14 +1425,17 @@ body {
   color: var(--event-text-color);
   transition: background-color 0.3s, color 0.3s;
 }
+
 .task-menu {
   position: relative;
   display: inline-block;
 }
+
 .task-dropdownmenu {
   display: none;
   position: absolute;
-  left: -450%; /* Position on the left side of the button */
+  left: -450%;
+  /* Position on the left side of the button */
   border-radius: 7px 0px 7px 7px;
   border: none;
   background: var(--task-dropdown-bg);
@@ -1019,9 +1444,11 @@ body {
   height: auto;
   flex-shrink: 0;
 }
+
 .task-icon {
   fill: var(--absent-text-color);
 }
+
 .task-dropdownmenu a {
   color: var(--absent-text-color);
   padding: 12px 16px;
@@ -1032,17 +1459,21 @@ body {
   line-height: normal;
   display: block;
 }
+
 .task-dropdownmenu a:hover {
   background-color: var(--task-dropdown-hover-bg);
 }
+
 .task-checkbox {
   display: none;
 }
+
 .check {
   position: relative;
   margin-right: 4px;
   cursor: pointer;
 }
+
 .check:before {
   content: "";
   position: absolute;
@@ -1054,11 +1485,14 @@ body {
   border-radius: 3px;
   background-color: #fff;
 }
-.task-checkbox:checked + .check:before {
-  background-color: #e61515; /* Your desired color */
+
+.task-checkbox:checked+.check:before {
+  background-color: #e61515;
+  /* Your desired color */
   border: none;
 }
-.task-checkbox:checked + .check:after {
+
+.task-checkbox:checked+.check:after {
   content: "";
   position: absolute;
   left: -8px;
@@ -1068,12 +1502,14 @@ body {
   border: solid white;
   border-width: 0 2px 2px 0;
 }
+
 .refer-card {
   border-radius: 12px;
   color: var(--absent-text-color);
   background: var(--refer-bg-color);
   transition: background-color 0.3s, color 0.3s;
 }
+
 .absent-members-card {
   background-color: var(--absent-bg-color);
   color: var(--absent-text-color);
@@ -1094,19 +1530,426 @@ body {
   height: auto;
   cursor: pointer;
 }
+
 .notification-item {
   margin-top: 8px;
   display: flex;
   padding: 10px;
   border-bottom: 1px solid var(--button-border);
 }
+
 .notification-item img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin-right: 10px;
 }
+
 .notification-header {
   padding: 10px;
   border-bottom: 1px solid #eaeaea;
+}
+
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination button {
+  cursor: pointer;
+}
+
+.pagination .disabled {
+  background-color: var(--sidebar-bg-color) !important;
+  cursor: not-allowed;
+  color: var(--button-text) !important;
+}
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  /* Styles for extra small screens */
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  /* Styles for small screens */
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Styles for medium screens */
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+  /* .card{
+    max-width: 350px !important;
+  } */
+  #myPieChart {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .card-title {
+    font-size: 22px !important;
+  }
+
+  .legend {
+    margin-top: 16px !important;
+    font-size: 10px !important;
+  }
+
+  .custom-legend {
+    margin-top: 26px !important;
+    font-size: 10px !important;
+  }
+
+  .card-text {
+    font-size: 12px !important;
+  }
+
+  .card-body {
+    padding: 19px 16px !important;
+  }
+
+  .chart-container {
+    margin-top: -35px !important;
+  }
+
+  .card-header h4 {
+    margin-bottom: 0 !important;
+    font-size: 20px !important;
+  }
+
+  .card-header a {
+    font-size: 14px !important;
+  }
+
+  .event-date {
+    font-size: 22px !important;
+  }
+
+  .event-day {
+    font-size: 12px !important;
+  }
+
+  .event-details h5 {
+    font-size: 15px !important;
+  }
+
+  .event-details p {
+    font-size: 12px !important;
+  }
+
+  .event-btn {
+    padding: 3px 20px !important;
+    font-size: 11px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .task-card h3 {
+    font-size: 1.20rem !important;
+  }
+
+  .task-title {
+    font-size: 13px !important;
+  }
+
+  .delete-task {
+    font-size: 13px !important;
+  }
+
+  .check {
+    margin-bottom: 4px !important;
+  }
+
+  .card-img-overlay img {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .absent-members-card .card-text {
+    font-size: 28px !important;
+  }
+
+  .btn-dark {
+    font-size: 12px !important;
+  }
+
+  .btn {
+    font-size: 12px !important;
+  }
+
+  .refer-card h4 {
+    font-size: 18px !important;
+  }
+
+  .refer-card h2 {
+    margin-top: 10px !important;
+    font-size: 23px !important;
+  }
+
+  .refer-card img {
+    width: 90px !important;
+  }
+
+  .form {
+    margin-top: 35px;
+    height: 190px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .grid-md-none {
+    display: block !important;
+    width: 100%;
+  }
+
+  .col-md-12,
+  .col-md-9,
+  .col-md-6 {
+    width: 100% !important;
+  }
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1440.98px) {
+  #myPieChart {
+    width: 130px !important;
+    height: 130px !important;
+  }
+
+  .card-title {
+    font-size: 24px !important;
+  }
+
+  h4.card-title {
+    font-size: 15px !important;
+  }
+
+  .legend {
+    margin-top: 20px !important;
+    font-size: 11px !important;
+  }
+
+  .custom-legend {
+    margin-top: 40px !important;
+    font-size: 11px !important;
+  }
+
+  .card-text {
+    font-size: 11px !important;
+  }
+
+  .card-body {
+    padding: 12px 16px !important;
+  }
+
+  #myChart {
+    width: 135px !important;
+    height: 70px !important;
+  }
+
+  .chart-container h3 {
+    font-size: 25px !important;
+    left: 37px !important;
+  }
+
+  .card-header h4 {
+    margin-bottom: 0 !important;
+    font-size: 20px !important;
+  }
+
+  .card-header a {
+    font-size: 14px !important;
+  }
+
+  .event-date {
+    font-size: 22px !important;
+  }
+
+  .event-day {
+    font-size: 12px !important;
+  }
+
+  .event-details h5 {
+    font-size: 15px !important;
+  }
+
+  .event-details p {
+    font-size: 12px !important;
+  }
+
+  .event-btn {
+    padding: 3px 20px !important;
+    font-size: 11px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .task-card h3 {
+    font-size: 1.20rem !important;
+  }
+
+  .task-title {
+    font-size: 13px !important;
+  }
+
+  .delete-task {
+    font-size: 13px !important;
+  }
+
+  .check {
+    margin-bottom: 4px !important;
+  }
+
+  .card-img-overlay img {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .absent-members-card .card-text {
+    font-size: 28px !important;
+  }
+
+  .btn-dark {
+    font-size: 12px !important;
+  }
+
+  .btn {
+    font-size: 12px !important;
+  }
+
+  .refer-card h4 {
+    font-size: 18px !important;
+  }
+
+  .refer-card h2 {
+    margin-top: 10px !important;
+    font-size: 23px !important;
+  }
+
+  .refer-card img {
+    width: 90px !important;
+  }
+
+  /* Styles for extra large screens */
+}
+
+.responsive-header {
+  background-color: var(--sidebar-bg-color);
+  width: 100%;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0.5px;
+  z-index: 100;
+  padding: 20px;
+}
+
+.responsive-header svg {
+  cursor: pointer;
+}
+
+.responsive-header svg path {
+  fill: var(--button-text) !important;
+}
+
+#sidebarSticky {
+  position: fixed !important;
+  top: 50px !important;
+  width: 260px !important;
+  height: 100vh !important;
+  padding-top: 30px;
+  padding-right: 20px;
+  left: 0;
+}
+
+.header-resp {
+  position: fixed;
+  width: 100%;
+  top: 80px;
+  left: 0;
+  background-color: var(--bg-color);
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .sidebar-wrapper {
+    display: none;
+  }
+
+  .card-cont {
+    margin-top: 40px !important;
+  }
+
+  .card-cont .card-header {
+    display: flex;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+  }
+
+  .card-cont .d-flex {
+    display: flex;
+    flex-direction: column !important;
+    margin-bottom: 10px !important;
+  }
+
+  .footer {
+    margin: auto !important;
+    margin-top: 30px !important;
+  }
+
+  .sticky-top {
+    display: none;
+  }
+
+  .responsive-header {
+    display: flex;
+  }
+
+  #main {
+    padding: 0 !important;
+  }
+
+  #main-content {
+    padding: 30px;
+  }
+
+  .card.date-card.show {
+    height: 100%;
+    width: 100%;
+    margin-top: 80px;
+  }
+
+  .calendars {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin: auto;
+    overflow: auto;
+    gap: 40px;
+  }
+
+  .calendar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
 }
