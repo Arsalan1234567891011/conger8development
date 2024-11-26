@@ -780,17 +780,7 @@ function gettingchildnew($parentid)
                 }
             }
 
-            $output .= '<li class="nav-item">
-            <a href="' . $url . '" class="nav-link">
-                ' . $row['title'] . '
-            </a>
-        </li>';
-
-
-        
-
-            
-            
+            $output .= '<li class="nav-item"><a href="' . $url . '" class="nav-link">' . $row['title'] . ' </a></li>';       
         }
     }
     return $output;

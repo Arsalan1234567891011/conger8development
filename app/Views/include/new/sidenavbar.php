@@ -47,19 +47,23 @@ if($urole == 'user'){
                     $childItems = gettingchildnew($row['menu_id']);
                     
                     if (empty($childItems)) {
-                        echo '<li class="nav-item d-flex align-items-center menu">';
-                        echo '<img class="sico1" src="' . base_url() . '/public/Dashboard/assets/dash-icon.svg" alt="" />';
-                        echo '<a class="nav-link active text-dark" href="' . base_url() .$row['url'] . '" style="margin-left: -5px">';
+                        echo '<li class="nav-item sidebar-item  d-flex align-items-center w-100">';
+                        echo '<a class="iconlink" href="#">
+							  ' . $row['icon'] . '
+							</a>';
+                        echo '<a class="nav-link " href="' . base_url() .$row['url'] . '">';
                         echo '<span>' . $row['title'] . '</span></a></li>';
                     } else {
                         // Use # in the data-target to reference the id of the submenu
-                        echo '<li class="nav-item d-block menu" data-toggle="collapse" data-target="#submenu_' . $row['menu_id'] . '" aria-expanded="false" aria-controls="submenu_' . $row['menu_id'] . '">';
-                        echo '<div class="d-flex justify-content-between align-items-center">';
-                        echo '<div class="d-flex">';
-                        echo '<img class="sico2" src="' . base_url() . '/public/Dashboard/assets/attendence-icon.svg" alt="" />';
+                        echo '<li class="nav-item sidebar-item w-100 d-block" data-toggle="collapse" data-target="#submenu_' . $row['menu_id'] . '" aria-expanded="false" aria-controls="submenu_' . $row['menu_id'] . '">';
+                        echo '<div class="d-flex justify-content-between w-100 align-items-center closed-pos ">';
+                        echo '<div class="d-flex align-items-center">';
+                        echo '<a class="iconlink" href="#">
+							  ' . $row['icon'] . '
+							</a>';
                         echo '<a class="nav-link" href="#">' . $row['title'] . '</a>';
                         echo '</div>';
-                        echo '<span style="color: #000;" class="ml-auto">&#9662;</span>';
+                        echo '<span style="color: #000;" class="ml-auto rotate-icon">&#9662;</span>';
                         echo '</div>';
                         // Add the id here with submenu_ prefix
                         echo '<ul class="collapse list-unstyled" id="submenu_' . $row['menu_id'] . '">';
@@ -69,8 +73,6 @@ if($urole == 'user'){
                     }
                 }
                 ?>
-
-
             </ul>
           </div>
         </nav>
