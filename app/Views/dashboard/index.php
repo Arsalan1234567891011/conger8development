@@ -1,5 +1,5 @@
  <div id="main-content" class="row justify-content-sm-center">
-          <div class="col-xl-4 col-lg-6 col-md-9 col-sm-9 onec">
+          <div class="col-xl-4 col-lg-6 col-md-9 col-12 onec">
             <div class="card d-flex flex-row align-items-center">
               <!-- Left side content (legends and text) -->
               <div class="card-body">
@@ -31,7 +31,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-lg-6 col-md-9 col-sm-9">
+          <div class="col-xl-4 col-lg-6 col-md-9 col-12">
             <div class="card d-flex flex-row align-items-center">
               <div class="card-body">
                 <div class="card-content">
@@ -66,8 +66,8 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-md-9 col-sm-9">
-            <div class="card">
+          <div class="col-xl-4 col-lg-6 col-md-9 col-12">
+            <div class="card form">
               <div class="card-body">
                 <div class="card-content">
                   <h3 class="card-title">Forms</h3>
@@ -83,7 +83,7 @@
                         border-top-right-radius: 15px;
                         border-bottom-left-radius: 15px;
                       ">
-                    <img src="<?php echo base_url(); ?>/public/Dashboard/assets/Form-ico.svg" alt="" style="width: 30px; cursor: pointer" />
+                    <img src="<?php echo base_url(); ?>/public/Dashboard/assetss/Form-ico.svg" alt="" style="width: 30px; cursor: pointer" />
                   </div>
                 </div>
               </div>
@@ -102,7 +102,7 @@
               </div>
             </div>
           </div>
-          <div class="grid col-xl-4 col-md-9 col-sm-9" style="margin-top: 4%">
+          <div class="grid col-xl-4 col-lg-6 col-md-9 col-12" style="margin-top: 4%">
             <div class="">
               <div style="height: 210px" class="card d-flex flex-row align-items-center">
                 <div class="card-body">
@@ -147,14 +147,14 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-md-9 col-sm-9" style="margin-top: 4%">
+          <div class="col-xl-4 col-lg-6 col-md-9 col-12" style="margin-top: 4%">
             <div style="
                   height: 85%;
                   padding-left: 20px;
                   padding-right: 20px;
                   padding-bottom: 20px;
                 " class="card">
-              <div class="d-flex card-header justify-content-between align-items-center">
+              <div class="d-flex card-header justify-content-between align-items-center px-0">
                 <h4>Upcoming Events</h4>
                 <a class="event-link" style="font-weight: 600" href="#">See all</a>
               </div>
@@ -163,7 +163,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-4 col-md-9 col-sm-9" style="margin-top: 4%">
+          <div class="col-xl-4 col-lg-6 col-md-9 col-12" style="margin-top: 4%">
             <div class="container">
               <div class="task-card card">
                 <div class="d-flex justify-content-between align-items-center">
@@ -176,8 +176,8 @@
                       <circle cx="23" cy="3" r="3" fill="#D9D9D9" />
                     </svg>
                     <div class="dropdown-menu task-dropdownmenu" id="dropdownMenu">
-                      <a href="#" id="mark-all-done"><svg style="margin-right: 5px" xmlns="http://www.w3.org/2000/svg"
-                          width="12" height="8" viewBox="0 0 12 8" fill="none">
+                      <a class="iconlink" href="#" id="mark-all-done"><svg style="margin-right: 5px"
+                          xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" fill="none">
                           <path class="task-icon"
                             d="M8.59365 0.136071C8.52843 0.0844333 8.45362 0.0462231 8.37355 0.0236461C8.29348 0.00106908 8.20974 -0.00542785 8.12715 0.00453011C8.04455 0.0144881 7.96475 0.0407039 7.89234 0.0816647C7.81993 0.122625 7.75635 0.17752 7.70527 0.243181L3.29489 5.91368L1.1338 3.28005C1.08311 3.21257 1.01938 3.15596 0.946391 3.11359C0.873403 3.07122 0.792646 3.04394 0.708914 3.03338C0.625182 3.02281 0.54018 3.02918 0.458956 3.0521C0.377732 3.07502 0.30194 3.11402 0.236079 3.1668C0.170218 3.21957 0.11563 3.28504 0.0755568 3.35931C0.0354833 3.43359 0.0107405 3.51515 0.00279702 3.59918C-0.00514645 3.6832 0.00387146 3.76796 0.0293152 3.84843C0.054759 3.9289 0.0961101 4.00343 0.150914 4.06761L2.77824 7.3313C2.83754 7.4044 2.91247 7.46328 2.99751 7.50362C3.08256 7.54397 3.17556 7.56474 3.26969 7.56442C3.3696 7.56888 3.46914 7.54949 3.56007 7.50786C3.65101 7.46623 3.73072 7.40355 3.79263 7.325L8.72596 1.02445C8.77626 0.957679 8.81277 0.881568 8.83335 0.80055C8.85395 0.719532 8.85821 0.635227 8.84589 0.552545C8.83358 0.469863 8.80493 0.390459 8.76163 0.318957C8.71832 0.247455 8.66122 0.185286 8.59365 0.136071ZM11.7439 0.136071C11.6787 0.0844333 11.6039 0.0462231 11.5238 0.0236461C11.4438 0.00106908 11.36 -0.00542785 11.2774 0.00453011C11.1948 0.0144881 11.115 0.0407039 11.0426 0.0816647C10.9702 0.122625 10.9066 0.17752 10.8555 0.243181L6.44516 5.91368L6.06083 5.44113L5.26696 6.46182L5.96002 7.325C6.01932 7.3981 6.09425 7.45698 6.17929 7.49732C6.26433 7.53766 6.35734 7.55844 6.45146 7.55812C6.5461 7.55768 6.63942 7.53593 6.7245 7.49448C6.80958 7.45303 6.88423 7.39295 6.94291 7.3187L11.8762 1.01815C11.9255 0.951574 11.9612 0.875928 11.9813 0.795539C12.0013 0.715151 12.0053 0.6316 11.993 0.549668C11.9807 0.467735 11.9524 0.389032 11.9097 0.318061C11.8669 0.247091 11.8106 0.185248 11.7439 0.136071Z"
                             fill="black" />
@@ -186,7 +186,7 @@
                             fill="black" />
                         </svg>
                         Mark all as Done</a>
-                      <a href="#" id="delete-all-tasks"><svg style="margin-right: 9px"
+                      <a class="iconlink" href="#" id="delete-all-tasks"><svg style="margin-right: 9px"
                           xmlns="http://www.w3.org/2000/svg" width="8" height="10" viewBox="0 0 8 10" fill="none">
                           <path class="task-icon"
                             d="M0.8 8.89138C0.8 9.5012 1.27995 10 1.86668 10H6.13335C6.72005 10 7.2 9.5012 7.2 8.89138V2.5H0.8V8.89138ZM8 0.833333H6L5.33038 0H2.66965L2 0.833333H0V1.66667H8V0.833333Z"
@@ -209,7 +209,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-12 col-lg-9">
+          <div class="col-12">
             <div class="card-cont" style="
                   background-color: transparent;
                   border: none;
@@ -293,6 +293,7 @@
             </p>
           </div>
         </div>
+
       </main>
     </div>
   </div>
