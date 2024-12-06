@@ -177,7 +177,7 @@ class Contacts extends BaseController
 
         $data["page"] = "Admin/dashboard";
         
-         echo view('include/new/head',$data);
+        echo view('include/new/head',$data);
         echo view('/include/new/topheader',$data); 
         echo view('/include/new/sidenavbar',$data); 
         echo view("contacts/index",$data);
