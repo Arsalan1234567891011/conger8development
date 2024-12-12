@@ -40,9 +40,6 @@ if($urole == 'user'){
       <?php
           $data = gettingmenuzero();
 
-
-
-
           foreach ($data as $row) {
               echo '<li class="nav-item">';
               echo '<a href="' . base_url() .$row['url'] . '"><i class="' . $row['icon'] . '"></i><span class="menu-title" data-i18n="nav.dash.main">' . $row['title'] . '</span></a>';
@@ -51,7 +48,6 @@ if($urole == 'user'){
               $childItems = gettingchild($row['menu_id']);
 
             
-
 
               if (!empty($childItems)) {
                   echo '<ul class="sub-menu">'; // Start the dropdown

@@ -83,7 +83,7 @@
                           border-top-right-radius: 15px;
                           border-bottom-left-radius: 15px;
                         ">
-                        <img src="assets/Form-ico.svg" alt="" style="width: 30px; cursor: pointer" />
+                        <img src="<?php echo base_url(); ?>/public/Dashboard/assets/Form-ico.svg" alt="" style="width: 30px; cursor: pointer" />
                     </div>
                 </div>
             </div>

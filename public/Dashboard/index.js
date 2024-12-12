@@ -1,22 +1,55 @@
 // Select all nav items
 const navItems = document.querySelectorAll('.sidebar-item');
 
-navItems.forEach((item) => {
-  // Add click event listener to each nav item
-  item.addEventListener('click', function () {
-    // Remove 'dash' class from all nav items
-    navItems.forEach((i) => i.classList.remove('dash'));
+// Function to apply the 'dash' class from localStorage or set the default (Home)
+function applySavedDash() {
+  const savedItemId = localStorage.getItem('selectedNavItem'); // Retrieve saved item ID
+  
+  // If no item is saved, set 'Home' as the default
+  if (!savedItemId) {
+    const defaultItem = document.querySelector('.sidebar-item[data-id="Dashboard"]');
+    if (defaultItem) {
+      defaultItem.classList.add('dash');
+      localStorage.setItem('selectedNavItem', 'Dashboard'); // Save 'Home' as the default
+    }
+  } else {
+    // Apply 'dash' class to the saved item
+    navItems.forEach((item) => {
+      const itemId = item.getAttribute('data-id');
+      if (itemId === savedItemId) {
+        item.classList.add('dash');
+      }
+    });
+  }
+}
 
-    // Add 'dash' class to the clicked nav item
-    this.classList.add('dash');
-  });
+// Function to handle click events and save the clicked item's ID
+function handleNavClick() {
+  // Remove 'dash' class from all items
+  navItems.forEach((item) => item.classList.remove('dash'));
+
+  // Add 'dash' class to the clicked item
+  this.classList.add('dash');
+
+  // Save the clicked item's data-id to localStorage
+  const itemId = this.getAttribute('data-id');
+  localStorage.setItem('selectedNavItem', itemId);
+}
+
+// Apply the saved 'dash' class or default 'Home' class on page load
+applySavedDash();
+
+// Add click event listeners to all nav items
+navItems.forEach((item) => {
+  item.addEventListener('click', handleNavClick);
 });
 
-function toggleSidebar() {
-  document.querySelector(".sidebar").classList.toggle("collapsed");
-  document.querySelector(".main-content").classList.toggle("expanded");
-  document.querySelector(".toggle-btn").classList.toggle("collapsed");
-}
+
+ function toggleSidebar() {
+   document.querySelector(".sidebar").classList.toggle("collapsed");
+   document.querySelector(".main-content").classList.toggle("expanded");
+   document.querySelector(".toggle-btn").classList.toggle("collapsed");
+ }
 
 // Date filter toggle
 document.addEventListener("DOMContentLoaded", function () {
@@ -37,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-
+  
 
   // Define the image icons for previous and next arrows
   const prevArrowImage = `
@@ -98,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-
+  
 
   // Define the image icons for previous and next arrows
   const prevArrowImage = `
@@ -232,14 +265,14 @@ function createPieChart() {
       },
     },
   });
-  // Custom legend functionality
-  document.querySelectorAll(".custom-legend div").forEach(function (legend, index) {
-    legend.addEventListener("click", function () {
-      const meta = myPieChart.getDatasetMeta(0);
-      meta.data[index].hidden = !meta.data[index].hidden;
-      myPieChart.update();
+    // Custom legend functionality
+    document.querySelectorAll(".custom-legend div").forEach(function (legend, index) {
+      legend.addEventListener("click", function () {
+        const meta = myPieChart.getDatasetMeta(0);
+        meta.data[index].hidden = !meta.data[index].hidden;
+        myPieChart.update();
+      });
     });
-  });
 }
 
 function createFormChart() {
@@ -456,7 +489,8 @@ function loadContacts() {
       <td><label>${contact.name}</label></td>
       <td><a href="mailto:${contact.email}">${contact.email}</a></td>
       <td class="cont">${contact.phone}</td>
-      <td class="${contact.status === "active" ? "status-active" : "status-inactive"
+      <td class="${
+        contact.status === "active" ? "status-active" : "status-inactive"
       }">${contact.status}</td>
       <td class="cont">${contact.type}</td>
     `;
@@ -517,65 +551,48 @@ window.addEventListener("resize", autoCloseSidebar);
 document.addEventListener("DOMContentLoaded", autoCloseSidebar);
 
 
-// Notification Pannel javascript
-$(document).ready(function () {
-  const $blurBackground = $("#main-content");
+    // Notification Pannel javascript
+    $(document).ready(function () {
+      const $blurBackground = $("#main-content");
 
-  $('#notification-icon').click(function (event) {
-    event.stopPropagation(); // Prevent the click from propagating to the document
-    $('#notification-card').toggle();
-    $blurBackground.toggleClass("blur");
-  });
+      $('#notification-icon').click(function (event) {
+        event.stopPropagation(); // Prevent the click from propagating to the document
+        $('#notification-card').toggle();
+        $blurBackground.toggleClass("blur");
+      });
 
-  $(document).click(function (event) {
-    if (!$(event.target).closest('#notification-card, #notification-icon').length) {
-      if ($('#notification-card').is(":visible")) {
-        $('#notification-card').hide();
-        $blurBackground.removeClass("blur");
-      }
-    }
-  });
+      $(document).click(function (event) {
+        if (!$(event.target).closest('#notification-card, #notification-icon').length) {
+          if ($('#notification-card').is(":visible")) {
+            $('#notification-card').hide();
+            $blurBackground.removeClass("blur");
+          }
+        }
+      });
 
-  $('#notification-card').click(function (event) {
-    event.stopPropagation(); // Prevent the click inside the card from closing it
-  });
-});
+      $('#notification-card').click(function (event) {
+        event.stopPropagation(); // Prevent the click inside the card from closing it
+      });
+    });
 
-//-----------------------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------
 
-// Ensure the theme is set correctly on page load
-(function () {
-  const currentTheme = localStorage.getItem("theme") || "light";
-  document.documentElement.setAttribute("data-theme", "light"); // Always set to light mode on page load
-  localStorage.setItem("theme", "light"); // Update localStorage to store light mode
-})();
+    // Ensure the theme is set correctly on page load
+    (function () {
+      const currentTheme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", "light"); // Always set to light mode on page load
+      localStorage.setItem("theme", "light"); // Update localStorage to store light mode
+    })();
 
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleButton = document.getElementById("theme-toggle");
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleButton = document.getElementById("theme-toggle");
 
-  toggleButton.addEventListener("click", () => {
-    const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-  });
-});
-// Ensure the theme is set correctly on page load
-(function () {
-  const currentTheme = localStorage.getItem("theme") || "light";
-  document.documentElement.setAttribute("data-theme", "light"); // Always set to light mode on page load
-  localStorage.setItem("theme", "light"); // Update localStorage to store light mode
-})();
-
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleButton = document.getElementById("theme-toggle2");
-
-  toggleButton.addEventListener("click", () => {
-    const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-  });
-});
-
+      toggleButton.addEventListener("click", () => {
+        const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+      });
+    });
 
 //---------------------------------------------------------------------------------------------------
 // event card
@@ -664,11 +681,13 @@ function renderTasks() {
   taskList.empty();
   tasks.forEach((task, index) => {
     const taskItem = `
-                  <div class="list-group-item task-item ${task.done ? "done" : ""
-      }" data-index="${index}">
+                  <div class="list-group-item task-item ${
+                    task.done ? "done" : ""
+                  }" data-index="${index}">
                     <div>
-                        <input type="checkbox" ${task.done ? "checked" : ""
-      } class="task-checkbox" id="checkbox${index}">
+                        <input type="checkbox" ${
+                          task.done ? "checked" : ""
+                        } class="task-checkbox" id="checkbox${index}">
                         <label class="check" for="checkbox${index}"></label>
                         <span class="task-title">${task.title}</span>
                     </div>
@@ -745,77 +764,61 @@ $(document).ready(function () {
 //-----------------------------------------------------------------------------------------------
 
 // Notification Pannel javascript
-$(document).ready(function () {
+$(document).ready(function() {
   const $blurBackground = $("#main-content");
 
-  $('#notification-icon').click(function (event) {
-    event.stopPropagation(); // Prevent the click from propagating to the document
-    $('#notification-card').toggle();
-    $blurBackground.toggleClass("blur");
+  $('#notification-icon').click(function(event) {
+      event.stopPropagation(); // Prevent the click from propagating to the document
+      $('#notification-card').toggle();
+      $blurBackground.toggleClass("blur");
   });
 
-  $(document).click(function (event) {
-    if (!$(event.target).closest('#notification-card, #notification-icon').length) {
-      if ($('#notification-card').is(":visible")) {
-        $('#notification-card').hide();
-        $blurBackground.removeClass("blur");
+  $(document).click(function(event) {
+      if (!$(event.target).closest('#notification-card, #notification-icon').length) {
+          if ($('#notification-card').is(":visible")) {
+              $('#notification-card').hide();
+              $blurBackground.removeClass("blur");
+          }
       }
-    }
   });
 
-  $('#notification-card').click(function (event) {
-    event.stopPropagation(); // Prevent the click inside the card from closing it
+  $('#notification-card').click(function(event) {
+      event.stopPropagation(); // Prevent the click inside the card from closing it
   });
 });
 
-$(document).ready(function () {
+$(document).ready(function() {
 
-  $('#notification-icon2').click(function (event) {
-    event.stopPropagation(); // Prevent the click from propagating to the document
-    $('#notification-card2').toggle();
+  $('#notification-icon2').click(function(event) {
+      event.stopPropagation(); // Prevent the click from propagating to the document
+      $('#notification-card2').toggle();
   });
 
-  $(document).click(function (event) {
-    if (!$(event.target).closest('#notification-card2, #notification-icon2').length) {
-      if ($('#notification-card2').is(":visible")) {
-        $('#notification-card2').hide();
+  $(document).click(function(event) {
+      if (!$(event.target).closest('#notification-card2, #notification-icon2').length) {
+          if ($('#notification-card2').is(":visible")) {
+              $('#notification-card2').hide();
+          }
       }
-    }
   });
 
-  $('#notification-card').click(function (event) {
-    event.stopPropagation(); // Prevent the click inside the card from closing it
+  $('#notification-card').click(function(event) {
+      event.stopPropagation(); // Prevent the click inside the card from closing it
   });
 });
 
 
 //-----------------------------------------------------------------------------------------------
 
-// Ensure the theme is set correctly on page load
-(function () {
+  // Ensure the theme is set correctly on page load
+(function() {
   const currentTheme = localStorage.getItem("theme") || "light";
   document.documentElement.setAttribute("data-theme", "light"); // Always set to light mode on page load
   localStorage.setItem("theme", "light"); // Update localStorage to store light mode
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
-  const toggleButton = document.getElementById("theme-toggle2");
-
-  toggleButton.addEventListener("click", () => {
-    const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-  });
-});
-// Ensure the theme is set correctly on page load
-(function () {
-  const currentTheme = localStorage.getItem("theme") || "light";
-  document.documentElement.setAttribute("data-theme", "light"); // Always set to light mode on page load
-  localStorage.setItem("theme", "light"); // Update localStorage to store light mode
-})();
-
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleButton = document.getElementById("theme-toggle2");
+  const toggleButton = document.getElementById("theme-toggle");
 
   toggleButton.addEventListener("click", () => {
     const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";

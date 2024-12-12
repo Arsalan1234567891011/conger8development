@@ -24,7 +24,7 @@ class Contacts extends BaseController
         $columnIndex = $_POST["order"][0]["column"]; // Column index
         $columnName = $_POST["columns"][$columnIndex]["data"]; // Column name
         $columnSortOrder = $_POST["order"][0]["dir"]; // asc or desc
-        $searchValue = $_POST["search"]["value"]; // Search value
+        $searchValue = $this->request->getPost('searchvalue');//$_POST["search"]["value"]; // Search value
         
         $searchByStatus =$this->request->getPost('searchByStatus');
         $searchByType = $this->request->getPost('searchByType');
@@ -46,7 +46,7 @@ class Contacts extends BaseController
         if ($get_user_role != "superadmin") {
             $sql .= " AND c.church_id = " . session()->user_church_id . " ";
         }
-        
+      //  var_dump( $searchByStatus);exit();
         // Apply status filter
         if (isset($searchByStatus) && $searchByStatus != "") {
             $sql .= " AND c.status ='" . $searchByStatus . "' ";
@@ -127,7 +127,9 @@ class Contacts extends BaseController
             }
         
             $type = ($row["form_type"] == "Member" || $row["form_type"] == 1) ? "Member" : "Visitor";
-        
+            $status = ($row["status"] == "active") ? '<span class="status-active">active</span>' : '<span class="status-inactive">inactive</span>';
+
+            
             $data[] = [
                 "id" => '<div class="form-check">
                                     <input class="form-check-input cont-checkbox" type="checkbox" id="checkbox-' . $row["tabid"] . '" data-id="' . $row["tabid"] . '" onchange="updateDeleteIcons()">
@@ -137,7 +139,7 @@ class Contacts extends BaseController
                 "email" => $d_email,
                 "phone" => $d_phone,
                 "form_type" => $type,
-                "status" => $row["status"],
+                "status" => $status ,
                 "action" => ' <a href="contacts-profile/' . $row["tabid"] . '">
                                   <svg id="edit-icon-' . $row["tabid"] . '" style="cursor: pointer" class="edit-contact" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 11 11" fill="#9F9DA8">
                                    <path style="cursor: pointer" class="edit-contact" d="M0 8.70802V11H2.29198L9.05487 4.23712L6.76288 1.94513L0 8.70802ZM10.8212 2.47076C11.0596 2.23239 11.0596 1.84428 10.8212 1.60592L9.39408 0.178775C9.15571 -0.0595916 8.76761 -0.0595916 8.52924 0.178775L7.41075 1.29726L9.70273 3.58925L10.8212 2.47076Z"/>
@@ -176,17 +178,40 @@ class Contacts extends BaseController
         $data["title"] = "All Contacts";
 
         $data["page"] = "Admin/dashboard";
-        
-        echo view('include/new/head',$data);
-        echo view('/include/new/topheader',$data); 
+
+        $data['title']="All Contact"; 
+        $data['page']="Admin/dashboard"; 
+        $data['link'] = [
+            '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />',
+            '<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>',
+            '<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">',
+            '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>',
+            '<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">',
+            '<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">',
+            '<link rel="stylesheet" href="' . base_url('public/all-contacts/contact.css') . '">',
+            '<link rel="stylesheet" href="' . base_url('public/Dashboard/style.css') . '">'
+        ];   
+        $data['footerlinks'] = [
+           '<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>',
+           '<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>',
+           '<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>',
+            '<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>',
+            '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>',
+            '<script src="' . base_url() . '/public/Dashboard/index.js"></script>',
+        ];         
+        echo view('/include/new/header',$data); 
         echo view('/include/new/sidenavbar',$data); 
         echo view("contacts/index",$data);
+        echo view('/include/new/footer',$data); 
     }
 
     function contactDelete()
     {
        
        $idArray = $this->request->getVar("delid");  // Get the array of IDs
+
+
+
 $ContactModel = new ContactModel();
 
 $data = [

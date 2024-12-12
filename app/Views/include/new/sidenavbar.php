@@ -36,12 +36,13 @@
                     $childItems = gettingchildnew($row['menu_id']);
                     
                     if (empty($childItems)) {
-                        echo '<li class="nav-item sidebar-item  d-flex align-items-center w-100">';
-                        echo '<a class="iconlink" href="#">
-							  ' . $row['icon'] . '
-							</a>';
-                        echo '<a class="nav-link " href="' . base_url() .$row['url'] . '">';
-                        echo '<span>' . $row['title'] . '</span></a></li>';
+                       echo '<li class="nav-item sidebar-item  d-flex align-items-center w-100" data-id="' . htmlspecialchars($row['title'], ENT_QUOTES, 'UTF-8') . '">';
+						echo '<a class="iconlink" href="#">' . $row['icon'] . '</a>';
+						echo '<a class="nav-link" href="' . base_url() . htmlspecialchars($row['url'], ENT_QUOTES, 'UTF-8') . '">';
+					    echo '<span>' . htmlspecialchars($row['title'], ENT_QUOTES, 'UTF-8') . '</span>';
+						echo '</a>';
+					    echo '</li>';
+
                     } else {
                         // Use # in the data-target to reference the id of the submenu
                         echo '<li class="nav-item sidebar-item w-100 d-block" data-toggle="collapse" data-target="#submenu_' . $row['menu_id'] . '" aria-expanded="false" aria-controls="submenu_' . $row['menu_id'] . '">';
