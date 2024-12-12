@@ -553,19 +553,13 @@
            },
         
            'columns': [
-              { data: 'id' }, 
-        
+              { data: 'id' , orderable: false }, 
               { data: 'name' }, 
-        
               { data: 'email' },
-        
               { data: 'phone' },
 			  { data: 'form_type' },
-        
               { data: 'status' },
-        
-        
-              { data: 'action' },
+              { data: 'action' , orderable: false},
         
         
            ],
