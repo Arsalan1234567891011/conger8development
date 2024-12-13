@@ -398,7 +398,7 @@
 		updateDeleteIcons();
 	});
 	function loadContacts() {
-		load_contacts_table(status, type);
+		load_contacts_table(status,type,searchvalue);
 	}
 	function isChecked(contactId) {
 		const checkbox = document.querySelector(`#contacts-table-body2 input[type="checkbox"][data-id="${contactId}"]`);

@@ -132,18 +132,35 @@ class FeedbackController extends BaseController
     {
         
         $UserModel = new UserModel();
-
-       $urole = get_user_role(session()->user_id);
-
-       $data = [
-   
-        'title'=>"Feedback" 
-       ];  
-
-        echo view('include/new/head',$data);
-        echo view('/include/new/topheader',$data); 
+        $urole = get_user_role(session()->user_id);
+        $data["title"] = "Feedback";
+        $data["page"] = "Admin/dashboard";
+        $data['link'] = [
+            '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />',
+            '<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>',
+            '<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">',
+            '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>',
+            '<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">',
+            '<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">',
+            '<link rel="stylesheet" href="' . base_url('public/all-contacts/contact.css') . '">',
+            '<link rel="stylesheet" href="' . base_url('public/Dashboard/style.css') . '">'
+        ];   
+        $data['footerlinks'] = [
+           '<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>',
+           '<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>',
+           '<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>',
+            '<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>',
+            '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>',
+            '<script src="' . base_url() . '/public/Dashboard/index.js"></script>',
+        ];         
+        echo view('/include/new/header',$data); 
         echo view('/include/new/sidenavbar',$data); 
         echo view('Feedback/index');
+        echo view('/include/new/footer',$data); 
+
+
+
+
 
 
 		//return view('dashboard/users', $data);   
