@@ -30,7 +30,7 @@
                                           <?php
                                                 echo "<p style='text-align: center; color: red;font-weight:bold;'>".session()->getFlashdata('success')."</p>";
                                                 ?>
-                                 <form class="form" action="<?php echo base_url(); ?>saveuser" method="POST">
+                                 <form class="form" id="add_user_form" action="<?php echo base_url(); ?>saveuser" method="POST">
     <input type="hidden" name="id" id="id" value="<?php echo isset($user['id']) ? $user['id'] : ''; ?>"> 
     <div class="form-body">
         <h4 class="form-section"><i class="fa fa-eye"></i> About User</h4>
@@ -86,7 +86,7 @@ if ($user_role == 'superadmin' && isset($user['id'])):
 
     <div class="form-actions right">
         <?php $btntext = isset($user['id']) ? "Update" : "Save"; ?>
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" id="add_btn" class="btn btn-primary">
             <i class="fa fa-check-square-o"></i> <?php echo $btntext; ?>
         </button>
     </div>
@@ -114,6 +114,13 @@ if ($user_role == 'superadmin' && isset($user['id'])):
            }
          }
       </script>
-     
-   </body>
+	  <script>
+		$(document).ready(function(){
+		  $("#add_btn").click(function(){
+			$('#add_btn').prop('disabled',true);
+			$('#add_user_form').submit();
+		  });
+		});
+	  </script>
+    </body>
 </html>

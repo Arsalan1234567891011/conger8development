@@ -169,79 +169,77 @@
 
           function load_interests_table(church,type){
 
-            
-
             if ( $.fn.dataTable.isDataTable( '#users-contacts' ) ) {
               $( '#users-contacts' ).DataTable().destroy();
             }
 
 
-              var dataTable = $('#users-contacts').DataTable({
+			  var dataTable = $('#users-contacts').DataTable({
 
-               'processing': true,
+			   'processing': true,
 
-               'serverSide': true,
+			   'serverSide': true,
 
-               'serverMethod': 'POST',
+			   'serverMethod': 'POST',
 
-               dom: 'Blfrtip',
-               buttons: [
-                     'copyHtml5',
-                     'excelHtml5',
-                     'csvHtml5',
-                     'pdfHtml5'
-               ],
+			   dom: 'Blfrtip',
+			   buttons: [
+					 'copyHtml5',
+					 'excelHtml5',
+					 'csvHtml5',
+					 'pdfHtml5'
+			   ],
 
-               //'searching': false, // Remove default Search Control
+			   //'searching': false, // Remove default Search Control
 
-               'ajax': {
+			   'ajax': {
 
-                  'url':'/getbilling',
+				  'url':'<?php echo base_url()?>/getbilling',
 
-                  'data': function(data){
-                    data.searchByChurch = church;
-                    data.searchByType = type;
+				  'data': function(data){
+					data.searchByChurch = church;
+					data.searchByType = type;
 
-                 }
+				 }
 
-               },
+			   },
 
-               'columns': [
+			   'columns': [
 
-          
-                  { data: 'created_at' }, 
+		  
+				  { data: 'created_at' }, 
 
-                  { data: 'Users' }, 
+				  { data: 'Users' }, 
 
-                  { data: 'amount' },
+				  { data: 'amount' },
 
-                  { data: 'Status' },
+				  { data: 'Status' },
 
-                  { data: 'Actions' },
+				  { data: 'Actions' },
 
-               ]
+			   ]
 
-             });
+			 });
 
-              if(status != ""){
-                dataTable.draw();
-              }
+			  if(status != ""){
+				dataTable.draw();
+			  }
 
-              if(type != ""){
-                dataTable.draw();
-              }
+			  if(type != ""){
+				dataTable.draw();
+			  }
 
-          }
-
-
-          $('#status').on('change', function() {
-                  load_interests_table($(this).val(),$("#type").val());
-          });
+		  }
 
 
-          $('#type').on('change', function() {
-                  load_interests_table($("#status").val(),$(this).val());
-          });
+		  $('#status').on('change', function() {
+				  load_interests_table($(this).val(),$("#type").val());
+		  });
+
+
+		  $('#type').on('change', function() {
+				  load_interests_table($("#status").val(),$(this).val());
+		  });
           
          });
 

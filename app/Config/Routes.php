@@ -54,9 +54,10 @@ $routes->post('/saveuser', 'User::save');
 
 
 //billing
+$routes->get('/testing', 'BillingController::testing');
 $routes->get('/admin/billing', 'BillingController::index');
 $routes->post('/getbilling', 'BillingController::getbilling');
-$routes->get('//billing/detail', 'BillingController::detail');
+$routes->get('/billing/detail', 'BillingController::detail');
 
 
 

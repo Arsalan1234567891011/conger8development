@@ -176,9 +176,7 @@ class Contacts extends BaseController
         ];
 
         $data["title"] = "All Contacts";
-
         $data["page"] = "Admin/dashboard";
-
         $data['title']="All Contact"; 
         $data['page']="Admin/dashboard"; 
         $data['link'] = [

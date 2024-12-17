@@ -129,7 +129,7 @@
                  var id = $(this).attr('id');
               swal({
                     title: "Are you sure?",
-                    // text: "You will not be able to recover this imaginary file!",
+                    text: "You want to delete user!",
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonClass: "btn-danger",

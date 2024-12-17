@@ -30,18 +30,43 @@ class BillingController extends BaseController
 
         echo view('/include/footer');
         
-        
-        
-
     }
-     public function detail()
-    {  
-        
+    public function testing()
+    {
+        $data["title"] = "All Contacts";
+        $data["page"] = "Admin/dashboard";
+        $data['title']="billing";
+        $data['link'] = [
+            '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />',
+            '<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>',
+            '<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">',
+            '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>',
+            '<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">',
+            '<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">',
+            '<link rel="stylesheet" href="' . base_url('public/Dashboard/style.css') . '">',
+            '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />',
+        ];   
+        $data['footerlinks'] = [
+           '<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>',
+           '<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>',
+           '<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>',
+            '<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>',
+            '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>',
+            '<script src="' . base_url() . '/public/Dashboard/index.js"></script>',
+        ];         
+        echo view('/include/new/header',$data); 
+        echo view('/include/new/sidenavbar',$data); 
+        echo view("billing/testing",$data);
+        echo view('/include/new/footer',$data);
+    }
+
+     public function detail($sub=null)
+     {  
         $subscription_id =  $this->request->getGet('sub');
         
-           $stripe = new \Stripe\StripeClient(getenv("stripe.secret"));
+        $stripe = new \Stripe\StripeClient(getenv("stripe.secret"));
         
-          $data['subscription'] = $stripe->subscriptions->retrieve($subscription_id,[]);
+        $data['subscription'] = $stripe->subscriptions->retrieve($subscription_id,[]);
         // dd(   $data['subscription']->jsonSerialize());
 
         
@@ -120,7 +145,7 @@ class BillingController extends BaseController
                 "Users" => getbillinguser(),
                 "amount" => $row['sd_amount'],
                 "Status" => '<span class="text-success">Active</span>',
-                "Actions" => '<a  href="/billing/detail?sub='.$row['sd_subscriptionid'].'"  class="btn btn-primary mt-1" ><i class="fas fa-eye"></i></a>',
+                "Actions" => '<a  href="'.base_url().'billing/detail?sub='.$row['sd_subscriptionid'].'"  class="btn btn-primary mt-1" ><i class="fas fa-eye"></i></a>',
             
 
             );

@@ -713,7 +713,7 @@ function gettingchild($parentid)
                 }
             }
 
-            $output .= '<li class="nav-item"><a href="' . $url . '"><i class="' . $row['icon'] . '"></i><span class="menu-title" data-i18n="nav.dash.main">' . $row['title'] . '</span></a></li>';
+            $output .= '<li class="nav-item"><a href="' .base_url(). $url . '"><i class="' . $row['icon'] . '"></i><span class="menu-title" data-i18n="nav.dash.main">' . $row['title'] . '</span></a></li>';
         }
     }
     return $output;
