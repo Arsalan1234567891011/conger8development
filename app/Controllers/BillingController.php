@@ -63,27 +63,15 @@ class BillingController extends BaseController
      public function detail($sub=null)
      {  
         $subscription_id =  $this->request->getGet('sub');
-        
-        $stripe = new \Stripe\StripeClient(getenv("stripe.secret"));
-        
+        $stripe = new \Stripe\StripeClient(getenv("stripe.secret"));  
         $data['subscription'] = $stripe->subscriptions->retrieve($subscription_id,[]);
-        // dd(   $data['subscription']->jsonSerialize());
-
-        
         $data['title']="Billing Detail "; 
-
         $data['page']="Billing Detail"; 
-
         echo view('/include/head',$data);
-
         echo view('/include/topheader',$data); 
-
         echo view('/include/sidenavbar',$data); 
-
         echo view('billing/detail');
-
         echo view('/include/footer');
-
     }
     
      public function getbilling()
