@@ -118,7 +118,7 @@
 
             <!-------------------------- Notification Pannel Starts ---------------------->
 
-            <div style="cursor: pointer;" class="position-relative mr-3" id="<?php echo base_url(); ?>/public/Dashboard/assets">
+            <div style="cursor: pointer;" class="position-relative mr-3" id="notification-icon">
               <svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M12 27.75C12.663 27.75 13.2989 27.4866 13.7677 27.0178C14.2366 26.5489 14.5 25.913 14.5 25.25H9.49998C9.49998 25.913 9.76337 26.5489 10.2322 27.0178C10.7011 27.4866 11.3369 27.75 12 27.75ZM1.99998 22.75H22C22.2472 22.7499 22.4888 22.6766 22.6943 22.5393C22.8998 22.4019 23.06 22.2067 23.1546 21.9783C23.2492 21.7499 23.2739 21.4987 23.2257 21.2562C23.1775 21.0138 23.0585 20.7911 22.8837 20.6163L20.75 18.4825V11.5C20.746 9.39813 19.9861 7.3678 18.6092 5.77974C17.2322 4.19168 15.3301 3.15181 13.25 2.85V1.5C13.25 1.16848 13.1183 0.850537 12.8839 0.616116C12.6494 0.381696 12.3315 0.25 12 0.25C11.6685 0.25 11.3505 0.381696 11.1161 0.616116C10.8817 0.850537 10.75 1.16848 10.75 1.5V2.85C8.66988 3.15181 6.76771 4.19168 5.39078 5.77974C4.01384 7.3678 3.254 9.39813 3.24998 11.5V18.4825L1.11623 20.6163C0.941466 20.7911 0.822458 21.0138 0.774248 21.2562C0.726039 21.4987 0.750793 21.7499 0.84538 21.9783C0.939968 22.2067 1.10014 22.4019 1.30565 22.5393C1.51117 22.6766 1.75279 22.7499 1.99998 22.75ZM5.38373 19.8838C5.61816 19.6494 5.74991 19.3315 5.74998 19V11.5C5.74998 9.8424 6.40846 8.25269 7.58056 7.08058C8.75266 5.90848 10.3424 5.25 12 5.25C13.6576 5.25 15.2473 5.90848 16.4194 7.08058C17.5915 8.25269 18.25 9.8424 18.25 11.5V19C18.25 19.3315 18.3818 19.6494 18.6162 19.8838L18.9825 20.25H5.01748L5.38373 19.8838Z"
@@ -132,21 +132,21 @@
                 <span class="float-right">Mark all as read</span>
               </div>
               <div class="notification-item">
-                <img src="assets/notif1.svg" alt="AlphaMan01">
+                <img src="<?php echo base_url(); ?>/public/Dashboard/assets/notif1.svg" alt="AlphaMan01">
                 <div>
                   <strong>AlphaMan01</strong> joined as a new member
                   <div class="text-muted">1 hour ago</div>
                 </div>
               </div>
               <div class="notification-item">
-                <img src="assets/notif2.svg" alt="Beta_Girl">
+                <img src="<?php echo base_url(); ?>/public/Dashboard/assets/notif2.svg" alt="Beta_Girl">
                 <div>
                   <strong>Beta_Girl</strong> joined as a new member
                   <div class="text-muted">3 hours ago</div>
                 </div>
               </div>
               <div class="notification-item">
-                <img src="assets/notif3.svg" alt="Pastor James C. Stephen">
+                <img src="<?php echo base_url(); ?>/public/Dashboard/assets/notif3.svg" alt="Pastor James C. Stephen">
                 <div>
                   <strong>Pastor James C. Stephen</strong> invited you to a meeting
                   <div class="text-muted">7 hours ago</div>

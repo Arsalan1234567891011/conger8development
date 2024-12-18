@@ -100,21 +100,21 @@
             <span class="float-right">Mark all as read</span>
           </div>
           <div class="notification-item">
-            <img src="assets/notif1.svg" alt="AlphaMan01">
+            <img src="<?php echo base_url(); ?>/public/Dashboard/assets/notif1.svg" alt="AlphaMan01">
             <div>
               <strong>AlphaMan01</strong> joined as a new member
               <div class="text-muted">1 hour ago</div>
             </div>
           </div>
           <div class="notification-item">
-            <img src="assets/notif2.svg" alt="Beta_Girl">
+            <img src="<?php echo base_url(); ?>/public/Dashboard/assets/notif2.svg" alt="Beta_Girl">
             <div>
               <strong>Beta_Girl</strong> joined as a new member
               <div class="text-muted">3 hours ago</div>
             </div>
           </div>
           <div class="notification-item">
-            <img src="assets/notif3.svg" alt="Pastor James C. Stephen">
+            <img src="<?php echo base_url(); ?>/public/Dashboard/assets/notif3.svg" alt="Pastor James C. Stephen">
             <div>
               <strong>Pastor James C. Stephen</strong> invited you to a meeting
               <div class="text-muted">7 hours ago</div>
@@ -128,7 +128,7 @@
           <img src="<?php echo base_url(get_user_image(session()->user_id)); ?>" alt="User Profile" class="rounded-circle" width="40" height="40"
             id="profileImage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
           <div class="dropdown-icon">
-            <img src="assets/dropdown-ico.svg" alt="Dropdown Icon" />
+            <img src="<?php echo base_url(); ?>/public/Dashboard/assets/dropdown-ico.svg" alt="Dropdown Icon" />
           </div>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileImage">
             <div class="">
@@ -197,138 +197,84 @@
 	<?php foreach ($footerlinks as $footerlink) : ?>
 		<?= $footerlink . "\n" ?>
 	<?php endforeach; ?>
-   <?php endif; ?>
- <script>
-        // Function to handle theme toggling
-        function toggleTheme(themeGroup) {
-            const darkClass = `dark-theme${themeGroup}`;
-            const lightClass = `light-theme${themeGroup}`;
-            const updatingClass = `theme-updating${themeGroup}`;
-            // Toggle theme classes
-            document.body.classList.toggle(darkClass);
-            document.body.classList.toggle(lightClass);
-            // Apply the new theme immediately
-            document.body.classList.add(updatingClass);
-            // Use a short delay to ensure theme change is applied before recreating charts
-            setTimeout(() => {
-                // Destroy existing charts
-                if (typeof myPieChart !== 'undefined') myPieChart.destroy();
-                if (typeof myFormChart !== 'undefined') myFormChart.destroy();
-                // Recreate the charts to apply the new theme
-                createPieChart();
-                createFormChart();
-                // Remove the updating class after charts are recreated
-                document.body.classList.remove(updatingClass);
-            }, 100); // Adjust the delay if needed
-        }
-        // Add event listeners for both toggle buttons
-        document.querySelector("#theme-toggle").addEventListener("click", function () {
-            toggleTheme(""); // First theme group
-        });
-        document.querySelector("#theme-toggle2").addEventListener("click", function () {
-            toggleTheme("2"); // Second theme group
-        });
-        // Initial chart creation
-        document.addEventListener("DOMContentLoaded", function () {
-            // Set initial themes
-            document.body.classList.add("light-theme");
-            document.body.classList.add("light-theme2");
-            // Create charts
-            createPieChart();
-            createFormChart();
-        });
-    </script>
-    <script>
-        // Notification Pannel javascript
-        $(document).ready(function () {
-            const $blurBackground = $("#main-content");
-            $('#notification-icon').click(function (event) {
-                event.stopPropagation(); // Prevent the click from propagating to the document
-                $('#notification-card').toggle();
-                $blurBackground.toggleClass("blur");
-            });
-            $(document).click(function (event) {
-                if (!$(event.target).closest('#notification-card, #notification-icon').length) {
-                    if ($('#notification-card').is(":visible")) {
-                        $('#notification-card').hide();
-                        $blurBackground.removeClass("blur");
-                    }
-                }
-            });
-            $('#notification-card').click(function (event) {
-                event.stopPropagation(); // Prevent the click inside the card from closing it
-            });
-        });
-        //-----------------------------------------------------------------------------------------------
-        // Ensure the theme is set correctly on page load
-        (function () {
-            const currentTheme = localStorage.getItem("theme") || "light";
-            document.documentElement.setAttribute("data-theme", "light"); // Always set to light mode on page load
-            localStorage.setItem("theme", "light"); // Update localStorage to store light mode
-        })();
-        document.addEventListener("DOMContentLoaded", () => {
-            const toggleButton = document.getElementById("theme-toggle");
-            toggleButton.addEventListener("click", () => {
-                const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
-                document.documentElement.setAttribute("data-theme", newTheme);
-                localStorage.setItem("theme", newTheme);
-            });
-        });
-        // Automatically close the sidebar on medium screens
-        function autoCloseSidebar() {
-            const sidebar = document.getElementById("mySidebar");
-            const main = document.getElementById("main");
-            if (window.innerWidth < 992) { // Bootstrap's medium breakpoint is <992px
-                sidebar.classList.add("closed");
-                main.classList.replace("col-md-9", "col-md-11");
-                main.classList.replace("col-lg-9", "col-lg-11");
-                main.classList.replace("col-xl-10", "col-xl-11");
-            } else {
-                sidebar.classList.remove("closed");
-                main.classList.replace("col-md-11", "col-md-9");
-                main.classList.replace("col-lg-11", "col-lg-9");
-                main.classList.replace("col-xl-11", "col-xl-10");
-            }
-        }
-        // Add event listener for window resize
-        window.addEventListener("resize", autoCloseSidebar);
-        // Call on page load to set the initial state
-        document.addEventListener("DOMContentLoaded", autoCloseSidebar);
-        document.getElementById('sidebartoggle').addEventListener('click', function () {
-            const sidebar = document.getElementById('sidebarSticky');
-            // Toggle style.display property
-            if (sidebar.style.display === 'none' || sidebar.style.display === '') {
-                sidebar.style.display = 'block'; // Show the sidebar
-            } else {
-                sidebar.style.display = 'none'; // Hide the sidebar
-            }
-        });
-        document.getElementById('headerToggle').addEventListener('click', function () {
-            const header = document.getElementById('responsive-head2');
-            // Toggle style.display property
-            if (header.style.display === 'none' || header.style.display === '') {
-                header.style.display = 'flex'; // Show the sidebar
-            } else {
-                header.style.display = 'none'; // Hide the sidebar
-            }
-        });
-        $(document).ready(function () {
-            $('#notification-icon2').click(function (event) {
-                event.stopPropagation(); // Prevent the click from propagating to the document
-                $('#notification-card2').toggle();
-            });
-            $(document).click(function (event) {
-                if (!$(event.target).closest('#notification-card2, #notification-icon2').length) {
-                    if ($('#notification-card2').is(":visible")) {
-                        $('#notification-card2').hide();
-                    }
-                }
-            });
-            $('#notification-card').click(function (event) {
-                event.stopPropagation(); // Prevent the click inside the card from closing it
-            });
-        });
-    </script>  
+<?php endif; ?>
+
+<script>
+  // Notification Pannel javascript
+  $(document).ready(function () {
+      const $blurBackground = $("#main-content");
+      $('#notification-icon').click(function (event) {
+          event.stopPropagation(); // Prevent the click from propagating to the document
+          $('#notification-card').toggle();
+          $blurBackground.toggleClass("blur");
+      });
+      $(document).click(function (event) {
+          if (!$(event.target).closest('#notification-card, #notification-icon').length) {
+              if ($('#notification-card').is(":visible")) {
+                  $('#notification-card').hide();
+                  $blurBackground.removeClass("blur");
+              }
+          }
+      });
+      $('#notification-card').click(function (event) {
+          event.stopPropagation(); // Prevent the click inside the card from closing it
+      });
+  });
+  //-----------------------------------------------------------------------------------------------
+  // Ensure the theme is set correctly on page load
+  (function () {
+      const currentTheme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", "light"); // Always set to light mode on page load
+      localStorage.setItem("theme", "light"); // Update localStorage to store light mode
+  })();
+  document.addEventListener("DOMContentLoaded", () => {
+      const toggleButton = document.getElementById("theme-toggle");
+      toggleButton.addEventListener("click", () => {
+          const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+          document.documentElement.setAttribute("data-theme", newTheme);
+          localStorage.setItem("theme", newTheme);
+      });
+  });
+  // Automatically close the sidebar on medium screens
+  function autoCloseSidebar() {
+      const sidebar = document.getElementById("mySidebar");
+      const main = document.getElementById("main");
+      if (window.innerWidth < 992) { // Bootstrap's medium breakpoint is <992px
+          sidebar.classList.add("closed");
+          main.classList.replace("col-md-9", "col-md-11");
+          main.classList.replace("col-lg-9", "col-lg-11");
+          main.classList.replace("col-xl-10", "col-xl-11");
+      } else {
+          sidebar.classList.remove("closed");
+          main.classList.replace("col-md-11", "col-md-9");
+          main.classList.replace("col-lg-11", "col-lg-9");
+          main.classList.replace("col-xl-11", "col-xl-10");
+      }
+  }
+  // Add event listener for window resize
+  window.addEventListener("resize", autoCloseSidebar);
+  // Call on page load to set the initial state
+  document.addEventListener("DOMContentLoaded", autoCloseSidebar);
+  document.getElementById('sidebartoggle').addEventListener('click', function () {
+      const sidebar = document.getElementById('sidebarSticky');
+      // Toggle style.display property
+      if (sidebar.style.display === 'none' || sidebar.style.display === '') {
+          sidebar.style.display = 'block'; // Show the sidebar
+      } else {
+          sidebar.style.display = 'none'; // Hide the sidebar
+      }
+  });
+  document.getElementById('headerToggle').addEventListener('click', function () {
+      const header = document.getElementById('responsive-head2');
+      // Toggle style.display property
+      if (header.style.display === 'none' || header.style.display === '') {
+          header.style.display = 'flex'; // Show the sidebar
+      } else {
+          header.style.display = 'none'; // Hide the sidebar
+      }
+  });
+</script>
+
 </body>
 
 </html>

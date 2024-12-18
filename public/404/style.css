@@ -1,0 +1,42 @@
+
+      .custom-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px; /* Space between icon and text */
+        padding: 10px 20px;
+        border-radius: 5px;
+        background: linear-gradient(to right, #f14b4b, #ff003d);
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 16px;
+        border: none;
+        margin-bottom: 20px; /* Space between the button and the image */
+        width: auto; /* Adjust the width as needed */
+      }
+
+  .custom-btn .icon {
+    width: 25px; /* Adjust size of the icons as needed */
+    height: auto;
+    padding-bottom: 5px;
+    padding-right: 5px;
+  }
+  .row img{
+    width: 49%;
+    height: auto;
+  }
+  ::selection{
+    background-color: #ff003d;
+    color: white;
+  }
+  @media (min-width: 768px) and (max-width:992px){
+    .row img{
+        width: 70%;
+    }
+  }
+  @media (min-width: 320px) and (max-width:767px){
+    .row img{
+        width: 100%;
+    }
+  }
+  

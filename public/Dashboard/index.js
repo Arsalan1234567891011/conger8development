@@ -7,10 +7,10 @@ function applySavedDash() {
   
   // If no item is saved, set 'Home' as the default
   if (!savedItemId) {
-    const defaultItem = document.querySelector('.sidebar-item[data-id="Dashboard"]');
+    const defaultItem = document.querySelector('.sidebar-item[data-id="home"]');
     if (defaultItem) {
       defaultItem.classList.add('dash');
-      localStorage.setItem('selectedNavItem', 'Dashboard'); // Save 'Home' as the default
+      localStorage.setItem('selectedNavItem', 'home'); // Save 'Home' as the default
     }
   } else {
     // Apply 'dash' class to the saved item
@@ -763,29 +763,30 @@ $(document).ready(function () {
 
 //-----------------------------------------------------------------------------------------------
 
-// Notification Pannel javascript
-$(document).ready(function() {
-  const $blurBackground = $("#main-content");
+  // Notification Pannel javascript
+  $(document).ready(function () {
+    const $blurBackground = $("#main-content");
 
-  $('#notification-icon').click(function(event) {
-      event.stopPropagation(); // Prevent the click from propagating to the document
-      $('#notification-card').toggle();
-      $blurBackground.toggleClass("blur");
-  });
+    $('#notification-icon').click(function (event) {
+        event.stopPropagation(); // Prevent the click from propagating to the document
+        $('#notification-card').toggle();
+        $blurBackground.toggleClass("blur");
+    });
 
-  $(document).click(function(event) {
-      if (!$(event.target).closest('#notification-card, #notification-icon').length) {
-          if ($('#notification-card').is(":visible")) {
-              $('#notification-card').hide();
-              $blurBackground.removeClass("blur");
-          }
-      }
-  });
+    $(document).click(function (event) {
+        if (!$(event.target).closest('#notification-card, #notification-icon').length) {
+            if ($('#notification-card').is(":visible")) {
+                $('#notification-card').hide();
+                $blurBackground.removeClass("blur");
+            }
+        }
+    });
 
-  $('#notification-card').click(function(event) {
-      event.stopPropagation(); // Prevent the click inside the card from closing it
-  });
+    $('#notification-card').click(function (event) {
+        event.stopPropagation(); // Prevent the click inside the card from closing it
+    });
 });
+
 
 $(document).ready(function() {
 
