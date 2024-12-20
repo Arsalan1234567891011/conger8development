@@ -35,23 +35,28 @@ class ProfileController extends BaseController
                 'd_pwd1'=>$d_pwd1,
             ];
 
-
-            $data['title']="Dashboard||Admin panel "; 
-            echo view('include/new/head',$data);
-            echo view('/include/new/topheader',$data); 
+            $data['title']="Edit Profile"; 
+            $data['page']="Admin/dashboard"; 
+            $data['link'] = [
+                '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />',
+                '<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>',
+                '<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>',
+                '<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">',
+                '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>',
+                '<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">',
+                '<link rel="stylesheet" href="' . base_url('public/Dashboard/style.css') . '">'
+            ];   
+            $data['footerlinks'] = [
+                '<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>',
+                '<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>',
+                '<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>',
+                '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>',
+                '<script src="' . base_url() . '/public/Dashboard/index.js"></script>',
+            ];        
+            echo view('/include/new/header',$data); 
             echo view('/include/new/sidenavbar',$data); 
             echo view('profile/edit', $data); 
-            
-            exit();
-            echo view('/include/head',$data);
-
-            echo view('/include/topheader',$data); 
-
-            echo view('/include/sidenavbar',$data); 
-
-            echo view('profile/edit_old', $data); 
-
-            echo view('/include/footer'); 
+            echo view('/include/new/footer',$data); 
 
         }
 

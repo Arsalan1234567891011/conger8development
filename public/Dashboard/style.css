@@ -55,6 +55,16 @@ body {
   font-family: "Manrope", sans-serif;
 }
 
+/* Autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--button-text) !important;
+  -webkit-box-shadow: 0 0 0px 1000px var(--input-color) inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Remove focus outline and box-shadow */
 input:focus,
 textarea:focus,
 select:focus {
@@ -65,17 +75,6 @@ select:focus {
 button:focus {
   outline: none !important;
   box-shadow: none !important;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #000 !important;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-button {
-  cursor: pointer;
 }
 
 :root {
@@ -174,7 +173,11 @@ button {
   --input-border-color: #3F3D48;
   --text-color: white;
 }
-
+[data-theme="dark"] {
+  --input-color: #1f1d26 !important;
+  --input-border-color: #3F3D48 !important;
+  --text-color: white !important;
+}
 .sidebarclosingbtn {
   stroke: var(--sidebarclosingbtncolor);
 }
@@ -720,7 +723,6 @@ button:focus-visible {
   right: -5px;
   width: 24px;
   height: 24px;
-  background: white;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -1886,35 +1888,24 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
 }
+tr:hover{
+  background-color: var(--table-tr-bg) !important;
+}
+tr:nth-child(even) {
+background-color: var(--table-tr-bg) !important;
+}
+
 
 @media (max-width: 767px) {
   .sidebar-wrapper {
     display: none;
   }
-
-  .card-cont {
-    margin-top: 40px !important;
+  div.card {
+    margin-bottom: 30%;
   }
-
-  .card-cont .card-header {
-    display: flex;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
-    gap: 20px !important;
-  }
-
-  .card-cont .d-flex {
-    display: flex;
-    flex-direction: column !important;
-    margin-bottom: 10px !important;
-  }
-
-  .footer {
-    margin: auto !important;
-    margin-top: 30px !important;
-  }
-
+.refer-card{
+  margin-bottom: 200px !important;
+}  
   .sticky-top {
     display: none;
   }
@@ -1930,13 +1921,11 @@ button:focus-visible {
   #main-content {
     padding: 30px;
   }
-
-  .card.date-card.show {
+  .card.date-card.show{
     height: 100%;
     width: 100%;
     margin-top: 80px;
   }
-
   .calendars {
     display: flex;
     flex-direction: column;
@@ -1945,11 +1934,65 @@ button:focus-visible {
     overflow: auto;
     gap: 40px;
   }
-
+  
   .calendar-container {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+  
+}
 
+.modal-content {
+  border-radius: 10px;
+  padding: 10px 40px 20px 40px;
+}
+
+.payment-details p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.payment-details p strong {
+  color: #000;
+  font-family: 'Manrope';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+  margin-bottom: 12px;
+}
+
+.payment-details p span {
+  color: #586070;
+  font-family: 'Manrope';
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
+  margin-bottom: 12px;
+}
+
+#continueToDashboardBtn {
+  width: 100%;
+  border: none;
+  border-radius: 7px;
+  background: #FF003D;
+  color: #FFF;
+  font-family: 'Manrope';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  padding: 11px;
+  text-transform: uppercase;
+}
+
+.modal.fade {
+  background: rgba(150, 146, 146, 0.25) !important;
+  backdrop-filter: blur(3.5px) !important;
 }

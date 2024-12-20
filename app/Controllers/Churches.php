@@ -173,10 +173,6 @@ class Churches extends BaseController
     $userid = session()->user_id;		
     $UserModel= new UserModel();
     $user =  $UserModel->where('id',$userid)->first();
-    if(!session()->has('showModal') && $user['otp'] ==null)
-    {
-        return redirect('/');
-    }
     echo view('signup/verify-email');
  
 }

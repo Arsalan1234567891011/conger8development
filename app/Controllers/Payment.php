@@ -538,7 +538,7 @@ class Payment extends BaseController
             session()->setFlashdata('txrid',  $subscriptiondetail["sd_txrid"]);
             session()->setFlashdata('user', $emailData);
             session()->setFlashdata('showModal', true);
-            return redirect('/viewchurch');
+            return redirect('/');
         } catch (\Stripe\Exception\CardException $e) {
             // Handle card errors and show appropriate error message
             $error = $e->getMessage();

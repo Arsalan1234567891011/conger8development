@@ -593,7 +593,22 @@ document.addEventListener("DOMContentLoaded", autoCloseSidebar);
         localStorage.setItem("theme", newTheme);
       });
     });
+    // Ensure the theme is set correctly on page load
+    (function () {
+      const currentTheme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", "light"); // Always set to light mode on page load
+      localStorage.setItem("theme", "light"); // Update localStorage to store light mode
+    })();
 
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleButton = document.getElementById("theme-toggle2");
+
+      toggleButton.addEventListener("click", () => {
+        const newTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+      });
+    });
 //---------------------------------------------------------------------------------------------------
 // event card
 
@@ -803,7 +818,7 @@ $(document).ready(function() {
       }
   });
 
-  $('#notification-card').click(function(event) {
+  $('#notification-card2').click(function(event) {
       event.stopPropagation(); // Prevent the click inside the card from closing it
   });
 });
@@ -828,25 +843,65 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-document.getElementById('sidebartoggle').addEventListener('click', function () {
-  const sidebar = document.getElementById('sidebarSticky');
-
-  // Toggle style.display property
-  if (sidebar.style.display === 'none' || sidebar.style.display === '') {
-    sidebar.style.display = 'block'; // Show the sidebar
-  } else {
-    sidebar.style.display = 'none'; // Hide the sidebar
-  }
-});
 
 
-document.getElementById('headerToggle').addEventListener('click', function () {
+function toggleResponsiveHeader() {
   const header = document.getElementById('responsive-head');
+  const headerToggle = document.getElementById('headerToggle');
 
-  // Toggle style.display property
-  if (header.style.display === 'none' || header.style.display === '') {
-    header.style.display = 'flex'; // Show the sidebar
-  } else {
-    header.style.display = 'none'; // Hide the sidebar
+  // Toggle display on click
+  headerToggle.addEventListener('click', function () {
+    if (header.style.display === 'none' || header.style.display === '') {
+      header.style.display = 'flex'; // Show the sidebar
+    } else {
+      header.style.display = 'none'; // Hide the sidebar
+    }
+  });
+
+  // Ensure header is hidden for screens >= 769px
+  function handleResize() {
+    if (window.innerWidth >= 769) {
+      header.style.display = 'none';
+    }
   }
-});
+
+  // Call the handleResize function on window resize
+  window.addEventListener('resize', handleResize);
+
+  // Call the handleResize function initially
+  handleResize();
+}
+
+// Initialize the functionality
+toggleResponsiveHeader();
+
+
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebarSticky');
+  const sidebarToggle = document.getElementById('sidebartoggle');
+
+  // Toggle display on click
+  sidebarToggle.addEventListener('click', function () {
+    if (sidebar.style.display === 'none' || sidebar.style.display === '') {
+      sidebar.style.display = 'block'; // Show the sidebar
+    } else {
+      sidebar.style.display = 'none'; // Hide the sidebar
+    }
+  });
+
+  // Ensure sidebar is hidden for screens >= 769px
+  function handleResize() {
+    if (window.innerWidth >= 769) {
+      sidebar.style.display = 'none';
+    }
+  }
+
+  // Call the handleResize function on window resize
+  window.addEventListener('resize', handleResize);
+
+  // Call the handleResize function initially
+  handleResize();
+}
+
+// Initialize the functionality
+toggleSidebar();
