@@ -364,26 +364,34 @@
         </svg>
         Edit Cover
       </div>
-      <div class="profile-pic d-flex">
-        <img src="<?php echo base_url()?>/public/profile/assets/profile-img.png" alt="Profile Picture" class="rounded-circle"
-          id="profilecoverimg1" />
-        <div class="edit-icon">
-          <input type="file" id="fileInput" style="display: none;" accept="image/*"
-            onchange="handleFileChange1(event)" />
-          <button style="background-color: #fc0239; border: 3px solid #fff; border-radius: 50px;" class="btn btn-sm"
-            onclick="document.getElementById('fileInput').click();">
-            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
-              <path
-                d="M0 10.2913V13H2.70871L10.7012 5.0075L7.9925 2.29879L0 10.2913ZM12.7887 2.91999C13.0704 2.63828 13.0704 2.17961 12.7887 1.8979L11.1021 0.211279C10.8204 -0.0704264 10.3617 -0.0704264 10.08 0.211279L8.75816 1.53313L11.4669 4.24184L12.7887 2.91999Z"
-                fill="white" />
-            </svg>
-          </button>
-        </div>
-        <div class="d-grid ml-2">
-          <h3 class="profile-name">Larry Page</h3>
-          <p class="profile-role">Pastor</p>
-        </div>
-      </div>
+	  <div class="profile-pic d-flex">
+			<?php if ($user['image'] == null) { ?>
+			<img src="<?php echo base_url(); ?>/public/profile/assets/profile-img.png" alt="Profile Picture" class="rounded-circle" />
+		    <?php } else { ?>
+			<img src="<?php echo base_url(); ?>/uploads/<?php echo $user['image']; ?>" alt="Profile Picture" class="rounded-circle" />
+	    	<?php } ?>
+
+			<div class="edit-icon">
+				<input type="file" 
+					   id="fileInput" 
+					   style="display: none;" 
+					   accept="image/*" 
+					   onchange="handleFileChange1(event)" />
+				<button style="background-color: #fc0239; border: 3px solid #fff; border-radius: 50px;" 
+						class="btn btn-sm"
+						onclick="document.getElementById('fileInput').click();">
+					<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+						<path d="M0 10.2913V13H2.70871L10.7012 5.0075L7.9925 2.29879L0 10.2913ZM12.7887 2.91999C13.0704 2.63828 13.0704 2.17961 12.7887 1.8979L11.1021 0.211279C10.8204 -0.0704264 10.3617 -0.0704264 10.08 0.211279L8.75816 1.53313L11.4669 4.24184L12.7887 2.91999Z" 
+							  fill="white" />
+					</svg>
+				</button>
+			</div>
+
+			<div class="d-grid ml-2">
+				<h3 class="profile-name"><?php if(isset($user['name'])){echo $user['name'];} else {echo '';} ?> <?php if(isset($user['lname'])){echo $user['lname'];} else {echo '';} ?></h3>
+				<p class="profile-role"></p>
+			</div>
+	  </div>
     </div>
   </div>
   <div>
@@ -402,7 +410,8 @@
         <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <div class="row">
             <div class="col-12 col-xl-8">
-              <form id="profileForm">
+              <form id="profileForm" class="form" action="<?php echo base_url(); ?>/update-view" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="id" id="id" value="<?php if(isset($user['id'])){echo $user['id'];} else {echo '';} ?>"> 
                 <div class="d-flex justify-content-between py-3" style="gap: 15px">
                   <div class="form-group mb-0 w-100 ">
                     <div class="input-icon-wrapper">
@@ -422,7 +431,7 @@
                           </clipPath>
                         </defs>
                       </svg>
-                      <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                      <input type="text" class="form-control"  placeholder="First Name" value="<?php if(isset($user['name'])){echo $user['name'];} else {echo '';} ?>"  name="name"  id="name" required>
                     </div>
                   </div>
                   <div class="form-group mb-0 w-100 ">
@@ -443,7 +452,7 @@
                           </clipPath>
                         </defs>
                       </svg>
-                      <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                      <input type="text" class="form-control"  placeholder="Last Name"  value="<?php if(isset($user['lname'])){echo $user['lname'];} else {echo '';} ?>"  name="lname"  id="lname" required>
                     </div>
                   </div>
                 </div>
@@ -456,7 +465,7 @@
                           d="M9.72846 8.68955L9.35384 8.89263C8.72183 9.23872 7.92111 9.12145 7.40921 8.60946L4.38933 5.589C3.87744 5.07701 3.76019 4.27613 4.10622 3.64114L4.30926 3.26931C4.53804 2.84598 4.62097 2.37118 4.55234 1.89637C4.48751 1.42252 4.26841 0.983231 3.92891 0.646425C3.51139 0.228823 2.9566 0 2.36464 0C1.77267 0 1.21502 0.228823 0.797502 0.646425L0.651655 0.79516C-0.120474 1.56744 -0.209126 2.89747 0.399999 4.54499C0.974806 6.11815 2.133 7.82288 3.65438 9.34456C5.97363 11.6642 8.55597 13 10.4091 13C11.1412 13 11.7617 12.7912 12.2021 12.3507L12.3508 12.202C12.5568 11.9962 12.7201 11.7519 12.8315 11.4829C12.9429 11.214 13.0002 10.9257 13 10.6345C12.996 10.0483 12.763 9.4868 12.3508 9.06997C11.6616 8.38064 10.5835 8.22618 9.72846 8.68955Z"
                           fill="#9B9DA8" />
                       </svg>
-                      <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number" required>
+                      <input type="text" class="form-control" name="phone" value="<?php if(isset($d_pwd1)){echo $d_pwd1;} else {echo '';} ?>" placeholder="Phone Number" required>
                     </div>
                   </div>
                   <div class="form-group mb-0 w-100 ">
@@ -470,15 +479,15 @@
                           d="M8.29361 6.02739L8.20132 6.07082H8.15789C8.10791 6.09315 8.05483 6.10779 8.00046 6.11425C7.9554 6.11992 7.90981 6.11992 7.86475 6.11425H7.82132L7.72903 6.07082L0.454677 1.36963C0.419922 1.50075 0.401685 1.6357 0.400391 1.77135V9.37142C0.400391 9.80335 0.571973 10.2176 0.877393 10.523C1.18281 10.8284 1.59705 11 2.02898 11H13.9719C14.4039 11 14.8181 10.8284 15.1235 10.523C15.429 10.2176 15.6005 9.80335 15.6005 9.37142V1.77135C15.5992 1.6357 15.581 1.50075 15.5462 1.36963L8.29361 6.02739Z"
                           fill="#9B9DA8" />
                       </svg>
-                      <input type="email" class="form-control" id="email" placeholder="E-Mail" required>
+                      <input type="email" class="form-control" name="email" value="<?php if(isset($user['email'])){echo $user['email'];} else {echo '';} ?>"   id="email"  placeholder="E-Mail" required>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <textarea style="padding-left: 13px !important;" class="form-control" id="bio" rows="4"
-                    placeholder="Bio" required></textarea>
+                  <textarea style="padding-left: 13px !important;" class="form-control" id="bio"  name="bio" rows="4"
+                    placeholder="Bio" required><?php if(isset($user['bio'])){echo $user['bio'];} else {echo '';} ?></textarea>
                 </div>
-                <button type="button" class="btn save-btn mt-2 mr-2" onclick="saveChanges()">
+                <button type="submit" class="btn save-btn mt-2 mr-2">
                   Save Changes
                 </button>
                 <button type="button" class="btn discard-btn mt-2" onclick="discardChanges()">
@@ -506,7 +515,7 @@
         <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
           <div class="row justify-content-between">
             <div class="col-12 col-xl-5 mt-3">
-              <form id="passwordForm">
+              <form id="passwordForm" class="form" action="<?php echo base_url(); ?>/update-password" method="POST" enctype="multipart/form-data">
                 <!--Old Password Input -->
                 <div class="mb-3 input-group">
                   <div class="form-group mb-0 w-100 ">
@@ -517,8 +526,8 @@
                           d="M1.26726 5.05621C1.26726 4.44722 1.26591 3.84979 1.26726 3.25236C1.27266 1.43848 2.84891 0.0268711 4.96091 -0.000126912C6.86347 -0.0240394 8.37455 1.1415 8.67523 2.69235C8.71569 2.89984 8.72108 3.1139 8.72378 3.32526C8.73007 3.90301 8.72602 4.48038 8.72602 5.0593C9.13458 5.14106 9.46943 5.29225 9.71258 5.57805C9.92653 5.82913 9.9944 6.10836 9.9935 6.41267C9.989 7.7564 9.97102 9.10051 9.99934 10.4435C10.0164 11.2592 9.31032 11.82 8.39118 11.8173C6.42075 11.8115 4.45033 11.8169 2.4799 11.8146C2.08348 11.8142 1.68436 11.8215 1.29108 11.7872C0.554422 11.7224 0.0128249 11.2137 0.00833032 10.5788C-0.00245668 9.15798 -0.00245668 7.73711 0.00653249 6.31663C0.0105776 5.65827 0.416438 5.26256 1.26816 5.05583L1.26726 5.05621ZM7.15562 5.03654C7.15562 4.40325 7.16416 3.78769 7.15382 3.17252C7.13764 2.23608 6.28412 1.44465 5.22519 1.3706C4.0575 1.28922 3.03453 1.91133 2.89206 2.88095C2.79542 3.53893 2.84936 4.21349 2.83767 4.88073C2.83677 4.93009 2.84621 4.97946 2.8516 5.03654H7.15607H7.15562Z"
                           fill="#9B9DA8" />
                       </svg>
-                      <input style="padding-right: 42px !important;" type="password" class="form-control"
-                        id="confirmPassword" placeholder="Old Password" required>
+                      <input style="padding-right: 42px !important;" type="password" name="oldpass" id ="oldpass" class="form-control"
+                      placeholder="Old Password" required>
                       <span style="position: absolute;right: 13px;"><img
                           src="<?php echo base_url()?>/public/profile/assets/eye-slash-svgrepo-com.svg" alt="" id="toggleConfirmPassword"
                           style="cursor: pointer"></span>
@@ -535,12 +544,13 @@
                           d="M1.26726 5.05621C1.26726 4.44722 1.26591 3.84979 1.26726 3.25236C1.27266 1.43848 2.84891 0.0268711 4.96091 -0.000126912C6.86347 -0.0240394 8.37455 1.1415 8.67523 2.69235C8.71569 2.89984 8.72108 3.1139 8.72378 3.32526C8.73007 3.90301 8.72602 4.48038 8.72602 5.0593C9.13458 5.14106 9.46943 5.29225 9.71258 5.57805C9.92653 5.82913 9.9944 6.10836 9.9935 6.41267C9.989 7.7564 9.97102 9.10051 9.99934 10.4435C10.0164 11.2592 9.31032 11.82 8.39118 11.8173C6.42075 11.8115 4.45033 11.8169 2.4799 11.8146C2.08348 11.8142 1.68436 11.8215 1.29108 11.7872C0.554422 11.7224 0.0128249 11.2137 0.00833032 10.5788C-0.00245668 9.15798 -0.00245668 7.73711 0.00653249 6.31663C0.0105776 5.65827 0.416438 5.26256 1.26816 5.05583L1.26726 5.05621ZM7.15562 5.03654C7.15562 4.40325 7.16416 3.78769 7.15382 3.17252C7.13764 2.23608 6.28412 1.44465 5.22519 1.3706C4.0575 1.28922 3.03453 1.91133 2.89206 2.88095C2.79542 3.53893 2.84936 4.21349 2.83767 4.88073C2.83677 4.93009 2.84621 4.97946 2.8516 5.03654H7.15607H7.15562Z"
                           fill="#9B9DA8" />
                       </svg>
-                      <input style="padding-right: 42px !important;" type="password" class="form-control"
-                        id="confirmPassword2" placeholder="New Password" required>
+                      <input style="padding-right: 42px !important;" type="password" name="password" id="newpassword" class="form-control"
+                         placeholder="New Password" required>
                       <span style="position: absolute;right: 13px;"><img
                           src="<?php echo base_url()?>/public/profile/assets/eye-slash-svgrepo-com.svg" alt="" id="toggleConfirmPassword2"
                           style="cursor: pointer"></span>
                     </div>
+					<span class="text-danger" style="font-size:12px" id="new_pass_error"></span>
                   </div>
                 </div>
                 <!--Confirm Password Input -->
@@ -554,12 +564,13 @@
                           fill="#9B9DA8" />
                       </svg>
                       <input style="padding-right: 42px !important;" type="password" class="form-control"
-                        id="confirmPassword3" placeholder="Confirm Password" required>
+                        name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
                       <span style="position: absolute;right: 13px;"><img
                           src="<?php echo base_url()?>/public/profile/assets/eye-slash-svgrepo-com.svg" alt="" id="toggleConfirmPassword3"
                           style="cursor: pointer"></span>
                     </div>
                   </div>
+				  <span class="text-danger" style="font-size:12px" id="cnf_pass_error"></span>
                 </div>
                 <!-- Password Requirements -->
                 <p class="mb-4" style="
@@ -578,7 +589,7 @@
                   numbers &
                   symbols.
                 </p>
-                <button type="button" class="btn change-psw" onclick="changePassword()">
+                <button type="submit" class="btn change-psw">
                   Change Password
                 </button>
                 <button type="button" class="btn having-trob">
@@ -595,6 +606,62 @@
     </div>
   </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $('#profileForm').on('submit', function (e) {
+            e.preventDefault(); 
+            var action = $(this).attr('action');
+            $.ajax({
+                url: action, 
+                type: 'POST',
+                data: $(this).serialize(), 
+                success: function (response) {
+					toastr.success(response.message, 'Success');
+                },
+                error: function (xhr, status, error) {
+                    $('#response').html('<p style="color:red;">An error occurred: ' + error + '</p>');
+                }
+            });
+        });
+	$('#passwordForm').on('submit', function (e) {
+		e.preventDefault(); 
+		$('#cnf_pass_error').html("");
+		$('#new_pass_error').html("");
+		if ($('#newpassword').val() !== $('#confirm_password').val()) {
+			$('#cnf_pass_error').html("Confirm password does not match");
+			return;
+		}
+		var password = $('#newpassword').val();
+		var pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+		if (!pattern.test(password)) {
+			$('#new_pass_error').html(
+				"Use 8 or more characters with a mix of letters, numbers & symbols."
+			).css('color', 'red');
+			return; // Stop form submission
+		}
+		var action = $(this).attr('action');
+		// Send the AJAX request
+		$.ajax({
+			url: action, 
+			type: 'POST',
+			data: $(this).serialize(), 
+			success: function (response) {
+				if(response.success){
+					toastr.success(response.message, 'Success');
+				}else{
+						toastr.error(response.message, 'error');
+				}
+				
+			},
+			error: function (xhr, status, error) {
+				// Show error message in response container
+				$('#response').html('<p style="color:red;">An error occurred: ' + error + '</p>');
+			}
+		});
+	});
+
+ });
+</script>
 <script>
   function toggleSidebar() {
     document.querySelector(".sidebar").classList.toggle("collapsed");
@@ -648,7 +715,7 @@
 
 <script>
   function handleFileChange(event) {
-    const file = event.target.files[0]; // Get the selected file
+	const file = event.target.files[0]; // Get the selected file
     if (file) {
       const reader = new FileReader();
 
@@ -662,17 +729,33 @@
     }
   }
   function handleFileChange1(event) {
-    const file = event.target.files[0]; // Get the selected file
+    const file = event.target.files[0];
     if (file) {
-      const reader = new FileReader();
-
-      // Set the src of the image to the selected file
-      reader.onload = function (e) {
-        const profileImage = document.getElementById('profilecoverimg1');
-        profileImage.src = e.target.result;
-      };
-
-      reader.readAsDataURL(file); // Read the file as a data URL
+        const reader = new FileReader();
+        // Preview the image
+        reader.onload = function (e) {
+            const profileImage = document.getElementById('profilecoverimg1');
+            profileImage.src = e.target.result; 
+        };
+        reader.readAsDataURL(file); 
+        // Send the file via AJAX
+        const formData = new FormData();
+        formData.append('profileImage', file);
+        $.ajax({
+            url: '<?= base_url("/update-profile-image") ?>', 
+            type: 'POST',
+            data: formData,
+            processData: false, 
+            contentType: false, 
+            success: function (response) {
+				toastr.success('Image uploaded successfully', 'Success');
+				location.reload();
+            },
+            error: function (xhr, status, error) {
+                alert('An error occurred while uploading the image');
+            }
+        });
     }
-  }
+}
+
 </script>

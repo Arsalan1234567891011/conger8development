@@ -100,6 +100,7 @@ $routes->get('/view-profile', 'ProfileController::EditView');
 $routes->post('/update-view', 'ProfileController::UpdateView');
 $routes->get('/edit-password', 'ProfileController::Editpassword');
 $routes->post('/update-password', 'ProfileController::updatepassword');
+$routes->post('/update-profile-image', 'ProfileController::updateprofileimage');
 
 $routes->get('/contacts-profile/(:num)', 'UserController::Profile/$1');
 $routes->get('/users', 'UserController::UserData');
