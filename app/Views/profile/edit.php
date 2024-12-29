@@ -691,21 +691,21 @@
   }
   // JavaScript for Password Toggle
   document.getElementById("toggleConfirmPassword").addEventListener("click", function () {
-    const passwordField = document.getElementById("confirmPassword");
+    const passwordField = document.getElementById("oldpass");
     const eyeIcon = this;
     const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
     passwordField.setAttribute("type", type);
     eyeIcon.src = type === "password" ? "<?php echo base_url()?>/public/profile/assets/eye-slash-svgrepo-com.svg" : "<?php echo base_url()?>/public/profile/assets/eye.svg";
   });
   document.getElementById("toggleConfirmPassword2").addEventListener("click", function () {
-    const passwordField = document.getElementById("confirmPassword2");
+    const passwordField = document.getElementById("newpassword");
     const eyeIcon = this;
     const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
     passwordField.setAttribute("type", type);
     eyeIcon.src = type === "password" ? "<?php echo base_url()?>/public/profile/assets/eye-slash-svgrepo-com.svg" : "<?php echo base_url()?>/public/profile/assets/eye.svg";
   });
   document.getElementById("toggleConfirmPassword3").addEventListener("click", function () {
-    const passwordField = document.getElementById("confirmPassword3");
+    const passwordField = document.getElementById("confirm_password");
     const eyeIcon = this;
     const type = passwordField.getAttribute("type") === "password" ? "text" : "password";
     passwordField.setAttribute("type", type);
