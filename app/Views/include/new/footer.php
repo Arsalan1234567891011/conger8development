@@ -125,7 +125,7 @@
         <!-------------------------- Notification Pannel Ends ---------------------->
 
            <div class="dropdown profile-dropdown">
-          <img src="assets/profile-logo.svg" alt="User Profile" class="rounded-circle" width="40" height="40"
+          <img src="<?php echo base_url(get_user_image(session()->user_id)); ?>" alt="User Profile" class="rounded-circle" width="40" height="40"
             id="profileImage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
           <div class="dropdown-icon d-flex align-items-center justify-content-center" style="background-color: var(--sidebar-bg-color);width: 20px;height: 20px;">
             <svg style="margin-top: 3px;" xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
@@ -135,11 +135,11 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileImage">
             <div class="">
               <div class="d-flex align-items-center p-3">
-                <img src="assets/profile-logo.svg" alt="User Profile" class="rounded-circle" width="40"
+                <img src="<?php echo base_url(get_user_image(session()->user_id)); ?>" alt="User Profile" class="rounded-circle" width="40"
                   height="40" />
                 <div class="ml-3">
-                  <h6 class="mb-0">Larry Page</h6>
-                  <small>larry.page@gmail.com</small>
+                  <h6 class="mb-0"><?php echo get_user_name(session()->user_id);?></h6>
+                  <small><?php echo  get_user_email(session()->user_id) ?></small>
                 </div>
               </div>
               <div class="dropdown-divider mb-1"></div>
@@ -156,7 +156,7 @@
                 font-size: 14px;
                 font-style: normal;
                 font-weight: 700;"
-                >FREE</span>
+                ><?php echo   $plan = getusercurrentplan(); ?></span></span>
               </a>
               <a class="dropdown-item d-flex align-items-center mb-1" href="#" id="accountsetting">
                 <svg class="pr-1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 14 14" fill="none">
@@ -188,8 +188,8 @@
                 </span>
                 <input type="checkbox" class="checkbox" id="checkbox2" id="theme-toggle2" />
                 <label for="checkbox2" id="theme-toggle2" class="checkbox-label">
-                  <img src="assets/moon.svg" width="18px" alt="" />
-                  <img src="assets/sun 1.svg" width="16px" alt="" />
+                  <img src="<?php echo base_url(); ?>/public/Dashboard/assets/moon.svg" width="18px" alt="" />
+                  <img src="<?php echo base_url(); ?>/public/Dashboard/assets/sun 1.svg" width="16px" alt="" />
                   <span class="ball"></span>
                 </label>
               </div>
@@ -249,7 +249,7 @@
                 Manage Billing
               </a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item text-danger d-flex align-items-center" href="#">
+              <a class="dropdown-item text-danger d-flex align-items-center" href="<?php echo base_url(); ?>logout">
                 <img src="assets/logout-ico.svg" class="pr-2" alt="" />
                 Logout
               </a>
