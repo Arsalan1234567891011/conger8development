@@ -53,7 +53,7 @@ class BillingController extends BaseController
             '<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>',
             '<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>',
             '<script src="' . base_url() . '/public/Dashboard/index.js"></script>',
-        ];         
+        ];  
         echo view('/include/new/header',$data); 
         echo view('/include/new/sidenavbar',$data); 
         echo view("billing/testing",$data);

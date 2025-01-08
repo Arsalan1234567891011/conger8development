@@ -427,6 +427,9 @@ class Payment extends BaseController
                         "plan" => $plan->id,
                     ],
                 ],
+                "trial_end" => strtotime("+14 days"), // Set trial end
+                "billing_cycle_anchor" => strtotime("+14 days"), 
+                
             ]);
 
             // Retrieve subscription data

@@ -4,6 +4,7 @@
 use App\Models\UserModel;
 use App\Models\Billing;
 use App\Models\PlanModel;
+use App\Models\subscription_detail;
 function get_att_link() {
 
 	$db      = \Config\Database::connect();
@@ -33,12 +34,33 @@ function getbillinguser() {
     return $data;    
     
 }
+function getsubscription_detail() {
+    $subscription = new subscription_detail();
+    $data = $subscription->where('sd_church_id',session()->user_church_id)->where('sd_isdeleted','Y')->first();
+    $subscription_id =  $data['sd_subscriptionid'];
+    $stripe = new \Stripe\StripeClient(getenv("stripe.secret"));  
+    $data = $stripe->subscriptions->retrieve($subscription_id,[]);  
+    return $data;    
+}
+function getinvoices() {
+    $subscription = new subscription_detail();
+    $data = $subscription->where('sd_church_id', session()->user_church_id)->where('sd_isdeleted', 'Y')->first();
+    $subscription_id = $data['sd_subscriptionid'];
+    $stripe = new \Stripe\StripeClient(getenv("stripe.secret"));  
+    $invoices = $stripe->invoices->all([
+        'subscription' => $subscription_id,
+    ]);
+    $paidInvoices = array_filter($invoices->data, function ($invoice) {
+        return $invoice->amount_paid != 0;
+    });
+
+    return $invoices;    
+}
 function getPlan() {
 
     $plan = new PlanModel();
     $data =  $plan->where('pm_visibility',1)->findAll();
-    return $data;    
-    
+    return $data;     
 }
 
 function get_plan_quantity($optionid,$id) {
