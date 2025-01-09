@@ -50,10 +50,6 @@ function getinvoices() {
     $invoices = $stripe->invoices->all([
         'subscription' => $subscription_id,
     ]);
-    $paidInvoices = array_filter($invoices->data, function ($invoice) {
-        return $invoice->amount_paid != 0;
-    });
-
     return $invoices;    
 }
 function getPlan() {
