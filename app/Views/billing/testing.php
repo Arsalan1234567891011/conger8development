@@ -564,15 +564,10 @@
 			    <?php
 					if (!empty(($invoices->data)) > 0) {
 					 foreach ($invoices->data as $invoice) {
-
-        $pdfLinks=$invoice->hosted_invoice_url;
-
-
-
-
+                        $pdfLinks=$invoice->hosted_invoice_url;
 				?>
 						<tr>
-						  <td><?php echo  date("M d,Y ",$subscription->period_start) ?></td>
+						  <td><?php echo  date("M d,Y ",$invoice->status_transitions['paid_at']) ?></td>
 						  <td>$ <?php echo ($invoice->amount_paid / 100)?></td>
 						  <td>5</td>
 						  <td>---</td>
